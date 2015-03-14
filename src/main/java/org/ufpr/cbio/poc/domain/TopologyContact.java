@@ -65,8 +65,7 @@ public class TopologyContact {
 
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((r1 == null) ? 0 : r1.hashCode());
-        result = prime * result + ((r2 == null) ? 0 : r2.hashCode());
+        result = prime * result + ((r1 == null) ? 0 : r1.hashCode() + r2.hashCode());
         return result;
     }
 

@@ -18,7 +18,7 @@ public class Grid {
 
         super();
         matrix = new int[xDim][yDim];
-        for (int i = 1; i < matrix.length; i++) {
+        for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
                 matrix[i][j] = -1;
             }

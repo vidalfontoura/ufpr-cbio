@@ -20,7 +20,9 @@ import org.ufpr.cbio.poc.utils.ResidueUtils;
  */
 public class Main {
 
-    private static final String CHAIN_SEQUENCE = "HHHPHPPPPPH";
+    // private static final String CHAIN_SEQUENCE = "HHHPHPPPPPH";
+
+    private static final String CHAIN_SEQUENCE = "PPHPHHHHHHP";
 
     public static void main(String[] args) {
 
@@ -71,7 +73,7 @@ public class Main {
 
         }
 
-        topologyContacts = removeDuplicates(topologyContacts);
+        // topologyContacts = removeDuplicates(topologyContacts);
         System.out.println(topologyContacts.size());
         for (TopologyContact topologyContact : topologyContacts) {
             System.out.print("r1[" + topologyContact.getR1().getPoint().getX() + ","
@@ -96,8 +98,8 @@ public class Main {
         Set<TopologyContact> contacts = new HashSet<>();
         for (TopologyContact topologyContact : topologyContacts) {
             for (TopologyContact topologyContact2 : topologyContacts) {
-                if (topologyContact.getR1().getPoint().getX() != topologyContact2.getR2().getPoint().getX()
-                    && topologyContact.getR1().getPoint().getY() != topologyContact2.getR2().getPoint().getY()) {
+                if (topologyContact.getR1().getPoint().getX() == topologyContact2.getR2().getPoint().getX()
+                    && topologyContact.getR1().getPoint().getY() == topologyContact2.getR2().getPoint().getY()) {
                     contacts.add(topologyContact);
                 }
             }

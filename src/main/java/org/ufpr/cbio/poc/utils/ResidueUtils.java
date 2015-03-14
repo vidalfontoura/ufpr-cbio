@@ -25,6 +25,9 @@ public class ResidueUtils {
 
     private static int[] FIXED_SOLUTION = new int[] { 0, 0, 0, 1, 2, 2, 2, 1, 1, 2 };
 
+    // private static int[] FIXED_SOLUTION = new int[] { 2, 3, 0, 3, 0, 0, 0, 1,
+    // 2, 2 };
+
     public static List<Residue> parseChainSequence(String chain) {
 
         int chainLength = chain.length();
