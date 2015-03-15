@@ -51,11 +51,15 @@ public class Grid {
         this.matrix = matrix;
     }
 
-    public int[][] buildResidueStructure(List<Residue> residues) {
+    public void buildResidueStructure(List<Residue> residues) {
 
         for (int i = 0; i < residues.size(); i++) {
             matrix[residues.get(i).getPoint().y][residues.get(i).getPoint().x] = i;
         }
+    }
+
+    public void printResidueStructure() {
+
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 int value = matrix[i][j];
@@ -64,6 +68,5 @@ public class Grid {
             System.out.println();
         }
 
-        return matrix;
     }
 }

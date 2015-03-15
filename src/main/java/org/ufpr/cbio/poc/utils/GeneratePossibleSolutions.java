@@ -36,7 +36,6 @@ public class GeneratePossibleSolutions {
             while (!isValidMovement(points, movement, points.get(points.size() - 1).x, points.get(points.size() - 1).y)) {
                 movement = new Random().nextInt(4);
             }
-
             solution[i] = movement;
         }
 

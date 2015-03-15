@@ -9,9 +9,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import org.ufpr.cbio.poc.domain.Grid;
 import org.ufpr.cbio.poc.domain.Residue;
 import org.ufpr.cbio.poc.domain.Residue.Point;
 import org.ufpr.cbio.poc.domain.ResidueType;
+import org.ufpr.cbio.poc.domain.TopologyContact;
 
 /**
  *
@@ -20,10 +22,10 @@ import org.ufpr.cbio.poc.domain.ResidueType;
  */
 public class ResidueUtils {
 
-    // private static int[] FIXED_SOLUTION = new int[] { 1, 0, 1, 2, 1, 2, 2, 3,
-    // 3, 0 };
+    private static int[] FIXED_SOLUTION = new int[] { 1, 0, 1, 2, 1, 2, 2, 3, 3, 0 };
 
-    private static int[] FIXED_SOLUTION = new int[] { 0, 0, 0, 1, 2, 2, 2, 1, 1, 2 };
+    // private static int[] FIXED_SOLUTION = new int[] { 0, 0, 0, 1, 2, 2, 2, 1,
+    // 1, 2 };
 
     // private static int[] FIXED_SOLUTION = new int[] { 2, 3, 0, 3, 0, 0, 0, 1,
     // 2, 2 };
@@ -97,75 +99,55 @@ public class ResidueUtils {
         return new Residue.Point(random.nextInt(max), random.nextInt(max));
     }
 
-    public static int[] generatePossibleSolution(int x, int y, int chainLength) {
+    public static Set<TopologyContact> getTopologyContacts(List<Residue> residues, Grid grid) {
 
-        Set<Integer> possibleMoves = new HashSet<>();
-        possibleMoves.add(0);
-        possibleMoves.add(1);
-        possibleMoves.add(2);
-        possibleMoves.add(3);
-        int[] solution = new int[chainLength];
-        List<Point> points = new ArrayList<>();
-        int movement = -1;
-        points.add(new Point(x, y));
-        int xr = x;
-        int yr = y;
-        for (int i = 0; i < chainLength; i++) {
-            movement = possibleMoves.iterator().next();
-            while (!isValidMovement(points, movement, xr, yr)) {
-                possibleMoves.remove(movement);
-                movement = possibleMoves.iterator().next();
+        Set<TopologyContact> topologyContacts = new HashSet<>();
+        int[][] matrix = grid.getMatrix();
+        int index = 0;
+        for (int i = 0; i < residues.size(); i++) {
+            if (residues.get(i).getResidueType().equals(ResidueType.P)) {
+                continue;
             }
-            solution[i] = movement;
-            possibleMoves.add(0);
-            possibleMoves.add(1);
-            possibleMoves.add(2);
-            possibleMoves.add(3);
+            if (residues.get(i).getPoint().y + 1 < matrix.length) {
+                index = matrix[residues.get(i).getPoint().y + 1][residues.get(i).getPoint().x];
+                // test up
+                if (isTopologicalContact(i, index, residues)) {
+                    topologyContacts.add(new TopologyContact(residues.get(i), residues.get(index)));
+                }
+            }
+            if (residues.get(i).getPoint().x + 1 < matrix.length) {
+                // test right
+                index = matrix[residues.get(i).getPoint().y][residues.get(i).getPoint().x + 1];
+                if (isTopologicalContact(i, index, residues)) {
+                    topologyContacts.add(new TopologyContact(residues.get(i), residues.get(index)));
+                }
+            }
+            if (residues.get(i).getPoint().y - 1 >= 0) {
+                // test down
+                index = matrix[residues.get(i).getPoint().y - 1][residues.get(i).getPoint().x];
+                if (isTopologicalContact(i, index, residues)) {
+                    topologyContacts.add(new TopologyContact(residues.get(i), residues.get(index)));
+                }
+            }
+            if (residues.get(i).getPoint().x - 1 >= 0) {
+                // test back
+                index = matrix[residues.get(i).getPoint().y][residues.get(i).getPoint().x - 1];
+                if (isTopologicalContact(i, index, residues)) {
+                    topologyContacts.add(new TopologyContact(residues.get(i), residues.get(index)));
+                }
+            }
+
         }
-        return solution;
+        return topologyContacts;
     }
 
-    public static boolean isValidMovement(List<Point> points, int movement, int xr, int yr) {
+    public static boolean isTopologicalContact(int i, int index, List<Residue> residues) {
 
-        Point point = null;
-        switch (movement) {
-            case 0:
-                yr++;
-                point = new Point(xr, yr);
-                if (points.contains(point)) {
-                    // System.out.println("bad movement:" + 0);
-                    return false;
-                }
-                points.add(point);
-                return true;
-            case 1:
-                xr++;
-                point = new Point(xr, yr);
-                if (points.contains(point)) {
-                    // System.out.println("bad movement:" + 1);
-                    return false;
-                }
-                points.add(point);
-                return true;
-            case 2:
-                yr--;
-                point = new Point(xr, yr);
-                if (points.contains(point)) {
-                    // System.out.println("bad movement:" + 2);
-                    return false;
-                }
-                points.add(point);
-                return true;
-            case 3:
-                xr--;
-                point = new Point(xr, yr);
-                if (points.contains(point)) {
-                    // System.out.println("bad movement:" + 3);
-                    return false;
-                }
-                points.add(point);
-                return true;
+        if (i != index + 1 && i != index - 1 && index != -1) {
+
+            return residues.get(index).getResidueType().equals(ResidueType.H);
         }
         return false;
     }
+
 }
