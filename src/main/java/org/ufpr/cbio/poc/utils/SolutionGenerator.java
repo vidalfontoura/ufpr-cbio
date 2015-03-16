@@ -14,11 +14,11 @@ import org.ufpr.cbio.poc.domain.Residue.Point;
  *
  * @author user
  */
-public class GeneratePossibleSolutions {
+public class SolutionGenerator {
 
     public static void main(String[] args) {
 
-        int[] generatePossibleSolution = GeneratePossibleSolutions.generatePossibleSolution(1, 2, 10);
+        int[] generatePossibleSolution = generatePossibleSolution(1, 2, 10);
         for (int i = 0; i < generatePossibleSolution.length; i++) {
             System.out.print(generatePossibleSolution[i] + ",");
         }

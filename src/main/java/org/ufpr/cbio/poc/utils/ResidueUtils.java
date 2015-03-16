@@ -97,6 +97,7 @@ public class ResidueUtils {
 
         Random random = new Random();
         return new Residue.Point(random.nextInt(max), random.nextInt(max));
+        
     }
 
     public static Set<TopologyContact> getTopologyContacts(List<Residue> residues, Grid grid) {

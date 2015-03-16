@@ -13,38 +13,60 @@ public class Residue {
     private Residue.Point point;
     private ResidueType residueType;
 
-    // /**
-    // * @param point
-    // * @param residueType
-    // */
-    // public Residue(Point point, ResidueType residueType) {
-    //
-    // super();
-    // this.point = point;
-    // this.residueType = residueType;
-    // }
-    //
-    // /**
-    // * @return the point
-    // */
-    // public Point getPoint() {
-    //
-    // return point;
-    // }
-    //
-    // /**
-    // * @param point the point to set
-    // */
-    // public void setPoint(Point point) {
-    //
-    // this.point = point;
-    // }
+    /**
+     */
+    public Residue() {
 
+        // TODO Auto-generated constructor stub
+    }
+    
+    /**
+     * @param point
+     * @param residueType
+     */
+    public Residue(Point point, ResidueType residueType) {
+
+        super();
+        this.point = point;
+        this.residueType = residueType;
+    }
+ 
+    /**
+     * @return the point that represents the coordinates of the residue in the space.
+     */
+    public Residue.Point getPoint() {
+        
+    	return point;
+    }
+
+    /**
+     * @param point. The point to set
+     */
+    public void setPoint(Residue.Point point) {
+
+        this.point = point;
+    }
+
+    /**
+     * @return the residueType
+     */
+    public ResidueType getResidueType() {
+
+        return residueType;
+    }
+
+    /**
+     * @param residueType. The residueType to set
+     */
+    public void setResidueType(ResidueType residueType) {
+
+        this.residueType = residueType;
+    }
+    
     /*
      * (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */
-
     @Override
     public int hashCode() {
 
@@ -54,23 +76,7 @@ public class Residue {
         result = prime * result + ((residueType == null) ? 0 : residueType.hashCode());
         return result;
     }
-
-    /**
-     * @return the point
-     */
-    public Residue.Point getPoint() {
-
-        return point;
-    }
-
-    /**
-     * @param point the point to set
-     */
-    public void setPoint(Residue.Point point) {
-
-        this.point = point;
-    }
-
+    
     /*
      * (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)
@@ -93,41 +99,6 @@ public class Residue {
         if (residueType != other.residueType)
             return false;
         return true;
-    }
-
-    /**
-     * 
-     */
-    public Residue() {
-
-        // TODO Auto-generated constructor stub
-    }
-
-    /**
-     * @param point
-     * @param residueType
-     */
-    public Residue(Point point, ResidueType residueType) {
-
-        super();
-        this.point = point;
-        this.residueType = residueType;
-    }
-
-    /**
-     * @return the residueType
-     */
-    public ResidueType getResidueType() {
-
-        return residueType;
-    }
-
-    /**
-     * @param residueType the residueType to set
-     */
-    public void setResidueType(ResidueType residueType) {
-
-        this.residueType = residueType;
     }
 
     public static class Point {
