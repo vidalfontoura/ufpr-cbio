@@ -15,31 +15,19 @@ public class Grid {
      * @param matrix
      */
     public Grid(int xDim, int yDim) {
-
         super();
-        matrix = new int[xDim][yDim];
+        matrix = new int[xDim+2][yDim+2];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
                 matrix[i][j] = -1;
             }
-
         }
-    }
-
-    /**
-     * @param matrix
-     */
-    public Grid(int[][] matrix) {
-
-        super();
-        this.matrix = matrix;
     }
 
     /**
      * @return the matrix
      */
     public int[][] getMatrix() {
-
         return matrix;
     }
 
@@ -47,26 +35,17 @@ public class Grid {
      * @param matrix the matrix to set
      */
     public void setMatrix(int[][] matrix) {
-
         this.matrix = matrix;
     }
 
-    public void buildResidueStructure(List<Residue> residues) {
-
-        for (int i = 0; i < residues.size(); i++) {
-            matrix[residues.get(i).getPoint().y][residues.get(i).getPoint().x] = i;
-        }
-    }
-
     public void printResidueStructure() {
-
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                int value = matrix[i][j];
-                System.out.print(value + "\t");
-            }
-            System.out.println();
-        }
+    	for (int i = matrix.length-1; i >=0 ; i--) {
+			for (int j = 0; j < matrix.length; j++) {
+				System.out.print(matrix[i][j]+"\t");
+			}
+			System.out.println();
+		}
+    	System.out.println();
 
     }
 }
