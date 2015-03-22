@@ -21,7 +21,6 @@ public class Movements {
                 break;
             case CRANKSHAFT:
                 moveCrankshaft(residue, residues, grid);
-                ;
                 break;
             default:
                 break;
