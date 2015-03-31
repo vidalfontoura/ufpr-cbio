@@ -6,6 +6,7 @@ package org.ufpr.cbio.poc.main;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.ufpr.cbio.poc.domain.GeneticAlgorithm;
 import org.ufpr.cbio.poc.domain.Grid;
 import org.ufpr.cbio.poc.domain.Protein;
 import org.ufpr.cbio.poc.domain.Residue;
@@ -45,11 +46,14 @@ public class Main {
         Grid g = c.generateGrid(protein.getResidues());
         
         //VISUALIZAÇÃO
-        Visualization v = new Visualization();
-        v.showStructure(protein);
+//        Visualization v = new Visualization();
+//        v.showStructure(protein);
 ////        
-        Integer[] mov = new Integer[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-        Controller.executeMovements(protein, mov);
+//        Integer[] mov = new Integer[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+//        Controller.executeMovements(protein, mov);
+        
+        GeneticAlgorithm ga = new GeneticAlgorithm(6, 10, 1, 1, 1);
+        ga.executeAlgorithm();
     }
 
 }
