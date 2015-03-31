@@ -1,7 +1,5 @@
 package org.ufpr.cbio.poc.domain;
 
-import java.util.List;
-
 /**
  *
  *
@@ -37,9 +35,9 @@ public class Grid {
     public void setMatrix(int[][] matrix) {
         this.matrix = matrix;
     }
-
+    
     public void printResidueStructure() {
-    	for (int i = matrix.length-1; i >=0 ; i--) {
+    	for (int i = matrix.length-1; i >=  0 ; i--) {
 			for (int j = 0; j < matrix.length; j++) {
 				System.out.print(matrix[i][j]+"\t");
 			}

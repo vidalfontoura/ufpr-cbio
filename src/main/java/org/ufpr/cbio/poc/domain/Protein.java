@@ -6,8 +6,12 @@ public class Protein {
 
 	private String chain;
 	private List<Residue> residues = null;
-	private Grid structure = null;
+	private Grid grid = null;
 	private Integer energy = 0;
+	private Integer minX = Integer.MAX_VALUE;
+	private Integer minY = Integer.MAX_VALUE;
+	private Integer maxX = 0;
+	private Integer maxY = 0;
 	
 	/**
 	 * Empty Construtor
@@ -17,15 +21,13 @@ public class Protein {
 	/**
 	 * Construtor
 	 * @param residues The list of Residues
-	 * @param structure The Grid structure of the Protein
+	 * @param grid The Grid structure of the Protein
 	 * @param energy The value of the energy
 	 */
-	public Protein(String chain, List<Residue> residues, Grid structure, Integer energy) {
+	public Protein(String chain, List<Residue> residues) {
 		super();
 		this.chain = chain;
 		this.residues = residues;
-		this.structure = structure;
-		this.energy = energy;
 	}
 	
 	public String getChain() {
@@ -42,16 +44,48 @@ public class Protein {
 	public void setResidues(List<Residue> residues) {
 		this.residues = residues;
 	}
-	public Grid getStructure() {
-		return structure;
+	public Grid getGrid() {
+		return grid;
 	}
-	public void setStructure(Grid structure) {
-		this.structure = structure;
+	public void setGrid(Grid grid) {
+		this.grid = grid;
 	}
 	public Integer getEnergy() {
 		return energy;
 	}
 	public void setEnergy(Integer energy) {
 		this.energy = energy;
+	}
+
+	public Integer getMinX() {
+		return minX;
+	}
+
+	public void setMinX(Integer minX) {
+		this.minX = minX;
+	}
+
+	public Integer getMinY() {
+		return minY;
+	}
+
+	public void setMinY(Integer minY) {
+		this.minY = minY;
+	}
+
+	public Integer getMaxX() {
+		return maxX;
+	}
+
+	public void setMaxX(Integer maxX) {
+		this.maxX = maxX;
+	}
+
+	public Integer getMaxY() {
+		return maxY;
+	}
+
+	public void setMaxY(Integer maxY) {
+		this.maxY = maxY;
 	}
 }
