@@ -10,4 +10,42 @@ public enum EnumMovements {
 
         this.id = id;
     }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+
+        this.id = id;
+    }
+
+    // public EnumMovements getById(int id) {
+    //
+    // switch (id) {
+    // case 0:
+    //
+    // break;
+    // case 1:
+    //
+    // break;
+    // case 2:
+    //
+    // break;
+    // case 3:
+    //
+    // break;
+    // default:
+    // // todo: error
+    // break;
+    // }
+    // }
+
 }

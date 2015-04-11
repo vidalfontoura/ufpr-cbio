@@ -37,8 +37,6 @@ public class Movements {
 
         matrix = grid.getMatrix();
 
-        grid.printResidueStructure();// remover
-
         if (residue != residues.get(0) && residue != residues.get(residues.size() - 1))
             return;
 
@@ -81,7 +79,6 @@ public class Movements {
 
         grid.setMatrix(matrix);
 
-        grid.printResidueStructure();// remover
     }
 
     private static void rotate180Clockwise(Residue residue, List<Residue> residues, Grid grid) {
@@ -93,8 +90,6 @@ public class Movements {
         y = residue.getPoint().getY();
 
         matrix = grid.getMatrix();
-
-        grid.printResidueStructure();// remover
 
         if (residue != residues.get(0) && residue != residues.get(residues.size() - 1))
             return;
@@ -134,7 +129,6 @@ public class Movements {
 
         grid.setMatrix(matrix);
 
-        grid.printResidueStructure();// remover
     }
 
     private static void moveCorner(Residue residue, List<Residue> residues, Grid grid) {
@@ -143,8 +137,6 @@ public class Movements {
         int y = residue.getPoint().getY();
 
         int[][] matrix = grid.getMatrix();
-
-        grid.printResidueStructure();
 
         if (residue == residues.get(0) && residue == residues.get(residues.size() - 1)) {
             return;
@@ -184,8 +176,6 @@ public class Movements {
 
         int[][] matrix = grid.getMatrix();
 
-        grid.printResidueStructure();
-
         if (residue == residues.get(0) && residue == residues.get(residues.size() - 1)) {
             return;
         }
@@ -193,13 +183,15 @@ public class Movements {
         if (isLeftBottomCornerMatrix(matrix, x, y) && !isEmpty(matrix, x + 1, y - 1)) {
 
             // if crankshaft is horizontal
-            if (matrix[y - 2][x] == -1 && matrix[y - 2][x + 1] == -1) {
+            // first clause avoiding exceed matrix boundaries
+            if (y - 2 >= 0 && x + 1 < matrix.length && matrix[y - 2][x] == -1 && matrix[y - 2][x + 1] == -1) {
                 Residue next = residues.get(matrix[y][x + 1]);
 
                 int xnext = next.getPoint().getX();
                 int ynext = next.getPoint().getY();
 
-                if (matrix[y - 1][x - 1] == matrix[y][x] - 2
+                if (isNeighbor(matrix, xnext, ynext, x + 1, y - 1) && matrix[y - 1][x - 1] != -1
+                    && matrix[y - 1][x - 1] == matrix[y][x] - 2
                     && matrix[ynext - 1][xnext + 1] == matrix[ynext][xnext] + 2) {
                     residue.getPoint().setX(x);
                     residue.getPoint().setY(y - 2);
@@ -209,7 +201,6 @@ public class Movements {
                     matrix[y - 2][x] = matrix[y][x];
                     matrix[y][x] = -1;
 
-                    // TODO: rever se tem como usar ynext e xnext
                     matrix[y - 2][x + 1] = matrix[y][x + 1];
                     matrix[y][x + 1] = -1;
 
@@ -218,13 +209,15 @@ public class Movements {
             }
 
             // if the crankshaft is in the vertical
-            if (matrix[y][x + 2] == -1 && matrix[y - 1][x + 2] == -1) {
+            // first clause avoiding exceed matrix boundaries
+            if (y - 1 >= 0 && x + 2 < matrix.length && matrix[y][x + 2] == -1 && matrix[y - 1][x + 2] == -1) {
 
                 Residue next = residues.get(matrix[y - 1][x]);
                 int xnext = next.getPoint().getX();
                 int ynext = next.getPoint().getY();
 
-                if (matrix[y + 1][x + 1] == matrix[y][x] - 2
+                if (isNeighbor(matrix, xnext, ynext, x + 1, y - 1) && matrix[y + 1][x + 1] != -1
+                    && matrix[y + 1][x + 1] == matrix[y][x] - 2
                     && matrix[ynext - 1][xnext + 1] == matrix[ynext][xnext] + 2) {
                     residue.getPoint().setX(x + 2);
                     residue.getPoint().setY(y);
@@ -235,7 +228,6 @@ public class Movements {
                     matrix[y][x + 2] = matrix[y][x];
                     matrix[y][x] = -1;
 
-                    // TODO: rever se tem como usar ynext e xnext
                     matrix[y - 1][x + 2] = matrix[y - 1][x];
                     matrix[y - 1][x] = -1;
 
@@ -246,14 +238,17 @@ public class Movements {
         // 0 to n
         if (isLeftUpperCornerMatrix(matrix, x, y) && !isEmpty(matrix, x + 1, y + 1)) {
 
-            if (matrix[y + 2][x] == -1 && matrix[y + 2][x + 1] == -1) {
+            // first clause avoiding exceed matrix boundaries
+            if (y + 2 < matrix.length && x + 1 < matrix.length && matrix[y + 2][x] == -1 && matrix[y + 2][x + 1] == -1) {
 
                 Residue next = residues.get(matrix[y][x + 1]);
                 int xnext = next.getPoint().getX();
                 int ynext = next.getPoint().getY();
 
                 // if the crankshaft is in the horizontal
-                if (matrix[y + 1][x - 1] == matrix[y][x] - 2
+
+                if (isNeighbor(matrix, xnext, ynext, x + 1, y + 1) && matrix[y + 1][x - 1] != -1
+                    && matrix[y + 1][x - 1] == matrix[y][x] - 2
                     && matrix[ynext + 1][xnext + 1] == matrix[ynext][xnext] + 2) {
                     residue.getPoint().setX(x);
                     residue.getPoint().setY(y + 2);
@@ -263,22 +258,22 @@ public class Movements {
                     matrix[y + 2][x] = matrix[y][x];
                     matrix[y][x] = -1;
 
-                    // TODO: rever se tem como usar ynext e xnext
                     matrix[y + 2][x + 1] = matrix[y][x + 1];
                     matrix[y][x + 1] = -1;
 
                 }
-
             }
 
             // if the crankshaft is in the vertical
-            if (matrix[y][x + 2] == -1 && matrix[y + 1][x + 2] == -1) {
+            // first clause avoiding exceed matrix boundaries
+            if (x + 2 < matrix.length && y + 1 < matrix.length && matrix[y][x + 2] == -1 && matrix[y + 1][x + 2] == -1) {
 
                 Residue next = residues.get(matrix[y + 1][x]);
                 int xnext = next.getPoint().getX();
                 int ynext = next.getPoint().getY();
 
-                if (matrix[y - 1][x + 1] == matrix[y][x] - 2
+                if (isNeighbor(matrix, xnext, ynext, x + 1, y + 1) && matrix[y - 1][x + 1] != -1
+                    && matrix[y - 1][x + 1] == matrix[y][x] - 2 && matrix[ynext + 1][xnext + 1] != -1
                     && matrix[ynext + 1][xnext + 1] == matrix[ynext][xnext] + 2) {
                     residue.getPoint().setX(x + 2);
                     residue.getPoint().setY(y);
@@ -289,7 +284,6 @@ public class Movements {
                     matrix[y][x + 2] = matrix[y][x];
                     matrix[y][x] = -1;
 
-                    // TODO: rever se tem como usar ynext e xnext
                     matrix[y + 1][x + 2] = matrix[y + 1][x];
                     matrix[y + 1][x] = -1;
 
@@ -301,13 +295,16 @@ public class Movements {
         if (isRightBottomCornerMatrix(matrix, x, y) && !isEmpty(matrix, x - 1, y - 1)) {
 
             // if the crankshaft is on horizontal
-            if (matrix[y - 2][x] == -1 && matrix[y - 2][x - 1] == -1) {
+            // the first clause verifies if y-2 and x-1 exceeds the matrix
+            // boundaries
+            if (y - 2 >= 0 && x - 1 >= 0 && matrix[y - 2][x] == -1 && matrix[y - 2][x - 1] == -1) {
                 Residue next = residues.get(matrix[y][x - 1]);
 
                 int xnext = next.getPoint().getX();
                 int ynext = next.getPoint().getY();
 
-                if (matrix[y - 1][x + 1] == matrix[y][x] - 2
+                if (isNeighbor(matrix, xnext, ynext, x - 1, y - 1) && matrix[y - 1][x + 1] != -1
+                    && matrix[y - 1][x + 1] == matrix[y][x] - 2
                     && matrix[ynext - 1][xnext - 1] == matrix[ynext][xnext] + 2) {
                     residue.getPoint().setX(x);
                     residue.getPoint().setY(y - 2);
@@ -317,7 +314,6 @@ public class Movements {
                     matrix[y - 2][x] = matrix[y][x];
                     matrix[y][x] = -1;
 
-                    // TODO: rever se tem como usar ynext e xnext
                     matrix[y - 2][x - 1] = matrix[y][x - 1];
                     matrix[y][x - 1] = -1;
 
@@ -325,13 +321,16 @@ public class Movements {
             }
 
             // if the crankshaft is in the vertical
-            if (matrix[y][x - 2] == -1 && matrix[y - 1][x - 2] == -1) {
+            // The first clause verifies if x -2 or y-1 exceeds the matrix
+            // boundaries
+            if (x - 2 >= 0 && y - 1 >= 0 && matrix[y][x - 2] == -1 && matrix[y - 1][x - 2] == -1) {
 
                 Residue next = residues.get(matrix[y - 1][x]);
                 int xnext = next.getPoint().getX();
                 int ynext = next.getPoint().getY();
 
-                if (matrix[y + 1][x - 1] == matrix[y][x] - 2
+                if (isNeighbor(matrix, xnext, ynext, x - 1, y - 1) && matrix[y + 1][x - 1] != -1
+                    && matrix[y + 1][x - 1] == matrix[y][x] - 2
                     && matrix[ynext - 1][xnext - 1] == matrix[ynext][xnext] + 2) {
                     residue.getPoint().setX(x - 2);
                     residue.getPoint().setY(y);
@@ -342,7 +341,6 @@ public class Movements {
                     matrix[y][x - 2] = matrix[y][x];
                     matrix[y][x] = -1;
 
-                    // TODO: rever se tem como usar ynext e xnext
                     matrix[y - 1][x - 2] = matrix[y - 1][x];
                     matrix[y - 1][x] = -1;
 
@@ -355,13 +353,15 @@ public class Movements {
         if (isRightUpperCornerMatrix(matrix, x, y) && !isEmpty(matrix, x - 1, y + 1)) {
 
             // if the crankshaft is on horizontal
-            if (matrix[y + 2][x] == -1 && matrix[y + 2][x - 1] == -1) {
+            // first clause avoiding exceed matrix boundaries
+            if (y + 2 < matrix.length && x - 1 >= 0 && matrix[y + 2][x] == -1 && matrix[y + 2][x - 1] == -1) {
                 Residue next = residues.get(matrix[y][x - 1]);
 
                 int xnext = next.getPoint().getX();
                 int ynext = next.getPoint().getY();
 
-                if (matrix[y + 1][x + 1] == matrix[y][x] - 2
+                if (isNeighbor(matrix, xnext, ynext, x - 1, y + 1) && matrix[y + 1][x + 1] != -1
+                    && matrix[y + 1][x + 1] == matrix[y][x] - 2
                     && matrix[ynext + 1][xnext - 1] == matrix[ynext][xnext] + 2) {
                     residue.getPoint().setX(x);
                     residue.getPoint().setY(y + 2);
@@ -371,7 +371,6 @@ public class Movements {
                     matrix[y + 2][x] = matrix[y][x];
                     matrix[y][x] = -1;
 
-                    // TODO: rever se tem como usar ynext e xnext
                     matrix[y + 2][x - 1] = matrix[y][x - 1];
                     matrix[y][x - 1] = -1;
 
@@ -380,13 +379,15 @@ public class Movements {
             }
 
             // if the crankshaft is in the vertical
-            if (matrix[y][x - 2] == -1 && matrix[y + 1][x - 2] == -1) {
+            // first clause avoiding exceed matrix boundaries
+            if (y + 1 < matrix.length && x - 2 >= 0 && matrix[y][x - 2] == -1 && matrix[y + 1][x - 2] == -1) {
 
                 Residue next = residues.get(matrix[y + 1][x]);
                 int xnext = next.getPoint().getX();
                 int ynext = next.getPoint().getY();
 
-                if (matrix[y - 1][x - 1] == matrix[y][x] - 2
+                if (isNeighbor(matrix, xnext, ynext, x - 1, y + 1) && matrix[y - 1][x - 1] != -1
+                    && matrix[y - 1][x - 1] == matrix[y][x] - 2
                     && matrix[ynext + 1][xnext - 1] == matrix[ynext][xnext] + 2) {
                     residue.getPoint().setX(x - 2);
                     residue.getPoint().setY(y);
@@ -397,7 +398,6 @@ public class Movements {
                     matrix[y][x - 2] = matrix[y][x];
                     matrix[y][x] = -1;
 
-                    // TODO: rever se tem como usar ynext e xnext
                     matrix[y + 1][x - 2] = matrix[y + 1][x];
                     matrix[y + 1][x] = -1;
 
@@ -423,8 +423,6 @@ public class Movements {
     private static boolean isLeftBottomCornerMatrix(int[][] matrix, int x, int y) {
 
         // Check if the move would by pass the matrix boundaries
-        // TODO: need to check if in this case y-1 need to check if is going to
-        // the negative field
         if (y - 1 >= 0 && x + 1 < matrix.length) {
             // Check if is a left bottom corner in matrix
             int indexResidue = matrix[y][x];
@@ -464,8 +462,6 @@ public class Movements {
     private static boolean isRightBottomCornerMatrix(int[][] matrix, int x, int y) {
 
         // Check if the move would by pass the matrix boundaries
-        // TODO: need to check if in this case y-1 and x-1 need to check if is
-        // going to the negative field
         if (y - 1 >= 0 && x - 1 >= 0) {
             // Check if is a right bottom corner in matrix
             int indexResidue = matrix[y][x];
@@ -487,8 +483,6 @@ public class Movements {
     private static boolean isRightUpperCornerMatrix(int[][] matrix, int x, int y) {
 
         // Check if the move would by pass the matrix boundaries
-        // TODO: need to check if in this case y-1 and x-1 need to check if is
-        // going to the negative field
         if (y + 1 < matrix.length && x - 1 >= 0) {
             // Check if is a right bottom corner in matrix
             int indexResidue = matrix[y][x];

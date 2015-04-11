@@ -19,7 +19,7 @@ import org.ufpr.cbio.poc.utils.Movements;
  *
  * @author user
  */
-public class MainTest {
+public class CornerTest {
 
     public static void main(String[] args) {
 
@@ -75,9 +75,11 @@ public class MainTest {
         Controller controller = new Controller();
 
         Grid generateGrid = controller.generateGrid(residues);
+        generateGrid.printResidueStructure();
         for (int i = 0; i < residues.size(); i++) {
             Movements.doMovement(residues.get(i), residues, generateGrid, movements[i]);
         }
+        generateGrid.printResidueStructure();
         return residues;
     }
 

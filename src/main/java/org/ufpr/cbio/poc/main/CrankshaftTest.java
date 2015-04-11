@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.ufpr.cbio.poc.domain.Grid;
 import org.ufpr.cbio.poc.domain.Residue;
+import org.ufpr.cbio.poc.domain.Residue.Point;
+import org.ufpr.cbio.poc.domain.ResidueType;
 import org.ufpr.cbio.poc.utils.Controller;
 import org.ufpr.cbio.poc.utils.EnumMovements;
 import org.ufpr.cbio.poc.utils.Movements;
@@ -96,6 +98,11 @@ public class CrankshaftTest {
         // residues.add(new Residue(new Point(2, 2), ResidueType.H));
         // residues.add(new Residue(new Point(1, 2), ResidueType.H));
         // residues.add(new Residue(new Point(1, 1), ResidueType.H));
+
+        residues.add(new Residue(new Point(1, 2), ResidueType.H));
+        residues.add(new Residue(new Point(2, 2), ResidueType.H));
+        residues.add(new Residue(new Point(2, 1), ResidueType.H));
+        residues.add(new Residue(new Point(3, 1), ResidueType.H));
 
         Grid g = controller.generateGrid(residues);
 

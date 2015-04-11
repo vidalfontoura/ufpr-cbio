@@ -11,4 +11,5 @@ package org.ufpr.cbio.poc.domain;
 public enum ResidueType {
 
     H, P;
+
 }

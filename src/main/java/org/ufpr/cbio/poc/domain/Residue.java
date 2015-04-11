@@ -8,7 +8,7 @@ package org.ufpr.cbio.poc.domain;
  *
  * @author vfontoura
  */
-public class Residue {
+public class Residue implements Cloneable {
 
     private Residue.Point point;
     private ResidueType residueType;
@@ -19,7 +19,7 @@ public class Residue {
 
         // TODO Auto-generated constructor stub
     }
-    
+
     /**
      * @param point
      * @param residueType
@@ -30,13 +30,14 @@ public class Residue {
         this.point = point;
         this.residueType = residueType;
     }
- 
+
     /**
-     * @return the point that represents the coordinates of the residue in the space.
+     * @return the point that represents the coordinates of the residue in the
+     *         space.
      */
     public Residue.Point getPoint() {
-        
-    	return point;
+
+        return point;
     }
 
     /**
@@ -62,7 +63,7 @@ public class Residue {
 
         this.residueType = residueType;
     }
-    
+
     /*
      * (non-Javadoc)
      * @see java.lang.Object#hashCode()
@@ -76,7 +77,7 @@ public class Residue {
         result = prime * result + ((residueType == null) ? 0 : residueType.hashCode());
         return result;
     }
-    
+
     /*
      * (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)
@@ -101,7 +102,7 @@ public class Residue {
         return true;
     }
 
-    public static class Point {
+    public static class Point implements Cloneable {
 
         public int x;
         public int y;
@@ -184,5 +185,25 @@ public class Residue {
             return true;
         }
 
+        /*
+         * (non-Javadoc)
+         * @see java.lang.Object#clone()
+         */
+        @Override
+        public Object clone() {
+
+            return new Point(x, y);
+        }
+
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Object#clone()
+     */
+    @Override
+    public Object clone() {
+
+        return new Residue((Point) this.point.clone(), residueType);
     }
 }

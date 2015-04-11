@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.ufpr.cbio.poc.domain.Residue;
 import org.ufpr.cbio.poc.domain.Residue.Point;
 import org.ufpr.cbio.poc.domain.ResidueType;
-import org.ufpr.cbio.poc.main.MainTest;
+import org.ufpr.cbio.poc.main.CornerTest;
 import org.ufpr.cbio.poc.utils.EnumMovements;
 
 /**
@@ -31,7 +31,7 @@ public class CornerMovementsTest {
         // int[] solution = new int[] { 3, 3, 3 };
         EnumMovements[] movements =
             new EnumMovements[] { EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER };
-        List<Residue> applySolution = MainTest.applyMovements(residues, movements);
+        List<Residue> applySolution = CornerTest.applyMovements(residues, movements);
 
         Assert.assertEquals(2, applySolution.get(0).getPoint().getX());
         Assert.assertEquals(4, applySolution.get(0).getPoint().getY());
@@ -56,7 +56,7 @@ public class CornerMovementsTest {
 
         EnumMovements[] movements =
             new EnumMovements[] { EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER };
-        List<Residue> applySolution = MainTest.applyMovements(residues, movements);
+        List<Residue> applySolution = CornerTest.applyMovements(residues, movements);
 
         Assert.assertEquals(1, applySolution.get(0).getPoint().getX());
         Assert.assertEquals(3, applySolution.get(0).getPoint().getY());
@@ -80,7 +80,7 @@ public class CornerMovementsTest {
 
         EnumMovements[] movements =
             new EnumMovements[] { EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER };
-        List<Residue> applySolution = MainTest.applyMovements(residues, movements);
+        List<Residue> applySolution = CornerTest.applyMovements(residues, movements);
 
         Assert.assertEquals(2, applySolution.get(0).getPoint().getX());
         Assert.assertEquals(1, applySolution.get(0).getPoint().getY());
@@ -105,7 +105,7 @@ public class CornerMovementsTest {
 
         EnumMovements[] movements =
             new EnumMovements[] { EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER };
-        List<Residue> applySolution = MainTest.applyMovements(residues, movements);
+        List<Residue> applySolution = CornerTest.applyMovements(residues, movements);
 
         Assert.assertEquals(1, applySolution.get(0).getPoint().getX());
         Assert.assertEquals(2, applySolution.get(0).getPoint().getY());
@@ -129,7 +129,7 @@ public class CornerMovementsTest {
 
         EnumMovements[] movements =
             new EnumMovements[] { EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER };
-        List<Residue> applySolution = MainTest.applyMovements(residues, movements);
+        List<Residue> applySolution = CornerTest.applyMovements(residues, movements);
 
         Assert.assertEquals(3, applySolution.get(0).getPoint().getX());
         Assert.assertEquals(4, applySolution.get(0).getPoint().getY());
@@ -154,7 +154,7 @@ public class CornerMovementsTest {
 
         EnumMovements[] movements =
             new EnumMovements[] { EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER };
-        List<Residue> applySolution = MainTest.applyMovements(residues, movements);
+        List<Residue> applySolution = CornerTest.applyMovements(residues, movements);
 
         Assert.assertEquals(4, applySolution.get(0).getPoint().getX());
         Assert.assertEquals(3, applySolution.get(0).getPoint().getY());
@@ -178,7 +178,7 @@ public class CornerMovementsTest {
 
         EnumMovements[] movements =
             new EnumMovements[] { EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER };
-        List<Residue> applySolution = MainTest.applyMovements(residues, movements);
+        List<Residue> applySolution = CornerTest.applyMovements(residues, movements);
 
         Assert.assertEquals(3, applySolution.get(0).getPoint().getX());
         Assert.assertEquals(2, applySolution.get(0).getPoint().getY());
@@ -203,7 +203,7 @@ public class CornerMovementsTest {
 
         EnumMovements[] movements =
             new EnumMovements[] { EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER };
-        List<Residue> applySolution = MainTest.applyMovements(residues, movements);
+        List<Residue> applySolution = CornerTest.applyMovements(residues, movements);
 
         Assert.assertEquals(2, applySolution.get(0).getPoint().getX());
         Assert.assertEquals(1, applySolution.get(0).getPoint().getY());
@@ -247,7 +247,7 @@ public class CornerMovementsTest {
                 EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER,
                 EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER,
                 EnumMovements.CORNER, EnumMovements.CORNER };
-        List<Residue> applySolution = MainTest.applyMovements(residues, movements);
+        List<Residue> applySolution = CornerTest.applyMovements(residues, movements);
 
         Assert.assertEquals(1, applySolution.get(0).getPoint().getX());
         Assert.assertEquals(1, applySolution.get(0).getPoint().getY());
