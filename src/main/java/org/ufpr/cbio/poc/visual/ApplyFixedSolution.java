@@ -3,26 +3,32 @@
  */
 package org.ufpr.cbio.poc.visual;
 
-import java.awt.BorderLayout;
+import com.google.common.collect.Lists;
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.JViewport;
 
 import org.ufpr.cbio.poc.domain.Grid;
 import org.ufpr.cbio.poc.domain.Residue;
 import org.ufpr.cbio.poc.domain.Residue.Point;
 import org.ufpr.cbio.poc.domain.ResidueType;
+import org.ufpr.cbio.poc.domain.TopologyContact;
 import org.ufpr.cbio.poc.utils.Controller;
 import org.ufpr.cbio.poc.utils.EnumMovements;
 import org.ufpr.cbio.poc.utils.Movements;
@@ -38,48 +44,21 @@ public class ApplyFixedSolution {
     private static final int SCREEN_SIZE = 600;
     private static final int MIN_SIZE_FACTOR = 20;
     private static final int MAX_SIZE_SCROLL_PANEL = 500;
-    //
-    // public static EnumMovements[] FIXED_SOLUTION = new EnumMovements[] {
-    // EnumMovements.ROTATE_90_CLOCKWISE,
-    // EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER,
-    // EnumMovements.CORNER, EnumMovements.CORNER,
-    // EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER,
-    // EnumMovements.CORNER, EnumMovements.CORNER,
-    // EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER,
-    // EnumMovements.CORNER,
-    // EnumMovements.ROTATE_90_CLOCKWISE, };
-    //
-    // public static EnumMovements[] FIXED_SOLUTION = new EnumMovements[] {
-    // EnumMovements.ROTATE_90_CLOCKWISE,
-    // EnumMovements.ROTATE_90_CLOCKWISE, EnumMovements.ROTATE_90_CLOCKWISE,
-    // EnumMovements.CRANKSHAFT,
-    // EnumMovements.CRANKSHAFT, EnumMovements.CRANKSHAFT,
-    // EnumMovements.CRANKSHAFT, EnumMovements.CRANKSHAFT };
-
-    // public static EnumMovements[] FIXED_SOLUTION = new EnumMovements[] {
-    // EnumMovements.CRANKSHAFT,
-    // EnumMovements.CRANKSHAFT, EnumMovements.CRANKSHAFT,
-    // EnumMovements.CRANKSHAFT, EnumMovements.CRANKSHAFT,
-    // EnumMovements.CRANKSHAFT, EnumMovements.CRANKSHAFT,
-    // EnumMovements.CRANKSHAFT };
-    //
-    public static EnumMovements[] FIXED_SOLUTION = new EnumMovements[] { EnumMovements.ROTATE_180_CLOCKWISE,
-        EnumMovements.CRANKSHAFT, EnumMovements.CRANKSHAFT, EnumMovements.CRANKSHAFT, EnumMovements.CRANKSHAFT,
-        EnumMovements.CRANKSHAFT, EnumMovements.CRANKSHAFT, EnumMovements.CORNER, EnumMovements.CORNER,
-        EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CRANKSHAFT,
-        EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER,
-        EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER, EnumMovements.CORNER,
-        EnumMovements.ROTATE_90_CLOCKWISE };
 
     private static int sizeFactor = 40;
     private static int maxGridSize = 600;
     private static int slots = 0;
 
-    public static void addComponentsToPane(Container pane, List<Residue> residues, Grid grid) {
+    private static List<Residue> residues;
 
-        pane.setLayout(null);
+    private static List<Residue> residuesInitial;
 
-        MyCanvas myCanvas = new MyCanvas(grid.getMatrix(), residues);
+    public static void addComponentsToPane(Container pane, List<Residue> residuesList, Grid grid) {
+
+        pane.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+
+        MyCanvas myCanvas = new MyCanvas();
 
         slots = (getBound(grid.getMatrix()) + 4);
         maxGridSize = calculateMaxGridSize(grid.getMatrix());
@@ -94,28 +73,91 @@ public class ApplyFixedSolution {
         jScrollPane.setWheelScrollingEnabled(true);
         jScrollPane.getViewport().setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
 
-        pane.add(jScrollPane, BorderLayout.CENTER);
+        JTextField solutionTextField = new JTextField("Enter the solution");
+        JButton applyMovementsButton = new JButton("Apply Movements");
+        JButton resetButton = new JButton("Reset");
 
-        JButton b1 = new JButton("Apply Movements");
-        Dimension size = b1.getPreferredSize();
-        b1.setBounds(0, 0, size.width, size.height);
-        b1.addActionListener(listener -> {
-            Runnable task = () -> {
-                for (int i = 0; i < residues.size(); i++) {
-                    Residue residue = residues.get(i);
-                    Movements.doMovement(residue, residues, grid, FIXED_SOLUTION[i]);
-                    jScrollPane.repaint();
-                    try {
-                        Thread.sleep(400);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+        Set<TopologyContact> topologyContacts = ResidueUtils.getTopologyContacts(residuesList, grid);
+        JLabel energyLabel = new JLabel("Energy value: " + topologyContacts.size());
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 0;
+        c.gridy = 0;
+        pane.add(applyMovementsButton, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.5;
+        c.gridx = 1;
+        c.gridy = 0;
+        pane.add(solutionTextField, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.5;
+        c.gridx = 2;
+        c.gridy = 0;
+        pane.add(resetButton, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.5;
+        c.gridx = 3;
+        c.gridy = 0;
+        pane.add(energyLabel, c);
+
+        c.fill = GridBagConstraints.BOTH;
+        c.weightx = 1;
+        c.weighty = 1;
+        c.gridwidth = 4;
+        c.gridx = 0;
+        c.gridy = 1;
+
+        pane.add(jScrollPane, c);
+
+        applyMovementsButton.addActionListener(listener -> {
+            Runnable task =
+                () -> {
+                    String text = solutionTextField.getText();
+                    int[] moves = fromStringToInt(text.split(","));
+                    EnumMovements[] movementsArray = ResidueUtils.toMovementsArray(moves);
+                    Grid generateGrid = new Controller().generateGrid(residuesList);
+                    for (int i = 0; i < residuesList.size(); i++) {
+                        Residue residue = residuesList.get(i);
+                        Movements.doMovement(residue, residuesList, generateGrid, movementsArray[i]);
+                        jScrollPane.repaint();
+                        try {
+                            Thread.sleep(400);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
-                }
-            };
+                    energyLabel.setText("Energy value: "
+                        + ResidueUtils.getTopologyContacts(residuesList, generateGrid).size());
+                };
             new Thread(task).start();
         });
-        pane.add(b1);
+        resetButton.addActionListener(listener -> {
 
+            Runnable task =
+                () -> {
+                    for (int i = 0; i < residuesInitial.size(); i++) {
+                        residues.set(i, (Residue) residuesInitial.get(i).clone());
+                    }
+                    energyLabel.setText("Energy value: "
+                        + ResidueUtils.getTopologyContacts(residuesList, new Controller().generateGrid(residues))
+                            .size());
+                    jScrollPane.repaint();
+                };
+            new Thread(task).start();
+        });
+
+    }
+
+    private static int[] fromStringToInt(String[] moves) {
+
+        int[] movements = new int[moves.length];
+        for (int i = 0; i < moves.length; i++) {
+            movements[i] = Integer.valueOf(moves[i]);
+        }
+        return movements;
     }
 
     private static int calculateMaxGridSize(int[][] matrix) {
@@ -165,129 +207,12 @@ public class ApplyFixedSolution {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        List<Residue> residues = new ArrayList<Residue>();
+        residues =
+            ResidueUtils
+                .createDefaultReference100("HHPHHHPPPHHHHPHPHPHHHPPPPPPHHHHHHHHPPPPPPHHHHHPPPHHHHHHPPPHHHPPPHHHHHHPPPHHHHHPPPPHHHHPPPHHHHHPPPHHP");
 
-        // residues.add(new Residue(new Point(1, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 5), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 5), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(5, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(5, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 1), ResidueType.P));
-        // residues.add(new Residue(new Point(4, 0), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 0), ResidueType.H));
-
-        // residues.add(new Residue(new Point(1, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 5), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 5), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 0), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 0), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 2), ResidueType.H));
-        //
-        // residues.add(new Residue(new Point(4, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 0), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 0), ResidueType.P));
-        // residues.add(new Residue(new Point(1, 0), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 1), ResidueType.H));
-
-        // residues.add(new Residue(new Point(4, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 5), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 5), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 6), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 6), ResidueType.P));
-        // residues.add(new Residue(new Point(1, 6), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 5), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 5), ResidueType.H));
-
-        // residues.add(new Residue(new Point(1, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 1), ResidueType.P));
-        // residues.add(new Residue(new Point(4, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 2), ResidueType.H));
-
-        // NEED FIX
-        // residues.add(new Residue(new Point(2, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 4), ResidueType.P));
-        // residues.add(new Residue(new Point(1, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 3), ResidueType.H));
-
-        // residues.add(new Residue(new Point(3, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 1), ResidueType.P));
-        // residues.add(new Residue(new Point(2, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 2), ResidueType.H));
-
-        // residues.add(new Residue(new Point(2, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 5), ResidueType.P));
-        // residues.add(new Residue(new Point(3, 5), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 4), ResidueType.H));
-
-        // residues.add(new Residue(new Point(1, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 1), ResidueType.P));
-        // residues.add(new Residue(new Point(2, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 2), ResidueType.H));
-
-        // residues.add(new Residue(new Point(1, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 2), ResidueType.H));
-
-        // residues.add(new Residue(new Point(2, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 4), ResidueType.H));
-
-        // residues.add(new Residue(new Point(1, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(1, 5), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 5), ResidueType.H));
-        // residues.add(new Residue(new Point(2, 6), ResidueType.P));
-        // residues.add(new Residue(new Point(3, 6), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 6), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 5), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 5), ResidueType.H));
-
-        // Exemplo estourando matrix estourando no rotate clockwise
-        //
+        // residues =
+        // ResidueUtils.createDefaultReference20("HHPHHHPPPHHHHPHPHPHHH");
         // residues.add(new Residue(new Point(3, 9), ResidueType.H));
         // residues.add(new Residue(new Point(3, 10), ResidueType.H));
         // residues.add(new Residue(new Point(4, 10), ResidueType.H));
@@ -312,117 +237,13 @@ public class ApplyFixedSolution {
         // residues.add(new Residue(new Point(4, 17), ResidueType.H));
         // residues.add(new Residue(new Point(5, 17), ResidueType.H));
 
-        // residues.add(new Residue(new Point(3, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 1), ResidueType.H));
-        // residues.add(new Residue(new Point(5, 1), ResidueType.P));
-        // residues.add(new Residue(new Point(5, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(6, 2), ResidueType.H));
-
-        // residues.add(new Residue(new Point(0, 2), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 3), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 4), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 5), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 6), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 7), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 8), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 9), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 10), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 11), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 12), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 13), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 14), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 15), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 16), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 17), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 18), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 19), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 20), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 21), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 22), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 23), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 24), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 25), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 26), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 27), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 28), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 29), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 30), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 31), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 32), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 33), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 34), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 35), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 36), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 37), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 38), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 39), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 40), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 41), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 42), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 43), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 44), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 45), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 46), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 47), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 48), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 49), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 50), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 51), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 52), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 53), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 54), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 55), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 56), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 57), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 58), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 59), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 60), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 61), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 62), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 63), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 64), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 65), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 66), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 67), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 68), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 69), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 70), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 71), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 72), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 73), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 74), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 75), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 76), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 77), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 78), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 79), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 80), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 81), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 82), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 83), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 84), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 85), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 86), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 87), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 88), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 89), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 90), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 92), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 93), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 94), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 95), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 96), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 97), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 98), ResidueType.H));
-        // residues.add(new Residue(new Point(0, 99), ResidueType.H));
-
-        residues =
-            ResidueUtils
-                .createDefaultReference100("HHPHHHPPPHHHHPHPHPHHHPPPPPPHHHHHHHHPPPPPPHHHHHPPPHHHHHHPPPHHHPPPHHHHHHPPPHHHHHPPPPHHHHPPPHHHHHPPPHHP");
-
         Controller controller = new Controller();
         residues = ResidueUtils.translateToOrigin(residues);
+        residuesInitial = Lists.newArrayList();
+
+        for (Residue residue : residues) {
+            residuesInitial.add((Residue) residue.clone());
+        }
         Grid generateGrid = controller.generateGrid(residues);
 
         // Set up the content pane.
@@ -448,18 +269,8 @@ public class ApplyFixedSolution {
 
     static class MyCanvas extends JPanel implements MouseListener {
 
-        private int[][] matrix;
+        public MyCanvas() {
 
-        private List<Residue> residues;
-
-        /**
-         * @param matrix
-         */
-        public MyCanvas(int[][] matrix, List<Residue> residues) {
-
-            super();
-            this.matrix = matrix;
-            this.residues = residues;
             addMouseListener(this);
         }
 
@@ -537,7 +348,7 @@ public class ApplyFixedSolution {
             int x = ((pointClicked.x - 5) / sizeFactor);
             int y = ((pointClicked.y - 5) / sizeFactor);
             Point point = new Point(x, y);
-            System.out.println("new Point(" + x + "," + y + ");");
+            System.out.println(x + "," + y);
 
             int residueIndex = getResidueIndex(point);
             // System.out.println(residueIndex);

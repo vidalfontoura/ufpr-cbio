@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.ufpr.cbio.poc.ga.GeneticAlgorithm;
+import org.ufpr.cbio.poc.ga.BKP_GeneticAlgorithm;
 import org.ufpr.cbio.poc.ga.Individue;
 
 /**
@@ -20,7 +20,7 @@ public class TestWriter {
 
     public static void main(String[] args) throws IOException {
 
-        GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm();
+        BKP_GeneticAlgorithm geneticAlgorithm = new BKP_GeneticAlgorithm();
         OutputCSVWriter csvWriter = new OutputCSVWriter();
         List<Map<Integer, List<Individue>>> data = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
