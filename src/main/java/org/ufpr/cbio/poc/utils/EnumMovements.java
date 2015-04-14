@@ -27,25 +27,4 @@ public enum EnumMovements {
         this.id = id;
     }
 
-    // public EnumMovements getById(int id) {
-    //
-    // switch (id) {
-    // case 0:
-    //
-    // break;
-    // case 1:
-    //
-    // break;
-    // case 2:
-    //
-    // break;
-    // case 3:
-    //
-    // break;
-    // default:
-    // // todo: error
-    // break;
-    // }
-    // }
-
 }

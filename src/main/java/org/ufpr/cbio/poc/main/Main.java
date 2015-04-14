@@ -1,4 +1,3 @@
-
 package org.ufpr.cbio.poc.main;
 
 import java.io.IOException;
@@ -20,7 +19,7 @@ public class Main {
     private static final int INDIVIDUE_LENGHT = 100;
     private static final int POPULATION_SIZE = 500;
     private static final int GENERATIONS = 3000;
-    private static final int MUTATION = 1;
+    private static final int MUTATION = 3;
     private static final int CROSSOVER = 3;
     private static final String PROTEIN_CHAIN =
         "HHPHHHPPPHHHHPHPHPHHHPPPPPPHHHHHHHHPPPPPPHHHHHPPPHHHHHHPPPHHHPPPHHHHHHPPPHHHHHPPPPHHHHPPPHHHHHPPPHHH";
@@ -31,8 +30,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         GeneticAlgorithm geneticAlgorithm =
-            new GeneticAlgorithm(INDIVIDUE_LENGHT, POPULATION_SIZE, GENERATIONS, MUTATION, CROSSOVER,
-                PROTEIN_CHAIN);
+            new GeneticAlgorithm(INDIVIDUE_LENGHT, POPULATION_SIZE, GENERATIONS, MUTATION, CROSSOVER, PROTEIN_CHAIN);
         OutputCSVWriter csvWriter = new OutputCSVWriter();
         List<Map<Integer, List<Individue>>> data = new ArrayList<>();
         for (int i = 0; i < 30; i++) {

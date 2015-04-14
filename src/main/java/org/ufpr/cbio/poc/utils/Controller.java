@@ -164,8 +164,8 @@ public class Controller implements ControllerInterface {
         return 0;
     }
 
-    public Protein buildProtein(String chain, List<Residue> residues, Grid structure, Integer energy) {
+    public Protein buildProtein(String chain, List<Residue> residues) {
 
-        return new Protein(chain, residues, structure, energy);
+        return new Protein(chain, residues);
     }
 }

@@ -1,6 +1,5 @@
 package org.ufpr.cbio.poc.domain;
 
-
 /**
  *
  *
