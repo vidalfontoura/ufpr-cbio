@@ -1,6 +1,3 @@
-/*
- * Copyright 2015, Charter Communications, All rights reserved.
- */
 package org.ufpr.cbio.poc.writer;
 
 import java.io.IOException;

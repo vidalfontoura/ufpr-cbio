@@ -1,6 +1,3 @@
-/*
- * Copyright 2015, Charter Communications, All rights reserved.
- */
 package org.ufpr.cbio.poc.visual;
 
 import com.google.common.collect.Lists;
