@@ -121,10 +121,16 @@ public class ApplyFixedSolution {
                         Movements.doMovement(residue, residuesList, generateGrid, movementsArray[i]);
                         jScrollPane.repaint();
                         try {
-                            Thread.sleep(400);
+                            Thread.sleep(100);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
+                    }
+                    for (int i = 0; i < residuesList.size(); i++) {
+                        residuesList.get(i).getResidueType().name();
+                        System.out.println("residues.add(new Residue(new Point(" + residuesList.get(i).getPoint().x
+                            + "," + residuesList.get(i).getPoint().y + "), ResidueType.valueOf(String.valueOf(\""
+                            + residuesList.get(i).getResidueType().name() + "\"))));");
                     }
                     energyLabel.setText("Energy value: "
                         + ResidueUtils.getTopologyContacts(residuesList, generateGrid).size());
@@ -206,7 +212,7 @@ public class ApplyFixedSolution {
 
         residues =
             ResidueUtils
-                .createDefaultReference100("HHPHHHPPPHHHHPHPHPHHHPPPPPPHHHHHHHHPPPPPPHHHHHPPPHHHHHHPPPHHHPPPHHHHHHPPPHHHHHPPPPHHHHPPPHHHHHPPPHHP");
+                .createDefaultReference100("PPPPPPHPHHPPPPPHHHPHHHHHPHHPPPPHHPPHHPHHHHHPHHHHHHHHHHPHHPHHHHHHHPPPPPPPPPPPHHHHHHHPPHPHHHPPPPPPHPHH");
 
         // residues =
         // ResidueUtils.createDefaultReference20("HHPHHHPPPHHHHPHPHPHHH");

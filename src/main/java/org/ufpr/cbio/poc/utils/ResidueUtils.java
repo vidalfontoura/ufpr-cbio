@@ -60,106 +60,1330 @@ public class ResidueUtils {
     public static List<Residue> createDefaultReference100(String chain) {
 
         List<Residue> residues = new ArrayList<Residue>();
-        residues.add(new Residue(new Point(2, 2), ResidueType.valueOf(String.valueOf(chain.charAt(0)))));
-        residues.add(new Residue(new Point(2, 3), ResidueType.valueOf(String.valueOf(chain.charAt(1)))));
-        residues.add(new Residue(new Point(2, 4), ResidueType.valueOf(String.valueOf(chain.charAt(2)))));
-        residues.add(new Residue(new Point(3, 4), ResidueType.valueOf(String.valueOf(chain.charAt(3)))));
-        residues.add(new Residue(new Point(4, 4), ResidueType.valueOf(String.valueOf(chain.charAt(4)))));
-        residues.add(new Residue(new Point(4, 3), ResidueType.valueOf(String.valueOf(chain.charAt(5)))));
-        residues.add(new Residue(new Point(5, 3), ResidueType.valueOf(String.valueOf(chain.charAt(6)))));
-        residues.add(new Residue(new Point(6, 3), ResidueType.valueOf(String.valueOf(chain.charAt(7)))));
-        residues.add(new Residue(new Point(7, 3), ResidueType.valueOf(String.valueOf(chain.charAt(8)))));
-        residues.add(new Residue(new Point(8, 3), ResidueType.valueOf(String.valueOf(chain.charAt(9)))));
-        residues.add(new Residue(new Point(9, 3), ResidueType.valueOf(String.valueOf(chain.charAt(10)))));
-        residues.add(new Residue(new Point(9, 4), ResidueType.valueOf(String.valueOf(chain.charAt(11)))));
-        residues.add(new Residue(new Point(9, 5), ResidueType.valueOf(String.valueOf(chain.charAt(12)))));
-        residues.add(new Residue(new Point(9, 6), ResidueType.valueOf(String.valueOf(chain.charAt(13)))));
-        residues.add(new Residue(new Point(10, 6), ResidueType.valueOf(String.valueOf(chain.charAt(14)))));
-        residues.add(new Residue(new Point(11, 6), ResidueType.valueOf(String.valueOf(chain.charAt(15)))));
-        residues.add(new Residue(new Point(12, 6), ResidueType.valueOf(String.valueOf(chain.charAt(16)))));
-        residues.add(new Residue(new Point(13, 6), ResidueType.valueOf(String.valueOf(chain.charAt(17)))));
-        residues.add(new Residue(new Point(14, 6), ResidueType.valueOf(String.valueOf(chain.charAt(18)))));
-        residues.add(new Residue(new Point(14, 5), ResidueType.valueOf(String.valueOf(chain.charAt(19)))));
-        residues.add(new Residue(new Point(15, 5), ResidueType.valueOf(String.valueOf(chain.charAt(20)))));
-        residues.add(new Residue(new Point(16, 5), ResidueType.valueOf(String.valueOf(chain.charAt(21)))));
-        residues.add(new Residue(new Point(16, 6), ResidueType.valueOf(String.valueOf(chain.charAt(21)))));
-        residues.add(new Residue(new Point(16, 7), ResidueType.valueOf(String.valueOf(chain.charAt(22)))));
-        residues.add(new Residue(new Point(16, 8), ResidueType.valueOf(String.valueOf(chain.charAt(23)))));
-        residues.add(new Residue(new Point(16, 9), ResidueType.valueOf(String.valueOf(chain.charAt(24)))));
-        residues.add(new Residue(new Point(16, 10), ResidueType.valueOf(String.valueOf(chain.charAt(25)))));
-        residues.add(new Residue(new Point(16, 11), ResidueType.valueOf(String.valueOf(chain.charAt(26)))));
-        residues.add(new Residue(new Point(16, 12), ResidueType.valueOf(String.valueOf(chain.charAt(27)))));
-        residues.add(new Residue(new Point(15, 12), ResidueType.valueOf(String.valueOf(chain.charAt(28)))));
-        residues.add(new Residue(new Point(14, 12), ResidueType.valueOf(String.valueOf(chain.charAt(29)))));
-        residues.add(new Residue(new Point(13, 12), ResidueType.valueOf(String.valueOf(chain.charAt(30)))));
-        residues.add(new Residue(new Point(12, 12), ResidueType.valueOf(String.valueOf(chain.charAt(31)))));
-        residues.add(new Residue(new Point(12, 13), ResidueType.valueOf(String.valueOf(chain.charAt(32)))));
-        residues.add(new Residue(new Point(13, 13), ResidueType.valueOf(String.valueOf(chain.charAt(33)))));
-        residues.add(new Residue(new Point(14, 13), ResidueType.valueOf(String.valueOf(chain.charAt(34)))));
-        residues.add(new Residue(new Point(15, 13), ResidueType.valueOf(String.valueOf(chain.charAt(35)))));
-        residues.add(new Residue(new Point(16, 13), ResidueType.valueOf(String.valueOf(chain.charAt(36)))));
-        residues.add(new Residue(new Point(17, 13), ResidueType.valueOf(String.valueOf(chain.charAt(37)))));
-        residues.add(new Residue(new Point(18, 13), ResidueType.valueOf(String.valueOf(chain.charAt(38)))));
-        residues.add(new Residue(new Point(19, 13), ResidueType.valueOf(String.valueOf(chain.charAt(39)))));
-        residues.add(new Residue(new Point(19, 14), ResidueType.valueOf(String.valueOf(chain.charAt(40)))));
-        residues.add(new Residue(new Point(19, 15), ResidueType.valueOf(String.valueOf(chain.charAt(41)))));
-        residues.add(new Residue(new Point(19, 16), ResidueType.valueOf(String.valueOf(chain.charAt(42)))));
-        residues.add(new Residue(new Point(19, 17), ResidueType.valueOf(String.valueOf(chain.charAt(43)))));
-        residues.add(new Residue(new Point(19, 18), ResidueType.valueOf(String.valueOf(chain.charAt(44)))));
-        residues.add(new Residue(new Point(19, 19), ResidueType.valueOf(String.valueOf(chain.charAt(45)))));
-        residues.add(new Residue(new Point(18, 19), ResidueType.valueOf(String.valueOf(chain.charAt(46)))));
-        residues.add(new Residue(new Point(17, 19), ResidueType.valueOf(String.valueOf(chain.charAt(47)))));
-        residues.add(new Residue(new Point(17, 20), ResidueType.valueOf(String.valueOf(chain.charAt(48)))));
-        residues.add(new Residue(new Point(18, 20), ResidueType.valueOf(String.valueOf(chain.charAt(49)))));
-        residues.add(new Residue(new Point(19, 20), ResidueType.valueOf(String.valueOf(chain.charAt(50)))));
-        residues.add(new Residue(new Point(19, 21), ResidueType.valueOf(String.valueOf(chain.charAt(51)))));
-        residues.add(new Residue(new Point(20, 21), ResidueType.valueOf(String.valueOf(chain.charAt(52)))));
-        residues.add(new Residue(new Point(21, 21), ResidueType.valueOf(String.valueOf(chain.charAt(53)))));
-        residues.add(new Residue(new Point(22, 21), ResidueType.valueOf(String.valueOf(chain.charAt(54)))));
-        residues.add(new Residue(new Point(23, 21), ResidueType.valueOf(String.valueOf(chain.charAt(55)))));
-        residues.add(new Residue(new Point(24, 21), ResidueType.valueOf(String.valueOf(chain.charAt(56)))));
-        residues.add(new Residue(new Point(25, 21), ResidueType.valueOf(String.valueOf(chain.charAt(57)))));
-        residues.add(new Residue(new Point(25, 22), ResidueType.valueOf(String.valueOf(chain.charAt(58)))));
-        residues.add(new Residue(new Point(25, 23), ResidueType.valueOf(String.valueOf(chain.charAt(59)))));
-        residues.add(new Residue(new Point(25, 24), ResidueType.valueOf(String.valueOf(chain.charAt(60)))));
-        residues.add(new Residue(new Point(25, 25), ResidueType.valueOf(String.valueOf(chain.charAt(61)))));
-        residues.add(new Residue(new Point(25, 26), ResidueType.valueOf(String.valueOf(chain.charAt(62)))));
-        residues.add(new Residue(new Point(26, 26), ResidueType.valueOf(String.valueOf(chain.charAt(63)))));
-        residues.add(new Residue(new Point(27, 26), ResidueType.valueOf(String.valueOf(chain.charAt(64)))));
-        residues.add(new Residue(new Point(27, 25), ResidueType.valueOf(String.valueOf(chain.charAt(65)))));
-        residues.add(new Residue(new Point(27, 24), ResidueType.valueOf(String.valueOf(chain.charAt(66)))));
-        residues.add(new Residue(new Point(27, 23), ResidueType.valueOf(String.valueOf(chain.charAt(67)))));
-        residues.add(new Residue(new Point(27, 22), ResidueType.valueOf(String.valueOf(chain.charAt(68)))));
-        residues.add(new Residue(new Point(27, 21), ResidueType.valueOf(String.valueOf(chain.charAt(69)))));
-        residues.add(new Residue(new Point(28, 21), ResidueType.valueOf(String.valueOf(chain.charAt(70)))));
-        residues.add(new Residue(new Point(28, 20), ResidueType.valueOf(String.valueOf(chain.charAt(71)))));
-        residues.add(new Residue(new Point(29, 20), ResidueType.valueOf(String.valueOf(chain.charAt(72)))));
-        residues.add(new Residue(new Point(29, 19), ResidueType.valueOf(String.valueOf(chain.charAt(73)))));
-        residues.add(new Residue(new Point(30, 19), ResidueType.valueOf(String.valueOf(chain.charAt(74)))));
-        residues.add(new Residue(new Point(31, 19), ResidueType.valueOf(String.valueOf(chain.charAt(75)))));
-        residues.add(new Residue(new Point(32, 19), ResidueType.valueOf(String.valueOf(chain.charAt(76)))));
-        residues.add(new Residue(new Point(33, 19), ResidueType.valueOf(String.valueOf(chain.charAt(77)))));
-        residues.add(new Residue(new Point(33, 18), ResidueType.valueOf(String.valueOf(chain.charAt(78)))));
-        residues.add(new Residue(new Point(33, 17), ResidueType.valueOf(String.valueOf(chain.charAt(79)))));
-        residues.add(new Residue(new Point(34, 17), ResidueType.valueOf(String.valueOf(chain.charAt(80)))));
-        residues.add(new Residue(new Point(34, 16), ResidueType.valueOf(String.valueOf(chain.charAt(81)))));
-        residues.add(new Residue(new Point(34, 15), ResidueType.valueOf(String.valueOf(chain.charAt(82)))));
-        residues.add(new Residue(new Point(34, 14), ResidueType.valueOf(String.valueOf(chain.charAt(83)))));
-        residues.add(new Residue(new Point(34, 13), ResidueType.valueOf(String.valueOf(chain.charAt(84)))));
-        residues.add(new Residue(new Point(34, 12), ResidueType.valueOf(String.valueOf(chain.charAt(85)))));
-        residues.add(new Residue(new Point(34, 11), ResidueType.valueOf(String.valueOf(chain.charAt(86)))));
-        residues.add(new Residue(new Point(34, 10), ResidueType.valueOf(String.valueOf(chain.charAt(87)))));
-        residues.add(new Residue(new Point(33, 10), ResidueType.valueOf(String.valueOf(chain.charAt(88)))));
-        residues.add(new Residue(new Point(33, 11), ResidueType.valueOf(String.valueOf(chain.charAt(89)))));
-        residues.add(new Residue(new Point(33, 12), ResidueType.valueOf(String.valueOf(chain.charAt(90)))));
-        residues.add(new Residue(new Point(33, 13), ResidueType.valueOf(String.valueOf(chain.charAt(91)))));
-        residues.add(new Residue(new Point(33, 14), ResidueType.valueOf(String.valueOf(chain.charAt(92)))));
-        residues.add(new Residue(new Point(33, 15), ResidueType.valueOf(String.valueOf(chain.charAt(93)))));
-        residues.add(new Residue(new Point(33, 16), ResidueType.valueOf(String.valueOf(chain.charAt(94)))));
-        residues.add(new Residue(new Point(32, 16), ResidueType.valueOf(String.valueOf(chain.charAt(95)))));
-        residues.add(new Residue(new Point(31, 16), ResidueType.valueOf(String.valueOf(chain.charAt(96)))));
-        residues.add(new Residue(new Point(30, 16), ResidueType.valueOf(String.valueOf(chain.charAt(97)))));
-        residues.add(new Residue(new Point(29, 16), ResidueType.valueOf(String.valueOf(chain.charAt(98)))));
+        // residues.add(new Residue(new Point(2, 2),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(0)))));
+        // residues.add(new Residue(new Point(2, 3),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(1)))));
+        // residues.add(new Residue(new Point(2, 4),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(2)))));
+        // residues.add(new Residue(new Point(3, 4),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(3)))));
+        // residues.add(new Residue(new Point(4, 4),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(4)))));
+        // residues.add(new Residue(new Point(4, 3),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(5)))));
+        // residues.add(new Residue(new Point(5, 3),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(6)))));
+        // residues.add(new Residue(new Point(6, 3),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(7)))));
+        // residues.add(new Residue(new Point(7, 3),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(8)))));
+        // residues.add(new Residue(new Point(8, 3),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(9)))));
+        // residues.add(new Residue(new Point(9, 3),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(10)))));
+        // residues.add(new Residue(new Point(9, 4),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(11)))));
+        // residues.add(new Residue(new Point(9, 5),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(12)))));
+        // residues.add(new Residue(new Point(9, 6),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(13)))));
+        // residues.add(new Residue(new Point(10, 6),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(14)))));
+        // residues.add(new Residue(new Point(11, 6),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(15)))));
+        // residues.add(new Residue(new Point(12, 6),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(16)))));
+        // residues.add(new Residue(new Point(13, 6),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(17)))));
+        // residues.add(new Residue(new Point(14, 6),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(18)))));
+        // residues.add(new Residue(new Point(14, 5),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(19)))));
+        // residues.add(new Residue(new Point(15, 5),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(20)))));
+        // residues.add(new Residue(new Point(16, 5),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(21)))));
+        // residues.add(new Residue(new Point(16, 6),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(21)))));
+        // residues.add(new Residue(new Point(16, 7),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(22)))));
+        // residues.add(new Residue(new Point(16, 8),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(23)))));
+        // residues.add(new Residue(new Point(16, 9),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(24)))));
+        // residues.add(new Residue(new Point(16, 10),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(25)))));
+        // residues.add(new Residue(new Point(16, 11),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(26)))));
+        // residues.add(new Residue(new Point(16, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(27)))));
+        // residues.add(new Residue(new Point(15, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(28)))));
+        // residues.add(new Residue(new Point(14, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(29)))));
+        // residues.add(new Residue(new Point(13, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(30)))));
+        // residues.add(new Residue(new Point(12, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(31)))));
+        // residues.add(new Residue(new Point(12, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(32)))));
+        // residues.add(new Residue(new Point(13, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(33)))));
+        // residues.add(new Residue(new Point(14, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(34)))));
+        // residues.add(new Residue(new Point(15, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(35)))));
+        // residues.add(new Residue(new Point(16, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(36)))));
+        // residues.add(new Residue(new Point(17, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(37)))));
+        // residues.add(new Residue(new Point(18, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(38)))));
+        // residues.add(new Residue(new Point(19, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(39)))));
+        // residues.add(new Residue(new Point(19, 14),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(40)))));
+        // residues.add(new Residue(new Point(19, 15),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(41)))));
+        // residues.add(new Residue(new Point(19, 16),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(42)))));
+        // residues.add(new Residue(new Point(19, 17),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(43)))));
+        // residues.add(new Residue(new Point(19, 18),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(44)))));
+        // residues.add(new Residue(new Point(19, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(45)))));
+        // residues.add(new Residue(new Point(18, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(46)))));
+        // residues.add(new Residue(new Point(17, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(47)))));
+        // residues.add(new Residue(new Point(17, 20),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(48)))));
+        // residues.add(new Residue(new Point(18, 20),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(49)))));
+        // residues.add(new Residue(new Point(19, 20),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(50)))));
+        // residues.add(new Residue(new Point(19, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(51)))));
+        // residues.add(new Residue(new Point(20, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(52)))));
+        // residues.add(new Residue(new Point(21, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(53)))));
+        // residues.add(new Residue(new Point(22, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(54)))));
+        // residues.add(new Residue(new Point(23, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(55)))));
+        // residues.add(new Residue(new Point(24, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(56)))));
+        // residues.add(new Residue(new Point(25, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(57)))));
+        // residues.add(new Residue(new Point(25, 22),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(58)))));
+        // residues.add(new Residue(new Point(25, 23),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(59)))));
+        // residues.add(new Residue(new Point(25, 24),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(60)))));
+        // residues.add(new Residue(new Point(25, 25),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(61)))));
+        // residues.add(new Residue(new Point(25, 26),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(62)))));
+        // residues.add(new Residue(new Point(26, 26),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(63)))));
+        // residues.add(new Residue(new Point(27, 26),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(64)))));
+        // residues.add(new Residue(new Point(27, 25),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(65)))));
+        // residues.add(new Residue(new Point(27, 24),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(66)))));
+        // residues.add(new Residue(new Point(27, 23),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(67)))));
+        // residues.add(new Residue(new Point(27, 22),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(68)))));
+        // residues.add(new Residue(new Point(27, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(69)))));
+        // residues.add(new Residue(new Point(28, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(70)))));
+        // residues.add(new Residue(new Point(28, 20),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(71)))));
+        // residues.add(new Residue(new Point(29, 20),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(72)))));
+        // residues.add(new Residue(new Point(29, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(73)))));
+        // residues.add(new Residue(new Point(30, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(74)))));
+        // residues.add(new Residue(new Point(31, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(75)))));
+        // residues.add(new Residue(new Point(32, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(76)))));
+        // residues.add(new Residue(new Point(33, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(77)))));
+        // residues.add(new Residue(new Point(33, 18),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(78)))));
+        // residues.add(new Residue(new Point(33, 17),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(79)))));
+        // residues.add(new Residue(new Point(34, 17),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(80)))));
+        // residues.add(new Residue(new Point(34, 16),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(81)))));
+        // residues.add(new Residue(new Point(34, 15),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(82)))));
+        // residues.add(new Residue(new Point(34, 14),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(83)))));
+        // residues.add(new Residue(new Point(34, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(84)))));
+        // residues.add(new Residue(new Point(34, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(85)))));
+        // residues.add(new Residue(new Point(34, 11),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(86)))));
+        // residues.add(new Residue(new Point(34, 10),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(87)))));
+        // residues.add(new Residue(new Point(33, 10),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(88)))));
+        // residues.add(new Residue(new Point(33, 11),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(89)))));
+        // residues.add(new Residue(new Point(33, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(90)))));
+        // residues.add(new Residue(new Point(33, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(91)))));
+        // residues.add(new Residue(new Point(33, 14),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(92)))));
+        // residues.add(new Residue(new Point(33, 15),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(93)))));
+        // residues.add(new Residue(new Point(33, 16),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(94)))));
+        // residues.add(new Residue(new Point(32, 16),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(95)))));
+        // residues.add(new Residue(new Point(31, 16),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(96)))));
+        // residues.add(new Residue(new Point(30, 16),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(97)))));
+        // residues.add(new Residue(new Point(29, 16),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(98)))));
+
+        // residues.add(new Residue(new Point(1, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(2, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(2, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(3, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(4, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(5, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(5, 3),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(6, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(7, 3),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(8, 3),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(9, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(9, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(9, 5),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(9, 6),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(10, 6),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(11, 6),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(12, 6),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(13, 6),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(14, 6),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(15, 6),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(15, 5),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(16, 5),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(16, 6),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(16, 7),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(16, 8),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(16, 9),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(16, 10),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(16, 11),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(15, 11),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(14, 11),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(13, 11),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(12, 11),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(12, 12),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(13, 12),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(14, 12),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(15, 12),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(16, 12),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(16, 13),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 13),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(18, 13),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 13),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 14),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 15),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 16),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 17),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(19, 18),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 19),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(18, 19),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 19),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(18, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(20, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(21, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(22, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(22, 21),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(23, 21),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(24, 21),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 21),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(25, 22),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 23),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 24),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 25),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 26),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(26, 26),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(26, 25),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(26, 24),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(26, 23),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(27, 23),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(27, 22),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(27, 21),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(28, 21),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(28, 20),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(28, 19),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(29, 19),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(30, 19),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(31, 19),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(32, 19),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(33, 19),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(33, 18),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(33, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 16),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 15),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 14),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(34, 13),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(34, 12),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 11),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(34, 10),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(33, 10),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(33, 11),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(33, 12),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(33, 13),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(33, 14),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(33, 15),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(32, 15),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(31, 15),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(31, 16),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(30, 16),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(29, 16),
+        // ResidueType.valueOf(String.valueOf("H"))));
+
+        // residues.add(new Residue(new Point(2, 2),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(2, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(3, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(4, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(5, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(5, 2),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(6, 2),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(7, 2),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(8, 2),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(9, 2),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(10, 2),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(10, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(10, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(11, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(12, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(13, 4),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(14, 4),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(15, 4),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(15, 5),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(16, 5),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(16, 4),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 4),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 5),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 6),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 7),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 8),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(17, 9),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 10),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(16, 10),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(15, 10),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(14, 10),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(13, 10),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(13, 11),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(14, 11),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(15, 11),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(16, 11),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(17, 11),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 12),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(18, 12),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(19, 12),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 13),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 14),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(20, 14),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(20, 15),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(20, 16),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(20, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(20, 18),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 18),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(18, 18),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(18, 19),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 19),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(20, 19),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(21, 19),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(22, 19),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(22, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(23, 20),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(24, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 21),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(25, 22),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 23),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 24),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 25),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(26, 25),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(26, 24),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(26, 23),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(26, 22),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(27, 22),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(28, 22),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(28, 21),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(29, 21),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(29, 20),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(29, 19),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(29, 18),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(30, 18),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(31, 18),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(32, 18),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(33, 18),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 18),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(35, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(35, 16),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(35, 15),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(35, 14),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(35, 13),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(35, 12),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(35, 11),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(35, 10),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(35, 9),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 9),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 10),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 11),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(34, 12),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(34, 13),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(33, 13),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(33, 14),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(32, 14),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(32, 15),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(31, 15),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(31, 16),
+        // ResidueType.valueOf(String.valueOf("H"))));
+
+        // residues.add(new Residue(new Point(2, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(2, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(3, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(4, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(4, 2),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(5, 2),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(6, 2),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(7, 2),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(8, 2),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(9, 2),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(10, 2),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(10, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(10, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(11, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(12, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(13, 4),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(14, 4),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(15, 4),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(15, 5),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(16, 5),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(16, 4),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 4),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 5),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 6),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 7),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 8),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(17, 9),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 10),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(16, 10),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(15, 10),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(14, 10),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(13, 10),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(13, 11),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(14, 11),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(15, 11),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(16, 11),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(17, 11),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 12),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(18, 12),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(19, 12),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 13),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 14),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 15),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 16),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(20, 16),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(20, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(18, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(18, 18),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 18),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(20, 18),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(20, 19),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(21, 19),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(21, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(22, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(23, 20),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(24, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 21),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(25, 22),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 23),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 24),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 25),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(26, 25),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(26, 24),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(26, 23),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(27, 23),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(27, 22),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(27, 21),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(28, 21),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(29, 21),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(29, 20),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(29, 19),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(29, 18),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(30, 18),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(31, 18),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(32, 18),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(33, 18),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(33, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 16),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(35, 16),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(35, 15),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(35, 14),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(35, 13),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(35, 12),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(35, 11),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(35, 10),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(35, 9),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 9),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 10),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 11),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(34, 12),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(34, 13),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(34, 14),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(33, 14),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(32, 14),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(32, 15),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(32, 16),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(33, 16),
+        // ResidueType.valueOf(String.valueOf("H"))));
+
+        // residues.add(new Residue(new Point(2, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(3, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(4, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(4, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(5, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(5, 2),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(6, 2),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(7, 2),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(8, 2),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(9, 2),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(9, 3),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(9, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(10, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(11, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(12, 4),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(13, 4),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(14, 4),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(15, 4),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(15, 5),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(16, 5),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(16, 4),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 4),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 5),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 6),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 7),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 8),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(17, 9),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 10),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(16, 10),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(15, 10),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(14, 10),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(13, 10),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(13, 11),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(14, 11),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(15, 11),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(16, 11),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(17, 11),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(17, 12),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(18, 12),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(18, 13),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(18, 14),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(18, 15),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(18, 16),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 16),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(20, 16),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(20, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(18, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(18, 18),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(19, 18),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(20, 18),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(21, 18),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(21, 19),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(21, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(22, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(23, 20),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(24, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 20),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 21),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(25, 22),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 23),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 24),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(25, 25),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(26, 25),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(26, 24),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(26, 23),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(27, 23),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(27, 22),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(27, 21),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(28, 21),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(29, 21),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(29, 20),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(29, 19),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(29, 18),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(30, 18),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(31, 18),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(32, 18),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(32, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(33, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 17),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 16),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 15),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(35, 15),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(35, 14),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(35, 13),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(35, 12),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(35, 11),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(35, 10),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(35, 9),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 9),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 10),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(34, 11),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(34, 12),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(34, 13),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(34, 14),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(33, 14),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(32, 14),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(32, 15),
+        // ResidueType.valueOf(String.valueOf("H"))));
+        // residues.add(new Residue(new Point(33, 15),
+        // ResidueType.valueOf(String.valueOf("P"))));
+        // residues.add(new Residue(new Point(33, 16),
+        // ResidueType.valueOf(String.valueOf("H"))));
+
+        residues.add(new Residue(new Point(2, 4), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(3, 4), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(4, 4), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(5, 4), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(5, 3), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(6, 3), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(7, 3), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(7, 2), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(8, 2), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(8, 3), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(8, 4), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(9, 4), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(10, 4), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(11, 4), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(12, 4), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(13, 4), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(14, 4), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(15, 4), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(15, 5), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(16, 5), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(16, 4), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(17, 4), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(17, 5), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(17, 6), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(17, 7), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(17, 8), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(17, 9), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(17, 10), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(16, 10), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(15, 10), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(14, 10), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(13, 10), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(13, 11), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(14, 11), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(15, 11), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(16, 11), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(17, 11), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(18, 11), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(18, 12), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(18, 13), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(18, 14), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(18, 15), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(18, 16), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(19, 16), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(20, 16), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(20, 17), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(19, 17), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(18, 17), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(18, 18), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(19, 18), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(20, 18), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(21, 18), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(21, 19), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(21, 20), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(22, 20), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(23, 20), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(24, 20), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(25, 20), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(25, 21), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(25, 22), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(25, 23), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(25, 24), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(25, 25), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(26, 25), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(26, 24), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(26, 23), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(27, 23), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(27, 22), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(27, 21), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(28, 21), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(29, 21), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(29, 20), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(29, 19), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(29, 18), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(30, 18), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(31, 18), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(32, 18), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(33, 18), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(33, 17), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(34, 17), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(34, 16), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(35, 16), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(35, 15), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(35, 14), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(35, 13), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(35, 12), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(35, 11), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(35, 10), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(35, 9), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(34, 9), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(34, 10), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(34, 11), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(34, 12), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(34, 13), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(33, 13), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(33, 14), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(34, 14), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(34, 15), ResidueType.valueOf(String.valueOf("H"))));
+        residues.add(new Residue(new Point(33, 15), ResidueType.valueOf(String.valueOf("P"))));
+        residues.add(new Residue(new Point(33, 16), ResidueType.valueOf(String.valueOf("H"))));
+
+        return residues;
+    }
+
+    public static List<Residue> createDefaultReference104(String chain) {
+
+        List<Residue> residues = new ArrayList<Residue>();
+        // residues.add(new Residue(new Point(2, 2),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(0)))));
+        // residues.add(new Residue(new Point(2, 3),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(1)))));
+        // residues.add(new Residue(new Point(2, 4),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(2)))));
+        // residues.add(new Residue(new Point(3, 4),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(3)))));
+        // residues.add(new Residue(new Point(4, 4),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(4)))));
+        // residues.add(new Residue(new Point(4, 3),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(5)))));
+        // residues.add(new Residue(new Point(5, 3),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(6)))));
+        // residues.add(new Residue(new Point(6, 3),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(7)))));
+        // residues.add(new Residue(new Point(7, 3),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(8)))));
+        // residues.add(new Residue(new Point(8, 3),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(9)))));
+        // residues.add(new Residue(new Point(9, 3),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(10)))));
+        // residues.add(new Residue(new Point(9, 4),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(11)))));
+        // residues.add(new Residue(new Point(9, 5),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(12)))));
+        // residues.add(new Residue(new Point(9, 6),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(13)))));
+        // residues.add(new Residue(new Point(10, 6),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(14)))));
+        // residues.add(new Residue(new Point(11, 6),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(15)))));
+        // residues.add(new Residue(new Point(12, 6),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(16)))));
+        // residues.add(new Residue(new Point(13, 6),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(17)))));
+        // residues.add(new Residue(new Point(14, 6),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(18)))));
+        // residues.add(new Residue(new Point(14, 5),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(19)))));
+        // residues.add(new Residue(new Point(15, 5),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(20)))));
+        // residues.add(new Residue(new Point(16, 5),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(21)))));
+        // residues.add(new Residue(new Point(16, 6),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(21)))));
+        // residues.add(new Residue(new Point(16, 7),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(22)))));
+        // residues.add(new Residue(new Point(16, 8),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(23)))));
+        // residues.add(new Residue(new Point(16, 9),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(24)))));
+        // residues.add(new Residue(new Point(16, 10),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(25)))));
+        // residues.add(new Residue(new Point(16, 11),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(26)))));
+        // residues.add(new Residue(new Point(16, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(27)))));
+        // residues.add(new Residue(new Point(15, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(28)))));
+        // residues.add(new Residue(new Point(14, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(29)))));
+        // residues.add(new Residue(new Point(13, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(30)))));
+        // residues.add(new Residue(new Point(12, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(31)))));
+        // residues.add(new Residue(new Point(12, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(32)))));
+        // residues.add(new Residue(new Point(13, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(33)))));
+        // residues.add(new Residue(new Point(14, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(34)))));
+        // residues.add(new Residue(new Point(15, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(35)))));
+        // residues.add(new Residue(new Point(16, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(36)))));
+        // residues.add(new Residue(new Point(17, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(37)))));
+        // residues.add(new Residue(new Point(18, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(38)))));
+        // residues.add(new Residue(new Point(19, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(39)))));
+        // residues.add(new Residue(new Point(19, 14),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(40)))));
+        // residues.add(new Residue(new Point(19, 15),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(41)))));
+        // residues.add(new Residue(new Point(19, 16),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(42)))));
+        // residues.add(new Residue(new Point(19, 17),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(43)))));
+        // residues.add(new Residue(new Point(19, 18),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(44)))));
+        // residues.add(new Residue(new Point(19, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(45)))));
+        // residues.add(new Residue(new Point(18, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(46)))));
+        // residues.add(new Residue(new Point(17, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(47)))));
+        // residues.add(new Residue(new Point(17, 20),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(48)))));
+        // residues.add(new Residue(new Point(18, 20),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(49)))));
+        // residues.add(new Residue(new Point(19, 20),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(50)))));
+        // residues.add(new Residue(new Point(19, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(51)))));
+        // residues.add(new Residue(new Point(20, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(52)))));
+        // residues.add(new Residue(new Point(21, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(53)))));
+        // residues.add(new Residue(new Point(22, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(54)))));
+        // residues.add(new Residue(new Point(23, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(55)))));
+        // residues.add(new Residue(new Point(24, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(56)))));
+        // residues.add(new Residue(new Point(25, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(57)))));
+        // residues.add(new Residue(new Point(25, 22),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(58)))));
+        // residues.add(new Residue(new Point(25, 23),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(59)))));
+        // residues.add(new Residue(new Point(25, 24),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(60)))));
+        // residues.add(new Residue(new Point(25, 25),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(61)))));
+        // residues.add(new Residue(new Point(25, 26),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(62)))));
+        // residues.add(new Residue(new Point(26, 26),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(63)))));
+        // residues.add(new Residue(new Point(27, 26),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(64)))));
+        // residues.add(new Residue(new Point(27, 25),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(65)))));
+        // residues.add(new Residue(new Point(27, 24),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(66)))));
+        // residues.add(new Residue(new Point(27, 23),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(67)))));
+        // residues.add(new Residue(new Point(27, 22),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(68)))));
+        // residues.add(new Residue(new Point(27, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(69)))));
+        // residues.add(new Residue(new Point(28, 21),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(70)))));
+        // residues.add(new Residue(new Point(28, 20),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(71)))));
+        // residues.add(new Residue(new Point(29, 20),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(72)))));
+        // residues.add(new Residue(new Point(29, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(73)))));
+        // residues.add(new Residue(new Point(30, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(74)))));
+        // residues.add(new Residue(new Point(31, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(75)))));
+        // residues.add(new Residue(new Point(32, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(76)))));
+        // residues.add(new Residue(new Point(33, 19),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(77)))));
+        // residues.add(new Residue(new Point(33, 18),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(78)))));
+        // residues.add(new Residue(new Point(33, 17),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(79)))));
+        // residues.add(new Residue(new Point(34, 17),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(80)))));
+        // residues.add(new Residue(new Point(34, 16),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(81)))));
+        // residues.add(new Residue(new Point(34, 15),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(82)))));
+        // residues.add(new Residue(new Point(34, 14),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(83)))));
+        // residues.add(new Residue(new Point(34, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(84)))));
+        // residues.add(new Residue(new Point(34, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(85)))));
+        // residues.add(new Residue(new Point(34, 11),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(86)))));
+        // residues.add(new Residue(new Point(34, 10),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(87)))));
+        // residues.add(new Residue(new Point(33, 10),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(88)))));
+        // residues.add(new Residue(new Point(33, 11),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(89)))));
+        // residues.add(new Residue(new Point(33, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(90)))));
+        // residues.add(new Residue(new Point(33, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(91)))));
+        // residues.add(new Residue(new Point(33, 14),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(92)))));
+        // residues.add(new Residue(new Point(33, 15),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(93)))));
+        // residues.add(new Residue(new Point(33, 16),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(94)))));
+        // residues.add(new Residue(new Point(32, 16),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(95)))));
+        // residues.add(new Residue(new Point(31, 16),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(96)))));
+        // residues.add(new Residue(new Point(30, 16),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(97)))));
+        // residues.add(new Residue(new Point(29, 16),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(98)))));
+        // residues.add(new Residue(new Point(28, 16),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(99)))));
+        // residues.add(new Residue(new Point(28, 15),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(99)))));
+        // residues.add(new Residue(new Point(28, 14),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(100)))));
+        // residues.add(new Residue(new Point(28, 13),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(101)))));
+        // residues.add(new Residue(new Point(28, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(102)))));
+        // residues.add(new Residue(new Point(27, 12),
+        // ResidueType.valueOf(String.valueOf(chain.charAt(103)))));
 
         return residues;
     }
@@ -348,5 +1572,25 @@ public class ResidueUtils {
         residues.add(new Residue(new Point(3, 4), ResidueType.H));
 
         ResidueUtils.translateToOrigin(residues);
+    }
+
+    /**
+     * @param pROTEIN_CHAIN
+     * @return
+     */
+    public static List<Residue> createDefaultReference10(String chain) {
+
+        List<Residue> residues = new ArrayList<Residue>();
+        residues.add(new Residue(new Point(2, 2), ResidueType.valueOf(String.valueOf(chain.charAt(0)))));
+        residues.add(new Residue(new Point(2, 3), ResidueType.valueOf(String.valueOf(chain.charAt(1)))));
+        residues.add(new Residue(new Point(2, 4), ResidueType.valueOf(String.valueOf(chain.charAt(2)))));
+        residues.add(new Residue(new Point(3, 4), ResidueType.valueOf(String.valueOf(chain.charAt(3)))));
+        residues.add(new Residue(new Point(4, 4), ResidueType.valueOf(String.valueOf(chain.charAt(4)))));
+        residues.add(new Residue(new Point(4, 3), ResidueType.valueOf(String.valueOf(chain.charAt(5)))));
+        residues.add(new Residue(new Point(5, 3), ResidueType.valueOf(String.valueOf(chain.charAt(6)))));
+        residues.add(new Residue(new Point(6, 3), ResidueType.valueOf(String.valueOf(chain.charAt(7)))));
+        residues.add(new Residue(new Point(7, 3), ResidueType.valueOf(String.valueOf(chain.charAt(8)))));
+        residues.add(new Residue(new Point(7, 4), ResidueType.valueOf(String.valueOf(chain.charAt(9)))));
+        return residues;
     }
 }
