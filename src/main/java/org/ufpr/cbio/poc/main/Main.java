@@ -25,6 +25,10 @@ public class Main {
     private static final String PROTEIN_CHAIN =
         "PPPPPPHPHHPPPPPHHHPHHHHHPHHPPPPHHPPHHPHHHHHPHHHHHHHHHHPHHPHHHHHHHPPPPPPPPPPPHHHHHHHPPHPHHHPPPPPPHPHH";
 
+    private static final boolean DYNAMIC_CHANGE_REFERENCE = true;
+    private static final int MAX_REFERENCE_CHANGE = 30;
+    private static final int MAX_REPEATED_FITNEES = 10;
+
     // private static final String PROTEIN_CHAIN = "PPPPPPHPHHPPPPPHHHPH";
 
     private static final double CROSSOVER_RATE = 0.9;
@@ -33,7 +37,7 @@ public class Main {
     private static final int SEED = 1;
 
     private static final String FILE_NAME =
-        "C:\\Users\\user\\Desktop\\Mestrado\\UFPR\\Oficina\\PFP - AG\\Planilhas\\residues_%s_pop_%s_generations_%s_crossover_%s_mutation_%s.ods";
+        "C:\\Users\\user\\Desktop\\Mestrado\\UFPR\\Oficina\\PFP - AG\\Planilhas\\__residues_%s_pop_%s_generations_%s_crossover_%s_mutation_%s.ods";
 
     public static void main(String[] args) throws IOException {
 
@@ -42,7 +46,8 @@ public class Main {
         for (int i = 0; i < 1; i++) {
             GeneticAlgorithm geneticAlgorithm =
                 new GeneticAlgorithm(INDIVIDUE_LENGHT, POPULATION_SIZE, GENERATIONS, MUTATION, CROSSOVER, SELECTION,
-                    PROTEIN_CHAIN, CROSSOVER_RATE, MUTATION_RATE, ELITISM_PERCENTAGE, i);
+                    PROTEIN_CHAIN, CROSSOVER_RATE, MUTATION_RATE, ELITISM_PERCENTAGE, i, DYNAMIC_CHANGE_REFERENCE,
+                    MAX_REPEATED_FITNEES, MAX_REFERENCE_CHANGE);
             data.add(geneticAlgorithm.execute());
             System.out.println();
         }

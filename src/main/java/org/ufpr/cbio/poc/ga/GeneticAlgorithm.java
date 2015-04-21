@@ -46,22 +46,29 @@ public class GeneticAlgorithm {
     private int[] FITNESS;
     private Random RANDOM;
 
+    private boolean DINAMICALLY_CHANGE_REFERENCE = false;
+    private int MAX_STABLE_FITNESS = 5;
+    private int MAX_REFERENCE_CHANGES = 10000;
+
     public GeneticAlgorithm() {
 
+        super();
     }
 
     public GeneticAlgorithm(int INDIVIDUE_LENGHT, int POPULATION_SIZE, int GENERATIONS, int MUTATION, int CROSSOVER,
         int SELECTION, String PROTEIN_CHAIN, double CROSSOVER_RATE, double MUTATION_RATE, double ELITISM_PERCENTAGE,
-        int SEED) {
+        int SEED, boolean DINAMICALLY_CHANGE_REFERENCE, int MAX_STABLE_FITNESS, int MAX_REFERENCE_CHANGES) {
 
         this(INDIVIDUE_LENGHT, POPULATION_SIZE, GENERATIONS, MUTATION, CROSSOVER, SELECTION, PROTEIN_CHAIN,
-            CROSSOVER_RATE, MUTATION_RATE, ELITISM_PERCENTAGE, SEED, null);
+            CROSSOVER_RATE, MUTATION_RATE, ELITISM_PERCENTAGE, SEED, null, DINAMICALLY_CHANGE_REFERENCE,
+            MAX_STABLE_FITNESS, MAX_REFERENCE_CHANGES);
 
     }
 
     public GeneticAlgorithm(int INDIVIDUE_LENGHT, int POPULATION_SIZE, int GENERATIONS, int MUTATION, int CROSSOVER,
         int SELECTION, String PROTEIN_CHAIN, double CROSSOVER_RATE, double MUTATION_RATE, double ELITISM_PERCENTAGE,
-        int SEED, List<Residue> residues) {
+        int SEED, List<Residue> residues, boolean DINAMICALLY_CHANGE_REFERENCE, int MAX_STABLE_FITNESS,
+        int MAX_REFERENCE_CHANGES) {
 
         this.INDIVIDUE_LENGHT = INDIVIDUE_LENGHT;
         this.POPULATION_SIZE = POPULATION_SIZE;
@@ -73,6 +80,9 @@ public class GeneticAlgorithm {
         this.MUTATION_RATE = MUTATION_RATE;
         this.ELITISM_PERCENTAGE = ELITISM_PERCENTAGE;
         this.RANDOM = new Random(SEED);
+        this.DINAMICALLY_CHANGE_REFERENCE = DINAMICALLY_CHANGE_REFERENCE;
+        this.MAX_STABLE_FITNESS = MAX_STABLE_FITNESS;
+        this.MAX_REFERENCE_CHANGES = MAX_REFERENCE_CHANGES;
 
         if (residues == null) {
             // Temporary if setup just to be possible to calculate the fitness
@@ -99,7 +109,15 @@ public class GeneticAlgorithm {
             Individue individue = new Individue();
             individue.setMoves(result[i]);
             individue.setFitness(FITNESS[i]);
+            System.out.print("Fitness: " + FITNESS[i] + " ");
+            System.out.println(Arrays.toString(result[i]));
             individues.add(individue);
+        }
+
+        for (int i = 0; i < result.length; i++) {
+            System.out.print("Fitness do vetor: " + FITNESS[i]);
+            System.out.print(" Calculado Fitness: " + calculateIndividueFitness(result[i]));
+            System.out.println(" Individue: " + Arrays.toString(result[i]));
         }
         return individues.stream().collect(Collectors.groupingBy(Individue::getFitness));
 
@@ -114,63 +132,97 @@ public class GeneticAlgorithm {
         calculatePopulationFitness();
 
         // Gerações
+        if (DINAMICALLY_CHANGE_REFERENCE) {
+            int repeatedMaxFitness = 0;
+            int countReferenceChange = 0;
+            int previousBestFitness = getBestFitness();
+            while (countReferenceChange <= MAX_REFERENCE_CHANGES) {
+                if (repeatedMaxFitness > MAX_STABLE_FITNESS) {
+                    repeatedMaxFitness = 0;
+                    int[] bestIndividue = getBestIndividue();
+                    EnumMovements[] movements = ResidueUtils.toMovementsArray(bestIndividue);
+                    Grid grid = new Controller().generateGrid(residues);
+                    for (int i = 0; i < residues.size(); i++) {
+                        Movements.doMovement(residues.get(i), residues, grid, movements[i]);
+                    }
+                    System.out.println("Reference changed using solution with fitness: "
+                        + calculateIndividueFitness(bestIndividue));
+                    countReferenceChange++;
+                }
+                POPULATION = evolvePopulation();
+                int newPopulationBestFitness = getBestFitness();
+                if (newPopulationBestFitness == previousBestFitness) {
+                    repeatedMaxFitness++;
+                }
+                if (previousBestFitness < newPopulationBestFitness) {
+                    previousBestFitness = newPopulationBestFitness;
+                    repeatedMaxFitness = 0;
+                }
+            }
+            System.out.println("Reference changed n " + countReferenceChange);
+            return POPULATION;
+        }
         for (int i = 0; i < GENERATIONS; i++) {
-            System.out.print("Generation: " + i);
+            System.out.println("Generation: " + i);
+            POPULATION = evolvePopulation();
+        }
+        return POPULATION;
 
-            int[][] newPopulation = new int[POPULATION_SIZE][];
-            int startIndex = 0;
-            if (ELITISM_PERCENTAGE != 0) {
-                startIndex = (int) Math.round((ELITISM_PERCENTAGE / 100) * POPULATION_SIZE);
-                if (startIndex % 2 != 0) {
-                    startIndex = startIndex - 1;
-                }
-                int[] bestsIndexes = getBestsIndexes();
-                int[] cloneFitnessArray = cloneArray(FITNESS);
-                for (int j = 0; j < bestsIndexes.length; j++) {
-                    newPopulation[j] = POPULATION[bestsIndexes[j]];
-                    FITNESS[j] = cloneFitnessArray[bestsIndexes[j]];
-                }
+    }
+
+    public int[][] evolvePopulation() {
+
+        int[][] newPopulation = new int[POPULATION_SIZE][];
+        int startIndex = 0;
+        if (ELITISM_PERCENTAGE != 0) {
+            startIndex = (int) Math.round((ELITISM_PERCENTAGE / 100) * POPULATION_SIZE);
+            if (startIndex % 2 != 0) {
+                startIndex = startIndex - 1;
             }
-
-            for (int j = 0; j < ((POPULATION_SIZE - startIndex) / 2); j++) {
-
-                int[][] newIndividue = null;
-                int fitness0 = 0;
-                int fitness1 = 0;
-
-                int[] parent1 = selection();
-                int[] parent2 = selection();
-                if (parent1 == null || parent2 == null) {
-                }
-
-                if (RANDOM.nextDouble() <= CROSSOVER_RATE) {
-                    // Applying crossover using selected parent1 and selected
-                    // parent2
-                    newIndividue = crossover(parent1, parent2);
-                } else {
-                    // Returning the select parent because of the CROSSOVER_RATE
-                    newIndividue = new int[][] { parent1, parent2 };
-                }
-
-                // Mutation
-                newIndividue[0] = mutation(newIndividue[0]);
-                newIndividue[1] = mutation(newIndividue[1]);
-
-                // Evaluating the new individues
-                fitness0 = calculateIndividueFitness(newIndividue[0]);
-                fitness1 = calculateIndividueFitness(newIndividue[1]);
-
-                newPopulation[j * 2 + startIndex] = newIndividue[0];
-                newPopulation[j * 2 + startIndex + 1] = newIndividue[1];
-
-                FITNESS[j * 2 + startIndex] = fitness0;
-                FITNESS[j * 2 + startIndex + 1] = fitness1;
-
+            int[] bestsIndexes = getBestsIndexes();
+            int[] cloneFitnessArray = cloneArray(FITNESS);
+            for (int j = 0; j < bestsIndexes.length; j++) {
+                newPopulation[j] = POPULATION[bestsIndexes[j]];
+                FITNESS[j] = cloneFitnessArray[bestsIndexes[j]];
             }
-            POPULATION = newPopulation;
         }
 
-        return POPULATION;
+        for (int j = 0; j < ((POPULATION_SIZE - startIndex) / 2); j++) {
+
+            int[][] newIndividue = null;
+            int fitness0 = 0;
+            int fitness1 = 0;
+
+            int[] parent1 = selection();
+            int[] parent2 = selection();
+            if (parent1 == null || parent2 == null) {
+            }
+
+            if (RANDOM.nextDouble() <= CROSSOVER_RATE) {
+                // Applying crossover using selected parent1 and selected
+                // parent2
+                newIndividue = crossover(parent1, parent2);
+            } else {
+                // Returning the select parent because of the CROSSOVER_RATE
+                newIndividue = new int[][] { parent1, parent2 };
+            }
+
+            // Mutation
+            newIndividue[0] = mutation(newIndividue[0]);
+            newIndividue[1] = mutation(newIndividue[1]);
+
+            // Evaluating the new individues
+            fitness0 = calculateIndividueFitness(newIndividue[0]);
+            fitness1 = calculateIndividueFitness(newIndividue[1]);
+
+            newPopulation[j * 2 + startIndex] = newIndividue[0];
+            newPopulation[j * 2 + startIndex + 1] = newIndividue[1];
+
+            FITNESS[j * 2 + startIndex] = fitness0;
+            FITNESS[j * 2 + startIndex + 1] = fitness1;
+        }
+        return newPopulation;
+
     }
 
     public int[] getBestsIndexes() {
@@ -209,7 +261,7 @@ public class GeneticAlgorithm {
         }
     }
 
-    private int calculateIndividueFitness(int[] individue) {
+    public int calculateIndividueFitness(int[] individue) {
 
         Controller controller = new Controller();
         List<Residue> cloneResidues = ResidueUtils.cloneResidueList(residues);
