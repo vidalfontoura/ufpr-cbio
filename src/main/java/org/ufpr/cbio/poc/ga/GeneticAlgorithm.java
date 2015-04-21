@@ -28,94 +28,67 @@ public class GeneticAlgorithm {
 
     private static final String CROSSOVER_OPERATION_NOT_SUPPORTED = "The specified %s crossover method isn't supported";
 
-    // Parâmetros
+    // Parameters
     private int INDIVIDUE_LENGHT;
     private int POPULATION_SIZE;
     private int GENERATIONS;
     private int MUTATION;
     private int CROSSOVER;
     private int SELECTION;
-    private String PROTEIN_CHAIN;
     private double CROSSOVER_RATE;
     private double MUTATION_RATE;
     private double ELITISM_PERCENTAGE;
     private List<Residue> residues;
 
-    private int K = 0;
     private int TOURNAMENT_SIZE = 2;
 
     private int[][] POPULATION;
     private int[] FITNESS;
-    private Random random;
+    private Random RANDOM;
+
+    public GeneticAlgorithm() {
+
+    }
 
     public GeneticAlgorithm(int INDIVIDUE_LENGHT, int POPULATION_SIZE, int GENERATIONS, int MUTATION, int CROSSOVER,
         int SELECTION, String PROTEIN_CHAIN, double CROSSOVER_RATE, double MUTATION_RATE, double ELITISM_PERCENTAGE,
         int SEED) {
 
-        super();
+        this(INDIVIDUE_LENGHT, POPULATION_SIZE, GENERATIONS, MUTATION, CROSSOVER, SELECTION, PROTEIN_CHAIN,
+            CROSSOVER_RATE, MUTATION_RATE, ELITISM_PERCENTAGE, SEED, null);
+
+    }
+
+    public GeneticAlgorithm(int INDIVIDUE_LENGHT, int POPULATION_SIZE, int GENERATIONS, int MUTATION, int CROSSOVER,
+        int SELECTION, String PROTEIN_CHAIN, double CROSSOVER_RATE, double MUTATION_RATE, double ELITISM_PERCENTAGE,
+        int SEED, List<Residue> residues) {
+
         this.INDIVIDUE_LENGHT = INDIVIDUE_LENGHT;
         this.POPULATION_SIZE = POPULATION_SIZE;
         this.GENERATIONS = GENERATIONS;
         this.MUTATION = MUTATION;
         this.CROSSOVER = CROSSOVER;
         this.SELECTION = SELECTION;
-        this.PROTEIN_CHAIN = PROTEIN_CHAIN;
         this.CROSSOVER_RATE = CROSSOVER_RATE;
         this.MUTATION_RATE = MUTATION_RATE;
         this.ELITISM_PERCENTAGE = ELITISM_PERCENTAGE;
-        this.random = new Random(SEED);
+        this.RANDOM = new Random(SEED);
 
-        // Temporary if setup just to be possible to calculate the fitness
-        // function Should be replace with the residue reference
-
-        if (PROTEIN_CHAIN.length() == 10) {
-            this.residues = ResidueUtils.createDefaultReference10(PROTEIN_CHAIN);
-        } else if (PROTEIN_CHAIN.length() == 20) {
-            this.residues = ResidueUtils.createDefaultReference20(PROTEIN_CHAIN);
-        } else if (PROTEIN_CHAIN.length() == 100) {
-            this.residues = ResidueUtils.createDefaultReference100(PROTEIN_CHAIN);
+        if (residues == null) {
+            // Temporary if setup just to be possible to calculate the fitness
+            // function Should be replace with the residue reference
+            if (PROTEIN_CHAIN.length() == 10) {
+                this.residues = ResidueUtils.createDefaultReference10(PROTEIN_CHAIN);
+            } else if (PROTEIN_CHAIN.length() == 20) {
+                this.residues = ResidueUtils.createDefaultReference20(PROTEIN_CHAIN);
+            } else if (PROTEIN_CHAIN.length() == 100) {
+                this.residues = ResidueUtils.createDefaultReference100(PROTEIN_CHAIN);
+            } else {
+                throw new UnsupportedOperationException("The only supported chain sizes are 20 and 100 at the moment");
+            }
         } else {
-            throw new UnsupportedOperationException("The only supported chain sizes are 20 and 100 at the moment");
+            this.residues = residues;
         }
-    }
-
-    public GeneticAlgorithm() {
-
-    }
-
-    public int getK() {
-
-        return K;
-    }
-
-    public void setK(int k) {
-
-        K = k;
-    }
-
-    public int getINDIVIDUE_LENGHT() {
-
-        return INDIVIDUE_LENGHT;
-    }
-
-    public int getPOPULATION_SIZE() {
-
-        return POPULATION_SIZE;
-    }
-
-    public int getGENERATIONS() {
-
-        return GENERATIONS;
-    }
-
-    public int getMUTATION() {
-
-        return MUTATION;
-    }
-
-    public int getCROSSOVER() {
-
-        return CROSSOVER;
     }
 
     public Map<Integer, List<Individue>> execute() {
@@ -126,12 +99,8 @@ public class GeneticAlgorithm {
             Individue individue = new Individue();
             individue.setMoves(result[i]);
             individue.setFitness(FITNESS[i]);
-            System.out.print("Fitness: " + FITNESS[i] + " ");
-            System.out.println(Arrays.toString(result[i]));
             individues.add(individue);
         }
-        int[] bestIndividue = getBestIndividue();
-
         return individues.stream().collect(Collectors.groupingBy(Individue::getFitness));
 
     }
@@ -151,25 +120,30 @@ public class GeneticAlgorithm {
             int[][] newPopulation = new int[POPULATION_SIZE][];
             int startIndex = 0;
             if (ELITISM_PERCENTAGE != 0) {
-                startIndex = (int) (ELITISM_PERCENTAGE / 100) * POPULATION_SIZE;
+                startIndex = (int) Math.round((ELITISM_PERCENTAGE / 100) * POPULATION_SIZE);
+                if (startIndex % 2 != 0) {
+                    startIndex = startIndex - 1;
+                }
                 int[] bestsIndexes = getBestsIndexes();
+                int[] cloneFitnessArray = cloneArray(FITNESS);
                 for (int j = 0; j < bestsIndexes.length; j++) {
-                    newPopulation[j] = POPULATION[j];
+                    newPopulation[j] = POPULATION[bestsIndexes[j]];
+                    FITNESS[j] = cloneFitnessArray[bestsIndexes[j]];
                 }
             }
 
-            for (int j = startIndex; j < POPULATION_SIZE / 2; j++) {
+            for (int j = 0; j < ((POPULATION_SIZE - startIndex) / 2); j++) {
 
                 int[][] newIndividue = null;
                 int fitness0 = 0;
                 int fitness1 = 0;
 
-                int[] parent1 = selections();
-                int[] parent2 = selections();
+                int[] parent1 = selection();
+                int[] parent2 = selection();
                 if (parent1 == null || parent2 == null) {
                 }
 
-                if (random.nextDouble() <= CROSSOVER_RATE) {
+                if (RANDOM.nextDouble() <= CROSSOVER_RATE) {
                     // Applying crossover using selected parent1 and selected
                     // parent2
                     newIndividue = crossover(parent1, parent2);
@@ -178,43 +152,35 @@ public class GeneticAlgorithm {
                     newIndividue = new int[][] { parent1, parent2 };
                 }
 
-                // Mutação
+                // Mutation
                 newIndividue[0] = mutation(newIndividue[0]);
                 newIndividue[1] = mutation(newIndividue[1]);
 
-                // Avaliação do novo indivíduo
+                // Evaluating the new individues
                 fitness0 = calculateIndividueFitness(newIndividue[0]);
                 fitness1 = calculateIndividueFitness(newIndividue[1]);
 
-                newPopulation[j * 2] = newIndividue[0];
-                newPopulation[j * 2 + 1] = newIndividue[1];
+                newPopulation[j * 2 + startIndex] = newIndividue[0];
+                newPopulation[j * 2 + startIndex + 1] = newIndividue[1];
 
-                FITNESS[j * 2] = fitness0;
-                FITNESS[j * 2 + 1] = fitness1;
+                FITNESS[j * 2 + startIndex] = fitness0;
+                FITNESS[j * 2 + startIndex + 1] = fitness1;
 
-                // Comparação
-                // POPULATION[j] = selection(j, POPULATION[j], newIndividue);
             }
             POPULATION = newPopulation;
-            int bestFitness = getBestFitness();
-            System.out.println(" Best Fitness: " + bestFitness);
-            System.out.println("Individue:  " + Arrays.toString(getBestIndividue()));
-            System.out.println();
         }
 
         return POPULATION;
     }
 
-    /**
-     * 
-     */
     public int[] getBestsIndexes() {
 
-        return findTopNValues(FITNESS, (int) ELITISM_PERCENTAGE);
+        return findTopNValues(FITNESS, (int) Math.round((ELITISM_PERCENTAGE / 100) * POPULATION_SIZE));
     }
 
-    public int[] findTopNValues(int[] values, int n) {
+    public int[] findTopNValues(int[] fitness, int n) {
 
+        int[] values = cloneArray(fitness);
         int length = values.length;
         int[] indexes = new int[values.length];
         for (int i = 1; i < length; i++) {
@@ -230,7 +196,6 @@ public class GeneticAlgorithm {
                 indexes[curPos] = i;
             }
         }
-
         return Arrays.copyOf(indexes, n);
     }
 
@@ -239,7 +204,7 @@ public class GeneticAlgorithm {
         POPULATION = new int[POPULATION_SIZE][INDIVIDUE_LENGHT];
         for (int i = 0; i < POPULATION_SIZE; i++) {
             for (int j = 0; j < INDIVIDUE_LENGHT; j++) {
-                POPULATION[i][j] = random.nextInt(2);
+                POPULATION[i][j] = RANDOM.nextInt(2);
             }
         }
     }
@@ -247,13 +212,13 @@ public class GeneticAlgorithm {
     private int calculateIndividueFitness(int[] individue) {
 
         Controller controller = new Controller();
-        Grid grid = controller.generateGrid(residues);
+        List<Residue> cloneResidues = ResidueUtils.cloneResidueList(residues);
+        Grid grid = controller.generateGrid(cloneResidues);
         EnumMovements[] movements = ResidueUtils.toMovementsArray(individue);
-
-        for (int i = 0; i < individue.length; i++) {
-            Movements.doMovement(residues.get(i), residues, grid, movements[i]);
+        for (int i = 0; i < cloneResidues.size(); i++) {
+            Movements.doMovement(cloneResidues.get(i), cloneResidues, grid, movements[i]);
         }
-        return ResidueUtils.getTopologyContacts(residues, grid).size();
+        return ResidueUtils.getTopologyContacts(cloneResidues, grid).size();
 
     }
 
@@ -267,7 +232,7 @@ public class GeneticAlgorithm {
 
     public int[][] crossover(int[] parent1, int[] parent2) {
 
-        // TODO Faz o crossover passado como parâmetro
+        // Apply the crossover by the given parameter
         switch (CROSSOVER) {
             case 1:
                 return onePointCrossover(parent1, parent2);
@@ -297,11 +262,11 @@ public class GeneticAlgorithm {
 
         int point1, point2;
 
-        // garante que pelo menos haja 2 pontos diferentes sendo p1 < p2
-        point1 = random.nextInt(INDIVIDUE_LENGHT - 1);
+        // Ensure that the two points are different p1 < p2
+        point1 = RANDOM.nextInt(INDIVIDUE_LENGHT - 1);
 
         do {
-            point2 = random.nextInt(INDIVIDUE_LENGHT);
+            point2 = RANDOM.nextInt(INDIVIDUE_LENGHT);
         } while (point1 > point2);
 
         int[] newIndividue1 = new int[INDIVIDUE_LENGHT];
@@ -321,7 +286,7 @@ public class GeneticAlgorithm {
         int[] newIndividue2 = new int[INDIVIDUE_LENGHT];
 
         for (int i = 0; i < newIndividue1.length; i++) {
-            int rand = random.nextInt(2);
+            int rand = RANDOM.nextInt(2);
             newIndividue1[i] = (rand == 0) ? individue1[i] : individue2[i];
             newIndividue2[i] = (rand == 0) ? individue2[i] : individue1[i];
 
@@ -331,7 +296,7 @@ public class GeneticAlgorithm {
 
     private int[] mutation(int[] individue) {
 
-        // TODO Faz a mutação passada como parâmetro
+        // Apply the mutation by the given parameter
         switch (MUTATION) {
             case 1:
                 return bitStringMutation(individue);
@@ -340,59 +305,46 @@ public class GeneticAlgorithm {
             case 3:
                 return orderChangingMutation(individue);
             default:
-                // TODO exception valor inválido
+                // TODO: Throw exception
                 return null;
         }
     }
 
     private int[] bitStringMutation(int[] individue) {
 
-        for (int i = 0; i < individue.length; i++) {
-            if (random.nextDouble() <= MUTATION_RATE) {
-                individue[i] = (individue[i] == 0) ? 1 : 0;
+        int[] newIndividue = cloneArray(individue);
+        for (int i = 0; i < newIndividue.length; i++) {
+            if (RANDOM.nextDouble() <= MUTATION_RATE) {
+                newIndividue[i] = (newIndividue[i] == 0) ? 1 : 0;
             }
         }
-        return individue;
+        return newIndividue;
     }
 
     private int[] flipBitMutation(int[] individue) {
 
-        for (int i = 0; i < individue.length; i++) {
-            individue[i] = (individue[i] == 0) ? 1 : 0;
+        int[] newIndividue = cloneArray(individue);
+        for (int i = 0; i < newIndividue.length; i++) {
+            newIndividue[i] = (newIndividue[i] == 0) ? 1 : 0;
         }
-        return individue;
+        return newIndividue;
     }
 
     private int[] orderChangingMutation(int[] individue) {
 
+        int[] newIndividue = cloneArray(individue);
         int pos1, pos2;
-        pos1 = random.nextInt(INDIVIDUE_LENGHT);
+        pos1 = RANDOM.nextInt(INDIVIDUE_LENGHT);
 
         do {
-            pos2 = random.nextInt(INDIVIDUE_LENGHT);
+            pos2 = RANDOM.nextInt(INDIVIDUE_LENGHT);
         } while (pos2 == pos1);
 
-        int aux = individue[pos1];
-        individue[pos1] = individue[pos2];
-        individue[pos2] = aux;
+        int aux = newIndividue[pos1];
+        newIndividue[pos1] = newIndividue[pos2];
+        newIndividue[pos2] = aux;
 
-        return individue;
-    }
-
-    // TODO: THis is being done at the end of the algorithm
-    private int[] selection(int index, int[] oldIndividue, int[] newIndividue) {
-
-        // TODO Compara o antigo e o novo individuo e retorna o melhor
-
-        int oldFit = calculateIndividueFitness(oldIndividue);
-        int newFit = calculateIndividueFitness(newIndividue);
-
-        if (newFit > oldFit) {
-            FITNESS[index] = newFit;
-            return newIndividue;
-        }
-
-        return oldIndividue;
+        return newIndividue;
     }
 
     private int[] getBestIndividue() {
@@ -431,16 +383,16 @@ public class GeneticAlgorithm {
         System.out.println();
     }
 
-    public int[] selections() {
+    public int[] selection() {
 
         switch (SELECTION) {
         // Tournament Selection
             case 1:
                 Set<Integer> tournamentSet = new HashSet<>();
                 for (int i = 0; i < TOURNAMENT_SIZE; i++) {
-                    boolean added = tournamentSet.add(random.nextInt(POPULATION_SIZE));
+                    boolean added = tournamentSet.add(RANDOM.nextInt(POPULATION_SIZE));
                     while (!added) {
-                        added = tournamentSet.add(random.nextInt(POPULATION_SIZE));
+                        added = tournamentSet.add(RANDOM.nextInt(POPULATION_SIZE));
                     }
                 }
 
@@ -457,5 +409,14 @@ public class GeneticAlgorithm {
             default:
                 throw new UnsupportedOperationException("This operation isn't supported yet");
         }
+    }
+
+    public int[] cloneArray(int[] fitness) {
+
+        int[] clone = new int[fitness.length];
+        for (int i = 0; i < fitness.length; i++) {
+            clone[i] = fitness[i];
+        }
+        return clone;
     }
 }
