@@ -67,6 +67,14 @@ public class GeneticAlgorithm {
 
     public GeneticAlgorithm(int INDIVIDUE_LENGHT, int POPULATION_SIZE, int GENERATIONS, int MUTATION, int CROSSOVER,
         int SELECTION, String PROTEIN_CHAIN, double CROSSOVER_RATE, double MUTATION_RATE, double ELITISM_PERCENTAGE,
+        int SEED, List<Residue> residues) {
+
+        this(INDIVIDUE_LENGHT, POPULATION_SIZE, GENERATIONS, MUTATION, CROSSOVER, SELECTION, PROTEIN_CHAIN,
+            CROSSOVER_RATE, MUTATION_RATE, ELITISM_PERCENTAGE, SEED, residues, false, 0, 0);
+    }
+
+    public GeneticAlgorithm(int INDIVIDUE_LENGHT, int POPULATION_SIZE, int GENERATIONS, int MUTATION, int CROSSOVER,
+        int SELECTION, String PROTEIN_CHAIN, double CROSSOVER_RATE, double MUTATION_RATE, double ELITISM_PERCENTAGE,
         int SEED, List<Residue> residues, boolean DINAMICALLY_CHANGE_REFERENCE, int MAX_STABLE_FITNESS,
         int MAX_REFERENCE_CHANGES) {
 

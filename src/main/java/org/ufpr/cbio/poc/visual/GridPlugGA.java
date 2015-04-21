@@ -58,7 +58,7 @@ public class GridPlugGA {
 
     private static final int INDIVIDUE_LENGHT = 100;
     private static final int POPULATION_SIZE = 20;
-    private static final int GENERATIONS = 3000;
+    private static final int GENERATIONS = 1000;
     private static final int MUTATION = 3;
     private static final int CROSSOVER = 3;
     private static final int SELECTION = 1;
@@ -70,7 +70,7 @@ public class GridPlugGA {
     private static final int ELITISM_PERCENTAGE = 10;
     private static final int SEED = 1;
 
-    private static final boolean DYNAMIC_CHANGE_REFERENCE = true;
+    private static final boolean DYNAMIC_CHANGE_REFERENCE = false;
     private static final int MAX_REFERENCE_CHANGE = 20;
     private static final int MAX_REPEATED_FITNEES = 5;
 
@@ -220,6 +220,13 @@ public class GridPlugGA {
         runGAButton.addActionListener(listener -> {
             Runnable task =
                 () -> {
+                    // GeneticAlgorithm geneticAlgorithm =
+                    // new GeneticAlgorithm(INDIVIDUE_LENGHT, POPULATION_SIZE,
+                    // GENERATIONS, MUTATION, CROSSOVER,
+                    // SELECTION, PROTEIN_CHAIN, CROSSOVER_RATE, MUTATION_RATE,
+                    // ELITISM_PERCENTAGE, SEED,
+                    // residues);
+
                     GeneticAlgorithm geneticAlgorithm =
                         new GeneticAlgorithm(INDIVIDUE_LENGHT, POPULATION_SIZE, GENERATIONS, MUTATION, CROSSOVER,
                             SELECTION, PROTEIN_CHAIN, CROSSOVER_RATE, MUTATION_RATE, ELITISM_PERCENTAGE, SEED,
