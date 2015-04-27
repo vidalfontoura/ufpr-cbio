@@ -50,7 +50,7 @@ public class OutputCSVWriter {
 
                 Map<Integer, List<Individue>> map = data.get(i);
                 sb = new StringBuilder();
-                sb.append("Test " + i + ",");
+                sb.append("Seed " + i + ",");
                 for (Integer value : map.keySet()) {
                     int size = map.get(value).size();
                     sb.append(size);
@@ -59,6 +59,16 @@ public class OutputCSVWriter {
                 }
                 sb.deleteCharAt(sb.length() - 1);
                 writer.writeNext(sb.toString().split(","));
+
+                // sb = new StringBuilder();
+                // sb.append("distinct" + i + ",");
+                // for (Integer value : map.keySet()) {
+                // int size = Sets.newHashSet(map.get(value)).size();
+                // sb.append(size);
+                // sb.append(",");
+                // }
+                // sb.deleteCharAt(sb.length() - 1);
+                // writer.writeNext(sb.toString().split(","));
 
             }
         }

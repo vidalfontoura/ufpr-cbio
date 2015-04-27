@@ -57,22 +57,25 @@ public class GridPlugGA {
     private static List<Residue> residuesInitial;
 
     private static final int INDIVIDUE_LENGHT = 100;
-    private static final int POPULATION_SIZE = 20;
+    private static final int POPULATION_SIZE = 500;
     private static final int GENERATIONS = 1000;
-    private static final int MUTATION = 3;
+    private static final int MUTATION = 1;
     private static final int CROSSOVER = 3;
     private static final int SELECTION = 1;
+    // private static final String PROTEIN_CHAIN =
+    // "PPPPPPHPHHPPPPPHHHPHHHHHPHHPPPPHHPPHHPHHHHHPHHHHHHHHHHPHHPHHHHHHHPPPPPPPPPPPHHHHHHHPPHPHHHPPPPPPHPHH";
+
     private static final String PROTEIN_CHAIN =
-        "PPPPPPHPHHPPPPPHHHPHHHHHPHHPPPPHHPPHHPHHHHHPHHHHHHHHHHPHHPHHHHHHHPPPPPPPPPPPHHHHHHHPPHPHHHPPPPPPHPHH";
+        "HHPHHHPPPHHHHPHPHPHHHPPPPPHHHHHHHHPPPPPPHHHHHPPPHHHHHHPPPHHHPPPHHHHHPPPHHHHHPPPPHHHHPPPHHHHHPPPHHHHH";
 
     private static final double CROSSOVER_RATE = 0.9;
-    private static final double MUTATION_RATE = 0.095;
+    private static final double MUTATION_RATE = 0.05;
     private static final int ELITISM_PERCENTAGE = 10;
     private static final int SEED = 1;
 
-    private static final boolean DYNAMIC_CHANGE_REFERENCE = false;
-    private static final int MAX_REFERENCE_CHANGE = 20;
-    private static final int MAX_REPEATED_FITNEES = 5;
+    private static final boolean DYNAMIC_CHANGE_REFERENCE = true;
+    private static final int MAX_REFERENCE_CHANGE = 30;
+    private static final int MAX_REPEATED_FITNEES = 100;
 
     public static void addComponentsToPane(Container pane, List<Residue> residuesList, Grid grid) {
 
@@ -127,72 +130,72 @@ public class GridPlugGA {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 0;
-        pane.add(crossOverLabel, c);
+        // pane.add(crossOverLabel, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.5;
         c.gridx = 1;
         c.gridy = 0;
-        pane.add(crossoverComboBox, c);
+        // pane.add(crossoverComboBox, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 2;
         c.gridy = 0;
-        pane.add(crossOverRateLabel, c);
+        // pane.add(crossOverRateLabel, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.5;
         c.gridx = 3;
         c.gridy = 0;
-        pane.add(crossOverRateField, c);
+        // pane.add(crossOverRateField, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.5;
         c.gridx = 4;
         c.gridy = 0;
-        pane.add(mutationLabel, c);
+        // pane.add(mutationLabel, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.5;
         c.gridx = 5;
         c.gridy = 0;
-        pane.add(mutationComboBox, c);
+        // pane.add(mutationComboBox, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.5;
         c.gridx = 6;
         c.gridy = 0;
-        pane.add(selectionLabel, c);
+        // pane.add(selectionLabel, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.5;
         c.gridx = 7;
         c.gridy = 0;
-        pane.add(selectionComboBox, c);
+        // pane.add(selectionComboBox, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.5;
         c.gridx = 0;
         c.gridy = 1;
-        pane.add(populationLabel, c);
+        // pane.add(populationLabel, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.5;
         c.gridx = 1;
         c.gridy = 1;
-        pane.add(populationTextField, c);
+        // pane.add(populationTextField, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.5;
         c.gridx = 2;
         c.gridy = 1;
-        pane.add(generationsLabel, c);
+        // pane.add(generationsLabel, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.5;
         c.gridx = 3;
         c.gridy = 1;
-        pane.add(genTextField, c);
+        // pane.add(genTextField, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.5;
@@ -203,6 +206,12 @@ public class GridPlugGA {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.5;
         c.gridx = 5;
+        c.gridy = 1;
+        pane.add(resetButton, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.5;
+        c.gridx = 6;
         c.gridy = 1;
         pane.add(energyLabel, c);
 
@@ -332,7 +341,7 @@ public class GridPlugGA {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        residues = ResidueUtils.createDefaultReference100_1(PROTEIN_CHAIN);
+        residues = ResidueUtils.createDefaultReference100(PROTEIN_CHAIN);
 
         Controller controller = new Controller();
         residues = ResidueUtils.translateToOrigin(residues);

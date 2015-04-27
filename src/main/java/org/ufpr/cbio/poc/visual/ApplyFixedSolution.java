@@ -38,6 +38,12 @@ import org.ufpr.cbio.poc.utils.ResidueUtils;
  */
 public class ApplyFixedSolution {
 
+    private static final String PROTEIN_CHAIN =
+        "HHPHHHPPPHHHHPHPHPHHHPPPPPHHHHHHHHPPPPPPHHHHHPPPHHHHHHPPPHHHPPPHHHHHPPPHHHHHPPPPHHHHPPPHHHHHPPPHHHHH";
+
+    // private static final String PROTEIN_CHAIN =
+    // "PPPPPPHPHHPPPPPHHHPHHHHHPHHPPPPHHPPHHPHHHHHPHHHHHHHHHHPHHPHHHHHHHPPPPPPPPPPPHHHHHHHPPHPHHHPPPPPPHPHH"
+
     private static final int SCREEN_SIZE = 600;
     private static final int MIN_SIZE_FACTOR = 20;
     private static final int MAX_SIZE_SCROLL_PANEL = 500;
@@ -121,7 +127,7 @@ public class ApplyFixedSolution {
                         Movements.doMovement(residue, residuesList, generateGrid, movementsArray[i]);
                         jScrollPane.repaint();
                         try {
-                            Thread.sleep(100);
+                            Thread.sleep(10);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -210,9 +216,7 @@ public class ApplyFixedSolution {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        residues =
-            ResidueUtils
-                .createDefaultReference100("PPPPPPHPHHPPPPPHHHPHHHHHPHHPPPPHHPPHHPHHHHHPHHHHHHHHHHPHHPHHHHHHHPPPPPPPPPPPHHHHHHHPPHPHHHPPPPPPHPHH");
+        residues = ResidueUtils.createDefaultReference100(PROTEIN_CHAIN);
 
         // residues =
         // ResidueUtils.createDefaultReference20("HHPHHHPPPHHHHPHPHPHHH");

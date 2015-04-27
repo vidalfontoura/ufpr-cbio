@@ -46,9 +46,9 @@ public class GeneticAlgorithm {
     private int[] FITNESS;
     private Random RANDOM;
 
-    private boolean DINAMICALLY_CHANGE_REFERENCE = false;
-    private int MAX_STABLE_FITNESS = 5;
-    private int MAX_REFERENCE_CHANGES = 10000;
+    private boolean DINAMICALLY_CHANGE_REFERENCE;
+    private int MAX_STABLE_FITNESS;
+    private int MAX_REFERENCE_CHANGES;
 
     public GeneticAlgorithm() {
 
@@ -144,8 +144,16 @@ public class GeneticAlgorithm {
             int repeatedMaxFitness = 0;
             int countReferenceChange = 0;
             int previousBestFitness = getBestFitness();
+            int generations = 0;
+            int currentFitness = 0;
             while (countReferenceChange <= MAX_REFERENCE_CHANGES) {
-                if (repeatedMaxFitness > MAX_STABLE_FITNESS) {
+                if (repeatedMaxFitness > MAX_STABLE_FITNESS /**
+                 * &&
+                 * getBestFitness() >= currentFitness
+                 */
+                ) {
+                    int[][] backupPopulation = POPULATION;
+                    System.out.println("Changing from " + currentFitness + " to " + getBestFitness());
                     repeatedMaxFitness = 0;
                     int[] bestIndividue = getBestIndividue();
                     EnumMovements[] movements = ResidueUtils.toMovementsArray(bestIndividue);
@@ -153,26 +161,42 @@ public class GeneticAlgorithm {
                     for (int i = 0; i < residues.size(); i++) {
                         Movements.doMovement(residues.get(i), residues, grid, movements[i]);
                     }
-                    System.out.println("Reference changed using solution with fitness: "
-                        + calculateIndividueFitness(bestIndividue));
+                    currentFitness = ResidueUtils.getTopologyContacts(residues, grid).size();
+                    System.out.println("Reference changed using solution with fitness: " + currentFitness);
+
+                    generateInitialPopulation();
+
+                    calculatePopulationFitness();
+                    // TODO: Check this with aurora
+                    if (getBestFitness() < currentFitness) {
+                        POPULATION = backupPopulation;
+                        calculatePopulationFitness();
+
+                    }
                     countReferenceChange++;
+
+                    generations = 0;
+
                 }
                 POPULATION = evolvePopulation();
+                generations++;
+                System.out.println("Generations: " + generations + " Best Fitness " + getBestFitness());
                 int newPopulationBestFitness = getBestFitness();
-                if (newPopulationBestFitness == previousBestFitness) {
+                if (newPopulationBestFitness <= previousBestFitness) {
                     repeatedMaxFitness++;
-                }
-                if (previousBestFitness < newPopulationBestFitness) {
+                } else {
                     previousBestFitness = newPopulationBestFitness;
                     repeatedMaxFitness = 0;
+
                 }
+
             }
-            System.out.println("Reference changed n " + countReferenceChange);
             return POPULATION;
         }
         for (int i = 0; i < GENERATIONS; i++) {
-            System.out.println("Generation: " + i);
+            System.out.print("Generation: " + i);
             POPULATION = evolvePopulation();
+            System.out.println(" Best Fitness: " + getBestFitness());
         }
         return POPULATION;
 
@@ -197,34 +221,32 @@ public class GeneticAlgorithm {
 
         for (int j = 0; j < ((POPULATION_SIZE - startIndex) / 2); j++) {
 
-            int[][] newIndividue = null;
+            int[][] newIndividues = null;
             int fitness0 = 0;
             int fitness1 = 0;
 
             int[] parent1 = selection();
             int[] parent2 = selection();
-            if (parent1 == null || parent2 == null) {
-            }
 
             if (RANDOM.nextDouble() <= CROSSOVER_RATE) {
                 // Applying crossover using selected parent1 and selected
                 // parent2
-                newIndividue = crossover(parent1, parent2);
+                newIndividues = crossover(parent1, parent2);
             } else {
                 // Returning the select parent because of the CROSSOVER_RATE
-                newIndividue = new int[][] { parent1, parent2 };
+                newIndividues = new int[][] { parent1, parent2 };
             }
 
             // Mutation
-            newIndividue[0] = mutation(newIndividue[0]);
-            newIndividue[1] = mutation(newIndividue[1]);
+            newIndividues[0] = mutation(newIndividues[0]);
+            newIndividues[1] = mutation(newIndividues[1]);
 
             // Evaluating the new individues
-            fitness0 = calculateIndividueFitness(newIndividue[0]);
-            fitness1 = calculateIndividueFitness(newIndividue[1]);
+            fitness0 = calculateIndividueFitness(newIndividues[0]);
+            fitness1 = calculateIndividueFitness(newIndividues[1]);
 
-            newPopulation[j * 2 + startIndex] = newIndividue[0];
-            newPopulation[j * 2 + startIndex + 1] = newIndividue[1];
+            newPopulation[j * 2 + startIndex] = newIndividues[0];
+            newPopulation[j * 2 + startIndex + 1] = newIndividues[1];
 
             FITNESS[j * 2 + startIndex] = fitness0;
             FITNESS[j * 2 + startIndex + 1] = fitness1;
@@ -245,7 +267,7 @@ public class GeneticAlgorithm {
         int[] indexes = new int[values.length];
         for (int i = 1; i < length; i++) {
             int curPos = i;
-            while ((curPos > 0) && (values[i] > values[curPos - 1])) {
+            while ((curPos > 0) && (values[i] >= values[curPos - 1])) {
                 curPos--;
             }
 
@@ -359,18 +381,16 @@ public class GeneticAlgorithm {
         // Apply the mutation by the given parameter
         switch (MUTATION) {
             case 1:
-                return bitStringMutation(individue);
+                return bitFlipMutation(individue);
             case 2:
-                return flipBitMutation(individue);
-            case 3:
-                return orderChangingMutation(individue);
+                return swapMutation(individue);
             default:
                 // TODO: Throw exception
                 return null;
         }
     }
 
-    private int[] bitStringMutation(int[] individue) {
+    private int[] bitFlipMutation(int[] individue) {
 
         int[] newIndividue = cloneArray(individue);
         for (int i = 0; i < newIndividue.length; i++) {
@@ -381,16 +401,7 @@ public class GeneticAlgorithm {
         return newIndividue;
     }
 
-    private int[] flipBitMutation(int[] individue) {
-
-        int[] newIndividue = cloneArray(individue);
-        for (int i = 0; i < newIndividue.length; i++) {
-            newIndividue[i] = (newIndividue[i] == 0) ? 1 : 0;
-        }
-        return newIndividue;
-    }
-
-    private int[] orderChangingMutation(int[] individue) {
+    private int[] swapMutation(int[] individue) {
 
         int[] newIndividue = cloneArray(individue);
         int pos1, pos2;
