@@ -42,7 +42,7 @@ public class GeneticAlgorithmTest {
         int crossoverMethod = 1;
         GeneticAlgorithm geneticAlgorithm =
             new GeneticAlgorithm(INDIVIDUE_LENGTH, 0, 0, 0, crossoverMethod, 0, PROTEIN_CHAIN, crossoverRate, 0, 0.0,
-                SEED1);
+                SEED1, false, 0, 0);
 
         String expectedChild0 = "[0, 0, 0, 0, 0, 1, 1, 1, 1, 1]";
         String expectedChild1 = "[1, 1, 1, 1, 1, 0, 0, 0, 0, 0]";
@@ -68,7 +68,7 @@ public class GeneticAlgorithmTest {
         int crossoverMethod = 2;
         GeneticAlgorithm geneticAlgorithm =
             new GeneticAlgorithm(INDIVIDUE_LENGTH, 0, 0, 0, crossoverMethod, 0, PROTEIN_CHAIN, crossoverRate, 0, 0.0,
-                SEED1);
+                SEED1, false, 0, 0);
 
         String expectedChild0 = "[0, 0, 0, 0, 0, 0, 1, 1, 1, 0]";
         String expectedChild1 = "[1, 1, 1, 1, 1, 1, 0, 0, 0, 1]";
@@ -97,7 +97,7 @@ public class GeneticAlgorithmTest {
         int crossoverMethod = 2;
         GeneticAlgorithm geneticAlgorithm =
             new GeneticAlgorithm(INDIVIDUE_LENGTH, 0, 0, 0, crossoverMethod, 0, PROTEIN_CHAIN, crossoverRate, 0, 0.0,
-                SEED2);
+                SEED2, false, 0, 0);
 
         String expectedChild0 = "[0, 0, 0, 0, 1, 1, 1, 1, 0, 0]";
         String expectedChild1 = "[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]";
@@ -127,7 +127,7 @@ public class GeneticAlgorithmTest {
         int crossoverMethod = 3;
         GeneticAlgorithm geneticAlgorithm =
             new GeneticAlgorithm(INDIVIDUE_LENGTH, 0, 0, 0, crossoverMethod, 0, PROTEIN_CHAIN, crossoverRate, 0, 0.0,
-                SEED1);
+                SEED1, false, 0, 0);
 
         String expectedChild0 = "[1, 0, 0, 0, 0, 0, 0, 1, 1, 1]";
         String expectedChild1 = "[0, 1, 1, 1, 1, 1, 1, 0, 0, 0]";
@@ -157,7 +157,7 @@ public class GeneticAlgorithmTest {
         int crossoverMethod = 3;
         GeneticAlgorithm geneticAlgorithm =
             new GeneticAlgorithm(INDIVIDUE_LENGTH, 0, 0, 0, crossoverMethod, 0, PROTEIN_CHAIN, crossoverRate, 0, 0.0,
-                SEED2);
+                SEED2, false, 0, 0);
 
         String expectedChild0 = "[1, 0, 1, 0, 0, 1, 1, 0, 1, 1]";
 
@@ -188,7 +188,7 @@ public class GeneticAlgorithmTest {
         int crossoverMethod = 3;
         GeneticAlgorithm geneticAlgorithm =
             new GeneticAlgorithm(INDIVIDUE_LENGTH, 0, 0, 0, crossoverMethod, 0, PROTEIN_CHAIN, crossoverRate, 0, 0.0,
-                SEED2);
+                SEED2, false, 0, 0);
 
         String expectedChild0 = "[0, 1, 0, 1, 1, 0, 0, 1, 0, 0]";
 
