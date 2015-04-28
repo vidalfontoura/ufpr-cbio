@@ -46,29 +46,22 @@ public class OutputCSVWriter {
             sb.deleteCharAt(sb.length() - 1);
             writer.writeNext(sb.toString().split(","));
 
-            for (int i = 0; i < data.size(); i++) {
-
-                Map<Integer, List<Individue>> map = data.get(i);
+            for (int j = 0; j < data.size(); j++) {
                 sb = new StringBuilder();
-                sb.append("Seed " + i + ",");
-                for (Integer value : map.keySet()) {
-                    int size = map.get(value).size();
+                sb.append("Seed " + j + ",");
+                Map<Integer, List<Individue>> map = data.get(j);
+                for (int i = minColumn; i <= maxColumn; i++) {
+                    List<Individue> list = map.get(i);
+                    int size = 0;
+                    if (list != null) {
+                        size = list.size();
+                    }
                     sb.append(size);
                     sb.append(",");
 
                 }
                 sb.deleteCharAt(sb.length() - 1);
                 writer.writeNext(sb.toString().split(","));
-
-                // sb = new StringBuilder();
-                // sb.append("distinct" + i + ",");
-                // for (Integer value : map.keySet()) {
-                // int size = Sets.newHashSet(map.get(value)).size();
-                // sb.append(size);
-                // sb.append(",");
-                // }
-                // sb.deleteCharAt(sb.length() - 1);
-                // writer.writeNext(sb.toString().split(","));
 
             }
         }
