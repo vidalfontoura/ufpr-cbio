@@ -1,20 +1,13 @@
-/*
- * Copyright 2015, Charter Communications, All rights reserved.
- */
 package org.ufpr.cbio.poc.main;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-import org.ufpr.cbio.poc.domain.GeneticAlgorithm;
-import org.ufpr.cbio.poc.domain.Grid;
-import org.ufpr.cbio.poc.domain.Protein;
-import org.ufpr.cbio.poc.domain.Residue;
-import org.ufpr.cbio.poc.domain.Residue.Point;
-import org.ufpr.cbio.poc.utils.Controller;
-import org.ufpr.cbio.poc.utils.EnumMovements;
-import org.ufpr.cbio.poc.utils.Movements;
-import org.ufpr.cbio.poc.view.Visualization;
+import org.ufpr.cbio.poc.ga.GeneticAlgorithm;
+import org.ufpr.cbio.poc.ga.Individue;
+import org.ufpr.cbio.poc.writer.OutputCSVWriter;
 
 /**
  *
@@ -23,37 +16,44 @@ import org.ufpr.cbio.poc.view.Visualization;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    private static final int INDIVIDUE_LENGHT = 100;
+    private static final int POPULATION_SIZE = 500;
+    private static final int GENERATIONS = 1000;
+    private static final int MUTATION = 1;
+    private static final int CROSSOVER = 3;
+    private static final int SELECTION = 1;
+    // private static final String PROTEIN_CHAIN =
+    // "PPPPPPHPHHPPPPPHHHPHHHHHPHHPPPPHHPPHHPHHHHHPHHHHHHHHHHPHHPHHHHHHHPPPPPPPPPPPHHHHHHHPPHPHHHPPPPPPHPHH";
+    private static final String PROTEIN_CHAIN =
+        "HHPHHHPPPHHHHPHPHPHHHPPPPPHHHHHHHHPPPPPPHHHHHPPPHHHHHHPPPHHHPPPHHHHHPPPHHHHHPPPPHHHHPPPHHHHHPPPHHHHH";
 
-        Controller c = new Controller();
-        Protein protein = new Protein();
-        
-//        protein = c.parseInput("HHHHHH", new Integer[]{0, 2, 2, 0});//TOP1
-//        protein = c.parseInput("PHHPHPPP", new Integer[]{2, 1, 2, 2, 0, 0});//TOP2
-//        protein = c.parseInput("HPPPPPPPPPPPPPPPPPPPPPPPPH");//verificar
-//        protein = c.parseInput("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-        protein = c.parseInput("HPHPPHPHHHPHPHPHHPHPPHHPPH", new Integer[]{0,2,2,0,1,1,2,1,2,0,2,2,0,0,1,1,0,2,2,1,0,0,2,0});
-//        protein = c.parseInput("HHHHHHHHH", new Integer[]{1, 2, 1, 2, 1, 2, 2});
-        
-        List<Point> points = new ArrayList<Point>();
-        points.add(new Point(0,0));
-        points.add(new Point(0,1));
-        points.add(new Point(1,1));
-        points.add(new Point(1,0));
-        points.add(new Point(2,0));
-//        protein = c.parseInput("HHHHH", points);
-        
-        Grid g = c.generateGrid(protein.getResidues());
-        
-        //VISUALIZAÇÃO
-//        Visualization v = new Visualization();
-//        v.showStructure(protein);
-////        
-//        Integer[] mov = new Integer[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-//        Controller.executeMovements(protein, mov);
-        
-        GeneticAlgorithm ga = new GeneticAlgorithm(6, 10, 1, 1, 1);
-        ga.executeAlgorithm();
+    private static final boolean DYNAMIC_CHANGE_REFERENCE = true;
+    private static final int MAX_REFERENCE_CHANGE = 30;
+    private static final int MAX_REPEATED_FITNEES = 100;
+
+    private static final double CROSSOVER_RATE = 0.9;
+    private static final double MUTATION_RATE = 0.05;
+    private static final int ELITISM_PERCENTAGE = 10;
+
+    private static final String FILE_NAME =
+        "C:\\Users\\user\\Desktop\\Mestrado\\UFPR\\Oficina\\PFP - AG\\Relatorio\\residues_%s_pop_%s_generations_%s_crossover_%s_crossrate_%s_mutation_%s_mutationrate_%s_referencechange_%s_.ods";
+
+    public static void main(String[] args) throws IOException {
+
+        OutputCSVWriter csvWriter = new OutputCSVWriter();
+        List<Map<Integer, List<Individue>>> data = new ArrayList<>();
+        for (int i = 0; i < 30; i++) {
+            GeneticAlgorithm geneticAlgorithm =
+                new GeneticAlgorithm(INDIVIDUE_LENGHT, POPULATION_SIZE, GENERATIONS, MUTATION, CROSSOVER, SELECTION,
+                    PROTEIN_CHAIN, CROSSOVER_RATE, MUTATION_RATE, ELITISM_PERCENTAGE, i, DYNAMIC_CHANGE_REFERENCE,
+                    MAX_REPEATED_FITNEES, MAX_REFERENCE_CHANGE);
+            Map<Integer, List<Individue>> execute = geneticAlgorithm.execute();
+            data.add(execute);
+            System.out.println();
+        }
+        csvWriter.writeOutputCSV(String.format(FILE_NAME, PROTEIN_CHAIN.length(), POPULATION_SIZE, GENERATIONS,
+            CROSSOVER, CROSSOVER_RATE, MUTATION, MUTATION_RATE, DYNAMIC_CHANGE_REFERENCE), data);
+        System.out.println("Finished");
+
     }
-
 }
