@@ -27,6 +27,7 @@ import org.ufpr.cbio.poc.utils.ResidueUtils;
 public class GeneticAlgorithm {
 
     private static final String CROSSOVER_OPERATION_NOT_SUPPORTED = "The specified %s crossover method isn't supported";
+    private static final String MUTATION_OPERATION_NOT_SUPPORTED = "The specified %s mutation method isn't supported";
 
     // Parameters
     private int INDIVIDUE_LENGHT;
@@ -385,8 +386,7 @@ public class GeneticAlgorithm {
             case 2:
                 return swapMutation(individue);
             default:
-                // TODO: Throw exception
-                return null;
+                throw new UnsupportedOperationException(String.format(MUTATION_OPERATION_NOT_SUPPORTED, MUTATION));
         }
     }
 

@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.stream.DoubleStream;
 
 import org.ufpr.cbio.poc.domain.Grid;
 import org.ufpr.cbio.poc.domain.Residue;
@@ -444,16 +445,11 @@ public class ResidueUtils {
     public static void main(String[] args) {
 
         List<Residue> residues = new ArrayList<Residue>();
-        residues.add(new Residue(new Point(2, 2), ResidueType.H));
-        residues.add(new Residue(new Point(3, 2), ResidueType.H));
-        residues.add(new Residue(new Point(3, 3), ResidueType.H));
-        residues.add(new Residue(new Point(4, 3), ResidueType.H));
-        residues.add(new Residue(new Point(4, 4), ResidueType.H));
-        residues.add(new Residue(new Point(4, 5), ResidueType.P));
-        residues.add(new Residue(new Point(3, 5), ResidueType.H));
-        residues.add(new Residue(new Point(3, 4), ResidueType.H));
+        residues.add(new Residue(new Point(0, 0), ResidueType.H));
+        residues.add(new Residue(new Point(1, 0), ResidueType.H));
+        residues.add(new Residue(new Point(5, 5), ResidueType.H));
 
-        ResidueUtils.translateToOrigin(residues);
+        System.out.println(getAvgDistance(residues));
     }
 
     /**
@@ -483,5 +479,73 @@ public class ResidueUtils {
             clone.add((Residue) residue.clone());
         }
         return clone;
+    }
+
+    public static int getCollisionsCount(List<Residue> residues) {
+
+        Set<Point> pointsSet = new HashSet<>();
+        int count = 0;
+        for (int i = 0; i < residues.size(); i++) {
+            boolean added = pointsSet.add(residues.get(i).getPoint());
+            if (!added) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static double getMaxPointsDistance(List<Residue> residues) {
+
+        double maxDistance = 0;
+        for (int i = 0; i < residues.size(); i++) {
+            Residue residue1 = residues.get(i);
+            Point point1 = residue1.getPoint();
+            for (int j = 0; j < residues.size(); j++) {
+                Residue residue2 = residues.get(j);
+                Point point2 = residue2.getPoint();
+                double distance = calculatePointsDistance(point1, point2);
+                if (maxDistance < distance) {
+                    maxDistance = distance;
+                }
+            }
+        }
+        return maxDistance;
+    }
+
+    public static double calculatePointsDistance(Point point1, Point point2) {
+
+        int x1 = point1.getX();
+        int y1 = point1.getY();
+
+        int x2 = point2.getX();
+        int y2 = point2.getY();
+
+        int deltax = x2 - x1;
+        int deltay = y2 - y1;
+
+        double powX = Math.pow(deltax, 2);
+        double powY = Math.pow(deltay, 2);
+
+        return Math.sqrt(powX + powY);
+
+    }
+
+    public static double getAvgDistance(List<Residue> residues) {
+
+        double sumOfDistances = residues.stream().flatMapToDouble(r -> {
+            double[] distances = new double[residues.size()];
+            for (int i = 0; i < residues.size(); i++) {
+                Point point1 = r.getPoint();
+                Point point2 = residues.get(i).getPoint();
+                double distance = calculatePointsDistance(point1, point2);
+                if (distance != 0) {
+                    distances[i] = distance;
+                }
+            }
+            return DoubleStream.of(distances);
+        }
+
+        ).sum();
+        return sumOfDistances / (residues.size() * 2);
     }
 }
