@@ -195,6 +195,16 @@ public class Residue implements Cloneable {
             return new Point(x, y);
         }
 
+        /*
+         * (non-Javadoc)
+         * @see java.lang.Object#toString()
+         */
+        @Override
+        public String toString() {
+
+            return x + "," + y;
+        }
+
     }
 
     /*

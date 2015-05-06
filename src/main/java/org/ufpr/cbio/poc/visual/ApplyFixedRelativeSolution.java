@@ -1,7 +1,5 @@
 package org.ufpr.cbio.poc.visual;
 
-import com.google.common.collect.Lists;
-
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -11,7 +9,6 @@ import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
-import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,10 +22,7 @@ import org.ufpr.cbio.poc.domain.Grid;
 import org.ufpr.cbio.poc.domain.Residue;
 import org.ufpr.cbio.poc.domain.Residue.Point;
 import org.ufpr.cbio.poc.domain.ResidueType;
-import org.ufpr.cbio.poc.domain.TopologyContact;
 import org.ufpr.cbio.poc.utils.Controller;
-import org.ufpr.cbio.poc.utils.EnumMovements;
-import org.ufpr.cbio.poc.utils.Movements;
 import org.ufpr.cbio.poc.utils.ResidueUtils;
 
 /**
@@ -36,13 +30,15 @@ import org.ufpr.cbio.poc.utils.ResidueUtils;
  *
  * @author vfontoura
  */
-public class ApplyFixedSolution {
+public class ApplyFixedRelativeSolution {
 
-    private static final String PROTEIN_CHAIN =
-        "HHPHHHPPPHHHHPHPHPHHHPPPPPHHHHHHHHPPPPPPHHHHHPPPHHHHHHPPPHHHPPPHHHHHPPPHHHHHPPPPHHHHPPPHHHHHPPPHHHHH";
+    // private static final String PROTEIN_CHAIN = "HPHPPHHPHPPHPHHPPHPH";
 
     // private static final String PROTEIN_CHAIN =
-    // "PPPPPPHPHHPPPPPHHHPHHHHHPHHPPPPHHPPHHPHHHHHPHHHHHHHHHHPHHPHHHHHHHPPPPPPPPPPPHHHHHHHPPHPHHHPPPPPPHPHH"
+    // "HHHHPPPPHHHHHHHHHHHHPPPPPPHHHHHHHHHHHHPPPHHHHHHHHHHHHPPPHHHHHHHHHHHHPPPHPPHHPPHHPPHPH";
+
+    private static final String PROTEIN_CHAIN =
+        "PPPPPPHPHHPPPPPHHHPHHHHHPHHPPPPHHPPHHPHHHHHPHHHHHHHHHHPHHPHHHHHHHPPPPPPPPPPPHHHHHHHPPHPHHHPPPPPPHPHH";
 
     private static final int SCREEN_SIZE = 600;
     private static final int MIN_SIZE_FACTOR = 20;
@@ -51,24 +47,25 @@ public class ApplyFixedSolution {
     private static int sizeFactor = 40;
     private static int maxGridSize = 600;
     private static int slots = 0;
-
     private static List<Residue> residues;
+    private static int energyValue = 0;
+    private static int maxDistance = 0;
+    private static int collisions = 0;
 
-    private static List<Residue> residuesInitial;
+    private static Grid grid = null;
 
-    public static void addComponentsToPane(Container pane, List<Residue> residuesList, Grid grid) {
+    public static void addComponentsToPane(Container pane) {
 
         pane.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 
         MyCanvas myCanvas = new MyCanvas();
-
-        slots = (getBound(grid.getMatrix()) + 4);
-        maxGridSize = calculateMaxGridSize(grid.getMatrix());
-        sizeFactor = MAX_SIZE_SCROLL_PANEL / slots;
-        if (sizeFactor < MIN_SIZE_FACTOR) {
-            sizeFactor = MIN_SIZE_FACTOR;
+        if (grid == null) {
+            slots = 0;
+            maxGridSize = 0;
+            sizeFactor = 0;
         }
+
         myCanvas.setPreferredSize(new Dimension(maxGridSize, maxGridSize));
 
         JScrollPane jScrollPane = new JScrollPane(myCanvas);
@@ -78,10 +75,14 @@ public class ApplyFixedSolution {
 
         JTextField solutionTextField = new JTextField("Enter the solution");
         JButton applyMovementsButton = new JButton("Apply Movements");
-        JButton resetButton = new JButton("Reset");
+        JButton printPointsButton = new JButton("Print Points");
 
-        Set<TopologyContact> topologyContacts = ResidueUtils.getTopologyContacts(residuesList, grid);
-        JLabel energyLabel = new JLabel("Energy value: " + topologyContacts.size());
+        JButton resetButton = new JButton("Reset");
+        JLabel energyLabel = new JLabel("Energy value: " + energyValue);
+        JLabel collisionsLabel = new JLabel("Collisions: " + collisions);
+        JLabel chainLengthLabel = new JLabel("Chain length: " + (residues == null ? 0 : residues.size()));
+        JLabel maxDistanceLabel = new JLabel("Max Distance: " + maxDistance);
+        JLabel fitnessLabel = new JLabel("Fitness: " + (energyValue - collisions));
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
@@ -104,58 +105,92 @@ public class ApplyFixedSolution {
         c.weightx = 0.5;
         c.gridx = 3;
         c.gridy = 0;
+        pane.add(printPointsButton, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.5;
+        c.gridx = 0;
+        c.gridy = 1;
         pane.add(energyLabel, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.5;
+        c.gridx = 2;
+        c.gridy = 1;
+        pane.add(collisionsLabel, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.5;
+        c.gridx = 3;
+        c.gridy = 1;
+        pane.add(chainLengthLabel, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.5;
+        c.gridx = 4;
+        c.gridy = 1;
+        pane.add(maxDistanceLabel, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.5;
+        c.gridx = 5;
+        c.gridy = 1;
+        pane.add(fitnessLabel, c);
 
         c.fill = GridBagConstraints.BOTH;
         c.weightx = 1;
         c.weighty = 1;
         c.gridwidth = 4;
         c.gridx = 0;
-        c.gridy = 1;
+        c.gridy = 2;
 
         pane.add(jScrollPane, c);
 
-        applyMovementsButton.addActionListener(listener -> {
-            Runnable task =
-                () -> {
-                    String text = solutionTextField.getText();
-                    int[] moves = fromStringToInt(text.split(","));
-                    EnumMovements[] movementsArray = ResidueUtils.toMovementsArray(moves);
-                    Grid generateGrid = new Controller().generateGrid(residuesList);
-                    for (int i = 0; i < residuesList.size(); i++) {
-                        Residue residue = residuesList.get(i);
-                        Movements.doMovement(residue, residuesList, generateGrid, movementsArray[i]);
-                        jScrollPane.repaint();
-                        try {
-                            Thread.sleep(10);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    for (int i = 0; i < residuesList.size(); i++) {
-                        residuesList.get(i).getResidueType().name();
-                        System.out.println("residues.add(new Residue(new Point(" + residuesList.get(i).getPoint().x
-                            + "," + residuesList.get(i).getPoint().y + "), ResidueType.valueOf(String.valueOf(\""
-                            + residuesList.get(i).getResidueType().name() + "\"))));");
-                    }
-                    energyLabel.setText("Energy value: "
-                        + ResidueUtils.getTopologyContacts(residuesList, generateGrid).size());
-                };
-            new Thread(task).start();
-        });
+        applyMovementsButton
+            .addActionListener(listener -> {
+
+                String text = solutionTextField.getText();
+                int[] moves = fromStringToInt(text.split(","));
+                Controller controller = new Controller();
+                residues = controller.parseInput(PROTEIN_CHAIN, moves);
+                grid = new Controller().generateGrid(residues);
+
+                energyLabel.setText("Energy value: " + ResidueUtils.getTopologyContacts(residues, grid).size());
+                collisionsLabel.setText("Collisions: " + ResidueUtils.getCollisionsCount(residues));
+                fitnessLabel.setText("Fitness: "
+                    + (ResidueUtils.getTopologyContacts(residues, grid).size() - ResidueUtils
+                        .getCollisionsCount(residues)));
+                chainLengthLabel.setText("Chain length: " + residues.size());
+                maxDistanceLabel.setText("Max Distance: " + ResidueUtils.getMaxPointsDistance(residues));
+
+                slots = (getBound(grid.getMatrix()) + 8);
+                maxGridSize = calculateMaxGridSize(grid.getMatrix());
+                sizeFactor = MAX_SIZE_SCROLL_PANEL / slots;
+                if (sizeFactor < MIN_SIZE_FACTOR) {
+                    sizeFactor = MIN_SIZE_FACTOR;
+                }
+                myCanvas.repaint();
+            });
         resetButton.addActionListener(listener -> {
 
-            Runnable task =
-                () -> {
-                    for (int i = 0; i < residuesInitial.size(); i++) {
-                        residues.set(i, (Residue) residuesInitial.get(i).clone());
-                    }
-                    energyLabel.setText("Energy value: "
-                        + ResidueUtils.getTopologyContacts(residuesList, new Controller().generateGrid(residues))
-                            .size());
-                    jScrollPane.repaint();
-                };
+            Runnable task = () -> {
+                residues = null;
+                // energyLabel.setText("Energy value: "
+                // + ResidueUtils.getTopologyContacts(residuesList, new
+                // Controller().generateGrid(residues))
+                // .size());
+                jScrollPane.repaint();
+            };
             new Thread(task).start();
+        });
+
+        printPointsButton.addActionListener(listener -> {
+            for (int j = 0; j < residues.size(); j++) {
+                System.out.println("residues.add(new Residue(new Point(" + residues.get(j).getPoint().getX() + ", "
+                    + residues.get(j).getPoint().getY() + "), ResidueType.valueOf(String.valueOf(PROTEIN_CHAIN.charAt("
+                    + j + ")))));");
+            }
+
         });
 
     }
@@ -216,45 +251,8 @@ public class ApplyFixedSolution {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        residues = ResidueUtils.createDefaultReference100(PROTEIN_CHAIN);
-
-        // residues =
-        // ResidueUtils.createDefaultReference20("HHPHHHPPPHHHHPHPHPHHH");
-        // residues.add(new Residue(new Point(3, 9), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 10), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 10), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 9), ResidueType.H));
-        // residues.add(new Residue(new Point(5, 9), ResidueType.P));
-        // residues.add(new Residue(new Point(5, 10), ResidueType.H));
-        // residues.add(new Residue(new Point(6, 10), ResidueType.H));
-        // residues.add(new Residue(new Point(7, 10), ResidueType.H));
-        // residues.add(new Residue(new Point(7, 11), ResidueType.H));
-        // residues.add(new Residue(new Point(7, 12), ResidueType.H));
-        // residues.add(new Residue(new Point(6, 12), ResidueType.H));
-        // residues.add(new Residue(new Point(5, 12), ResidueType.H));
-        // residues.add(new Residue(new Point(5, 11), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 11), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 12), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 12), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 13), ResidueType.H));
-        // residues.add(new Residue(new Point(3, 14), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 14), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 15), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 16), ResidueType.H));
-        // residues.add(new Residue(new Point(4, 17), ResidueType.H));
-        // residues.add(new Residue(new Point(5, 17), ResidueType.H));
-
-        Controller controller = new Controller();
-        residues = ResidueUtils.translateToOrigin(residues);
-        residuesInitial = Lists.newArrayList();
-
-        for (Residue residue : residues) {
-            residuesInitial.add((Residue) residue.clone());
-        }
-        Grid generateGrid = controller.generateGrid(residues);
-
         // Set up the content pane.
-        addComponentsToPane(frame.getContentPane(), residues, generateGrid);
+        addComponentsToPane(frame.getContentPane());
 
         // Size and display the window.
         frame.setSize(SCREEN_SIZE, SCREEN_SIZE);
@@ -293,28 +291,31 @@ public class ApplyFixedSolution {
                 }
             }
             Residue next = null;
-            for (int i = 0; i < residues.size(); i++) {
-                if (i != residues.size() - 1) {
-                    next = residues.get(i + 1);
-                }
-                int residueX = sizeFactor * (residues.get(i).getPoint().getX()) + sizeFactor / 4;
-                int residueY = sizeFactor * (residues.get(i).getPoint().getY()) + sizeFactor / 4;
-                if (residues.get(i).getResidueType().equals(ResidueType.H)) {
+            if (residues != null) {
+
+                for (int i = 0; i < residues.size(); i++) {
+                    if (i != residues.size() - 1) {
+                        next = residues.get(i + 1);
+                    }
+                    int residueX = sizeFactor * (residues.get(i).getPoint().getX()) + sizeFactor / 4;
+                    int residueY = sizeFactor * (residues.get(i).getPoint().getY()) + sizeFactor / 4;
+                    if (residues.get(i).getResidueType().equals(ResidueType.H)) {
+                        g.setColor(Color.BLACK);
+                        g.fillArc(residueX, residueY, sizeFactor / 2, sizeFactor / 2, 0, 360);
+                    } else {
+                        g.setColor(Color.LIGHT_GRAY);
+                        g.fillArc(residueX, residueY, sizeFactor / 2, sizeFactor / 2, 0, 360);
+                    }
                     g.setColor(Color.BLACK);
-                    g.fillArc(residueX, residueY, sizeFactor / 2, sizeFactor / 2, 0, 360);
-                } else {
-                    g.setColor(Color.LIGHT_GRAY);
-                    g.fillArc(residueX, residueY, sizeFactor / 2, sizeFactor / 2, 0, 360);
-                }
-                g.setColor(Color.BLACK);
 
-                if (next != null) {
-                    int nextX = sizeFactor * (next.getPoint().getX()) + sizeFactor / 4;
-                    int nextY = sizeFactor * (next.getPoint().getY()) + sizeFactor / 4;
-                    g.drawLine(residueX + sizeFactor / 4, residueY + sizeFactor / 4, nextX + sizeFactor / 4, nextY
-                        + sizeFactor / 4);
-                }
+                    if (next != null) {
+                        int nextX = sizeFactor * (next.getPoint().getX()) + sizeFactor / 4;
+                        int nextY = sizeFactor * (next.getPoint().getY()) + sizeFactor / 4;
+                        g.drawLine(residueX + sizeFactor / 4, residueY + sizeFactor / 4, nextX + sizeFactor / 4, nextY
+                            + sizeFactor / 4);
+                    }
 
+                }
             }
 
         }
