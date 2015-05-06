@@ -49,14 +49,35 @@
 		</dependency>
 		
 		<dependency>
-	<groupId>org.apache.commons</groupId>
-	<artifactId>commons-lang3</artifactId>
-	<version>3.4</version>
-</dependency>
-		
-		
-		
-	
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.moeaframework</groupId>
+			<artifactId>moeaframework</artifactId>
+			<version>2.4</version>
+		</dependency>
+		 <dependency>
+			 <groupId>org.uma.jmetal</groupId>
+		    <artifactId>jmetal-core</artifactId>
+	    	<version>5.0-Beta-29</version>
+    	</dependency>
+    	<dependency>
+			 <groupId>org.uma.jmetal</groupId>
+		    <artifactId>jmetal-exec</artifactId>
+	    	<version>5.0-Beta-29</version>
+    	</dependency>
+    	<dependency>
+			 <groupId>org.uma.jmetal</groupId>
+		    <artifactId>jmetal-algorithm</artifactId>
+	    	<version>5.0-Beta-29</version>
+    	</dependency>
+    	<dependency>
+			 <groupId>org.uma.jmetal</groupId>
+		    <artifactId>jmetal-problem</artifactId>
+	    	<version>5.0-Beta-29</version>
+    	</dependency> 
 	</dependencies>
 	<build>
 		<plugins>
@@ -72,6 +93,19 @@
             </plugin>
             </plugins>
 	</build>
+	<profiles>
+		<profile>
+		  <id>downloadSources</id>
+		  <activation>
+		    <activeByDefault>true</activeByDefault>
+		  </activation>
+		  <properties>
+		      <downloadSources>true</downloadSources>
+		      <downloadJavadocs>true</downloadJavadocs>
+		  </properties>
+		</profile>
+	</profiles>
+	
 
 
 </project>
