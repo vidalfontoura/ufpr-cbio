@@ -34,8 +34,11 @@ public class ApplyFixedRelativeSolution {
 
     // private static final String PROTEIN_CHAIN = "HPHPPHHPHPPHPHHPPHPH";
 
+    // private static final String PROTEIN_CHAIN =
+    // "HHHHPPPPHHHHHHHHHHHHPPPPPPHHHHHHHHHHHHPPPHHHHHHHHHHHHPPPHHHHHHHHHHHHPPPHPPHHPPHHPPHPH";
+
     private static final String PROTEIN_CHAIN =
-        "HHHHPPPPHHHHHHHHHHHHPPPPPPHHHHHHHHHHHHPPPHHHHHHHHHHHHPPPHHHHHHHHHHHHPPPHPPHHPPHHPPHPH";
+        "PPPPPPHPHHPPPPPHHHPHHHHHPHHPPPPHHPPHHPHHHHHPHHHHHHHHHHPHHPHHHHHHHPPPPPPPPPPPHHHHHHHPPHPHHHPPPPPPHPHH";
 
     private static final int SCREEN_SIZE = 600;
     private static final int MIN_SIZE_FACTOR = 20;
@@ -46,6 +49,7 @@ public class ApplyFixedRelativeSolution {
     private static int slots = 0;
     private static List<Residue> residues;
     private static int energyValue = 0;
+    private static int maxDistance = 0;
     private static int collisions = 0;
 
     private static Grid grid = null;
@@ -71,10 +75,13 @@ public class ApplyFixedRelativeSolution {
 
         JTextField solutionTextField = new JTextField("Enter the solution");
         JButton applyMovementsButton = new JButton("Apply Movements");
+        JButton printPointsButton = new JButton("Print Points");
+
         JButton resetButton = new JButton("Reset");
         JLabel energyLabel = new JLabel("Energy value: " + energyValue);
         JLabel collisionsLabel = new JLabel("Collisions: " + collisions);
-
+        JLabel chainLengthLabel = new JLabel("Chain length: " + (residues == null ? 0 : residues.size()));
+        JLabel maxDistanceLabel = new JLabel("Max Distance: " + maxDistance);
         JLabel fitnessLabel = new JLabel("Fitness: " + (energyValue - collisions));
 
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -98,18 +105,36 @@ public class ApplyFixedRelativeSolution {
         c.weightx = 0.5;
         c.gridx = 3;
         c.gridy = 0;
+        pane.add(printPointsButton, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.5;
+        c.gridx = 0;
+        c.gridy = 1;
         pane.add(energyLabel, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.5;
-        c.gridx = 4;
-        c.gridy = 0;
+        c.gridx = 2;
+        c.gridy = 1;
         pane.add(collisionsLabel, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 0.5;
+        c.gridx = 3;
+        c.gridy = 1;
+        pane.add(chainLengthLabel, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.5;
+        c.gridx = 4;
+        c.gridy = 1;
+        pane.add(maxDistanceLabel, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.5;
         c.gridx = 5;
-        c.gridy = 0;
+        c.gridy = 1;
         pane.add(fitnessLabel, c);
 
         c.fill = GridBagConstraints.BOTH;
@@ -117,7 +142,7 @@ public class ApplyFixedRelativeSolution {
         c.weighty = 1;
         c.gridwidth = 4;
         c.gridx = 0;
-        c.gridy = 1;
+        c.gridy = 2;
 
         pane.add(jScrollPane, c);
 
@@ -135,6 +160,9 @@ public class ApplyFixedRelativeSolution {
                 fitnessLabel.setText("Fitness: "
                     + (ResidueUtils.getTopologyContacts(residues, grid).size() - ResidueUtils
                         .getCollisionsCount(residues)));
+                chainLengthLabel.setText("Chain length: " + residues.size());
+                maxDistanceLabel.setText("Max Distance: " + ResidueUtils.getMaxPointsDistance(residues));
+
                 slots = (getBound(grid.getMatrix()) + 8);
                 maxGridSize = calculateMaxGridSize(grid.getMatrix());
                 sizeFactor = MAX_SIZE_SCROLL_PANEL / slots;
@@ -154,6 +182,15 @@ public class ApplyFixedRelativeSolution {
                 jScrollPane.repaint();
             };
             new Thread(task).start();
+        });
+
+        printPointsButton.addActionListener(listener -> {
+            for (int j = 0; j < residues.size(); j++) {
+                System.out.println("residues.add(new Residue(new Point(" + residues.get(j).getPoint().getX() + ", "
+                    + residues.get(j).getPoint().getY() + "), ResidueType.valueOf(String.valueOf(PROTEIN_CHAIN.charAt("
+                    + j + ")))));");
+            }
+
         });
 
     }

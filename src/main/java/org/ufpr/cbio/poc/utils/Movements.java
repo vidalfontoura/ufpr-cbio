@@ -70,7 +70,7 @@ public class Movements {
         }
         // CASO 4 Y1 < Y2
         else if (y + 1 < matrix.length && isNeighbor(matrix, x, y, x, y + 1)) {
-            if (matrix[y + 1][x - 1] == -1) {
+            if (x - 1 >= 0 && matrix[y + 1][x - 1] == -1) {
                 matrix[y + 1][x - 1] = matrix[y][x];
                 matrix[y][x] = -1;
                 residue.getPoint().setX(x - 1);
@@ -191,8 +191,8 @@ public class Movements {
                 int xnext = next.getPoint().getX();
                 int ynext = next.getPoint().getY();
 
-                if (isNeighbor(matrix, xnext, ynext, x + 1, y - 1) && matrix[y - 1][x - 1] != -1
-                    && matrix[y - 1][x - 1] == matrix[y][x] - 2
+                if (y - 1 >= 0 && x - 1 >= 0 && isNeighbor(matrix, xnext, ynext, x + 1, y - 1)
+                    && matrix[y - 1][x - 1] != -1 && matrix[y - 1][x - 1] == matrix[y][x] - 2
                     && matrix[ynext - 1][xnext + 1] == matrix[ynext][xnext] + 2) {
                     residue.getPoint().setX(x);
                     residue.getPoint().setY(y - 2);
@@ -304,7 +304,8 @@ public class Movements {
                 int xnext = next.getPoint().getX();
                 int ynext = next.getPoint().getY();
 
-                if (isNeighbor(matrix, xnext, ynext, x - 1, y - 1) && matrix[y - 1][x + 1] != -1
+                if (y - 1 >= 0 && x - 1 >= 0 && ynext - 1 >= 0 && xnext - 1 >= 0
+                    && isNeighbor(matrix, xnext, ynext, x - 1, y - 1) && matrix[y - 1][x + 1] != -1
                     && matrix[y - 1][x + 1] == matrix[y][x] - 2
                     && matrix[ynext - 1][xnext - 1] == matrix[ynext][xnext] + 2) {
                     residue.getPoint().setX(x);

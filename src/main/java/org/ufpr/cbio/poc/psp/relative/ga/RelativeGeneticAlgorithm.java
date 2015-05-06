@@ -372,7 +372,7 @@ public class RelativeGeneticAlgorithm {
 
         OutputCSVWriter csvWriter = new OutputCSVWriter();
         List<Map<Integer, List<Individue>>> data = new ArrayList<>();
-        for (int t = 0; t < 100; t++) {
+        for (int t = 3; t < 4; t++) {
             RelativeGeneticAlgorithm relativeGeneticAlgorithm =
                 new RelativeGeneticAlgorithm(POPULATION_SIZE, GENERATIONS, MUTATION, CROSSOVER, SELECTION,
                     CROSSOVER_RATE, MUTATION_RATE, ELITISM, PROTEIN_CHAIN, t);

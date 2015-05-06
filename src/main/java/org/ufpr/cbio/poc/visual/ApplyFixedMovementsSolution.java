@@ -36,13 +36,13 @@ import org.ufpr.cbio.poc.utils.ResidueUtils;
  *
  * @author vfontoura
  */
-public class ApplyFixedSolution {
-
-    private static final String PROTEIN_CHAIN =
-        "HHPHHHPPPHHHHPHPHPHHHPPPPPHHHHHHHHPPPPPPHHHHHPPPHHHHHHPPPHHHPPPHHHHHPPPHHHHHPPPPHHHHPPPHHHHHPPPHHHHH";
+public class ApplyFixedMovementsSolution {
 
     // private static final String PROTEIN_CHAIN =
-    // "PPPPPPHPHHPPPPPHHHPHHHHHPHHPPPPHHPPHHPHHHHHPHHHHHHHHHHPHHPHHHHHHHPPPPPPPPPPPHHHHHHHPPHPHHHPPPPPPHPHH"
+    // "HHPHHHPPPHHHHPHPHPHHHPPPPPHHHHHHHHPPPPPPHHHHHPPPHHHHHHPPPHHHPPPHHHHHPPPHHHHHPPPPHHHHPPPHHHHHPPPHHHHH";
+
+    private static final String PROTEIN_CHAIN =
+        "PPPPPPHPHHPPPPPHHHPHHHHHPHHPPPPHHPPHHPHHHHHPHHHHHHHHHHPHHPHHHHHHHPPPPPPPPPPPHHHHHHHPPHPHHHPPPPPPHPHH";
 
     private static final int SCREEN_SIZE = 600;
     private static final int MIN_SIZE_FACTOR = 20;
@@ -216,7 +216,7 @@ public class ApplyFixedSolution {
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        residues = ResidueUtils.createDefaultReference100(PROTEIN_CHAIN);
+        residues = ResidueUtils.createDefaultReference100_1(PROTEIN_CHAIN);
 
         // residues =
         // ResidueUtils.createDefaultReference20("HHPHHHPPPHHHHPHPHPHHH");

@@ -66,4 +66,11 @@ public class OutputCSVWriter {
             }
         }
     }
+
+    public void writeOutputToCSV(String fileName, String[] newLine) throws IOException {
+
+        try (CSVWriter writer = new CSVWriter(new FileWriter(fileName, true))) {
+            writer.writeNext(newLine);
+        }
+    }
 }

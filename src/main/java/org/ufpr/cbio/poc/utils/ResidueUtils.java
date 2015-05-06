@@ -548,4 +548,13 @@ public class ResidueUtils {
         ).sum();
         return sumOfDistances / (residues.size() * 2);
     }
+
+    public static int[] toIntArray(boolean[] solution) {
+
+        int[] intArray = new int[solution.length];
+        for (int i = 0; i < solution.length; i++) {
+            intArray[i] = solution[i] ? 1 : 0;
+        }
+        return intArray;
+    }
 }
