@@ -1,0 +1,1654 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2015-05-06T03:20:37</date>
+  <millis>1430893237432</millis>
+  <sequence>0</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 12148ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:20:37</date>
+  <millis>1430893237459</millis>
+  <sequence>1</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\0\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:20:37</date>
+  <millis>1430893237482</millis>
+  <sequence>2</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\0\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:20:49</date>
+  <millis>1430893249569</millis>
+  <sequence>3</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 12082ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:20:49</date>
+  <millis>1430893249571</millis>
+  <sequence>4</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\1\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:20:49</date>
+  <millis>1430893249581</millis>
+  <sequence>5</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\1\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:21:00</date>
+  <millis>1430893260100</millis>
+  <sequence>6</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 10513ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:21:00</date>
+  <millis>1430893260101</millis>
+  <sequence>7</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\2\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:21:00</date>
+  <millis>1430893260113</millis>
+  <sequence>8</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\2\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:21:13</date>
+  <millis>1430893273780</millis>
+  <sequence>9</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 13662ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:21:13</date>
+  <millis>1430893273781</millis>
+  <sequence>10</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\3\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:21:13</date>
+  <millis>1430893273791</millis>
+  <sequence>11</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\3\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:21:23</date>
+  <millis>1430893283595</millis>
+  <sequence>12</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 9798ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:21:23</date>
+  <millis>1430893283596</millis>
+  <sequence>13</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\4\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:21:23</date>
+  <millis>1430893283605</millis>
+  <sequence>14</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\4\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:21:38</date>
+  <millis>1430893298453</millis>
+  <sequence>15</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 14841ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:21:38</date>
+  <millis>1430893298454</millis>
+  <sequence>16</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\5\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:21:38</date>
+  <millis>1430893298465</millis>
+  <sequence>17</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\5\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:21:51</date>
+  <millis>1430893311071</millis>
+  <sequence>18</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 12602ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:21:51</date>
+  <millis>1430893311072</millis>
+  <sequence>19</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\6\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:21:51</date>
+  <millis>1430893311078</millis>
+  <sequence>20</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\6\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:22:03</date>
+  <millis>1430893323267</millis>
+  <sequence>21</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 12185ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:22:03</date>
+  <millis>1430893323268</millis>
+  <sequence>22</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\7\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:22:03</date>
+  <millis>1430893323271</millis>
+  <sequence>23</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\7\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:22:13</date>
+  <millis>1430893333873</millis>
+  <sequence>24</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 10599ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:22:13</date>
+  <millis>1430893333874</millis>
+  <sequence>25</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\8\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:22:13</date>
+  <millis>1430893333877</millis>
+  <sequence>26</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\8\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:22:26</date>
+  <millis>1430893346021</millis>
+  <sequence>27</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 12141ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:22:26</date>
+  <millis>1430893346022</millis>
+  <sequence>28</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\9\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:22:26</date>
+  <millis>1430893346025</millis>
+  <sequence>29</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\9\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:22:38</date>
+  <millis>1430893358244</millis>
+  <sequence>30</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 12216ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:22:38</date>
+  <millis>1430893358244</millis>
+  <sequence>31</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\10\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:22:38</date>
+  <millis>1430893358249</millis>
+  <sequence>32</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\10\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:22:49</date>
+  <millis>1430893369348</millis>
+  <sequence>33</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 11095ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:22:49</date>
+  <millis>1430893369349</millis>
+  <sequence>34</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\11\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:22:49</date>
+  <millis>1430893369355</millis>
+  <sequence>35</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\11\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:23:05</date>
+  <millis>1430893385694</millis>
+  <sequence>36</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 16335ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:23:05</date>
+  <millis>1430893385702</millis>
+  <sequence>37</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\12\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:23:05</date>
+  <millis>1430893385705</millis>
+  <sequence>38</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\12\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:23:16</date>
+  <millis>1430893396966</millis>
+  <sequence>39</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 11257ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:23:16</date>
+  <millis>1430893396967</millis>
+  <sequence>40</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\13\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:23:16</date>
+  <millis>1430893396969</millis>
+  <sequence>41</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\13\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:23:29</date>
+  <millis>1430893409817</millis>
+  <sequence>42</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 12845ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:23:29</date>
+  <millis>1430893409818</millis>
+  <sequence>43</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\14\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:23:29</date>
+  <millis>1430893409821</millis>
+  <sequence>44</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\14\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:23:41</date>
+  <millis>1430893421183</millis>
+  <sequence>45</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 11359ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:23:41</date>
+  <millis>1430893421184</millis>
+  <sequence>46</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\15\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:23:41</date>
+  <millis>1430893421187</millis>
+  <sequence>47</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\15\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:23:51</date>
+  <millis>1430893431319</millis>
+  <sequence>48</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 10130ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:23:51</date>
+  <millis>1430893431320</millis>
+  <sequence>49</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\16\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:23:51</date>
+  <millis>1430893431322</millis>
+  <sequence>50</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\16\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:24:03</date>
+  <millis>1430893443816</millis>
+  <sequence>51</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 12491ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:24:03</date>
+  <millis>1430893443817</millis>
+  <sequence>52</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\17\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:24:03</date>
+  <millis>1430893443819</millis>
+  <sequence>53</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\17\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:24:15</date>
+  <millis>1430893455782</millis>
+  <sequence>54</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 11959ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:24:15</date>
+  <millis>1430893455783</millis>
+  <sequence>55</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\18\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:24:15</date>
+  <millis>1430893455785</millis>
+  <sequence>56</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\18\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:24:28</date>
+  <millis>1430893468178</millis>
+  <sequence>57</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 12388ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:24:28</date>
+  <millis>1430893468178</millis>
+  <sequence>58</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\19\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:24:28</date>
+  <millis>1430893468180</millis>
+  <sequence>59</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\19\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:24:41</date>
+  <millis>1430893481670</millis>
+  <sequence>60</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 13485ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:24:41</date>
+  <millis>1430893481692</millis>
+  <sequence>61</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\20\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:24:41</date>
+  <millis>1430893481696</millis>
+  <sequence>62</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\20\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:24:54</date>
+  <millis>1430893494758</millis>
+  <sequence>63</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 13059ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:24:54</date>
+  <millis>1430893494758</millis>
+  <sequence>64</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\21\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:24:54</date>
+  <millis>1430893494761</millis>
+  <sequence>65</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\21\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:05</date>
+  <millis>1430893505178</millis>
+  <sequence>66</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 10414ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:05</date>
+  <millis>1430893505179</millis>
+  <sequence>67</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\22\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:05</date>
+  <millis>1430893505181</millis>
+  <sequence>68</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\22\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:16</date>
+  <millis>1430893516147</millis>
+  <sequence>69</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 10963ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:16</date>
+  <millis>1430893516147</millis>
+  <sequence>70</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\23\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:16</date>
+  <millis>1430893516149</millis>
+  <sequence>71</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\23\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:25</date>
+  <millis>1430893525354</millis>
+  <sequence>72</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 9202ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:25</date>
+  <millis>1430893525354</millis>
+  <sequence>73</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\24\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:25</date>
+  <millis>1430893525357</millis>
+  <sequence>74</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\24\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:38</date>
+  <millis>1430893538263</millis>
+  <sequence>75</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 12902ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:38</date>
+  <millis>1430893538265</millis>
+  <sequence>76</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\25\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:38</date>
+  <millis>1430893538268</millis>
+  <sequence>77</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\25\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:49</date>
+  <millis>1430893549858</millis>
+  <sequence>78</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 11587ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:49</date>
+  <millis>1430893549858</millis>
+  <sequence>79</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\26\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:49</date>
+  <millis>1430893549860</millis>
+  <sequence>80</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\26\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:59</date>
+  <millis>1430893559814</millis>
+  <sequence>81</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 9952ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:59</date>
+  <millis>1430893559815</millis>
+  <sequence>82</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\27\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:25:59</date>
+  <millis>1430893559817</millis>
+  <sequence>83</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\27\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:26:14</date>
+  <millis>1430893574885</millis>
+  <sequence>84</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 15065ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:26:14</date>
+  <millis>1430893574886</millis>
+  <sequence>85</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\28\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:26:14</date>
+  <millis>1430893574889</millis>
+  <sequence>86</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\28\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:26:27</date>
+  <millis>1430893587235</millis>
+  <sequence>87</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 12344ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:26:27</date>
+  <millis>1430893587236</millis>
+  <sequence>88</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\29\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:26:27</date>
+  <millis>1430893587238</millis>
+  <sequence>89</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\29\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:26:39</date>
+  <millis>1430893599630</millis>
+  <sequence>90</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 12390ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:26:39</date>
+  <millis>1430893599630</millis>
+  <sequence>91</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\30\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:26:39</date>
+  <millis>1430893599634</millis>
+  <sequence>92</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\30\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:26:51</date>
+  <millis>1430893611063</millis>
+  <sequence>93</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 11427ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:26:51</date>
+  <millis>1430893611064</millis>
+  <sequence>94</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\31\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:26:51</date>
+  <millis>1430893611067</millis>
+  <sequence>95</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\31\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:27:02</date>
+  <millis>1430893622190</millis>
+  <sequence>96</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 11119ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:27:02</date>
+  <millis>1430893622190</millis>
+  <sequence>97</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\32\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:27:02</date>
+  <millis>1430893622193</millis>
+  <sequence>98</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\32\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:27:13</date>
+  <millis>1430893633406</millis>
+  <sequence>99</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 11210ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:27:13</date>
+  <millis>1430893633407</millis>
+  <sequence>100</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\33\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:27:13</date>
+  <millis>1430893633410</millis>
+  <sequence>101</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\33\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:27:24</date>
+  <millis>1430893644383</millis>
+  <sequence>102</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 10970ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:27:24</date>
+  <millis>1430893644383</millis>
+  <sequence>103</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\34\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:27:24</date>
+  <millis>1430893644384</millis>
+  <sequence>104</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\34\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:27:37</date>
+  <millis>1430893657795</millis>
+  <sequence>105</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 13405ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:27:37</date>
+  <millis>1430893657796</millis>
+  <sequence>106</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\35\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:27:37</date>
+  <millis>1430893657798</millis>
+  <sequence>107</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\35\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:27:51</date>
+  <millis>1430893671252</millis>
+  <sequence>108</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 13451ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:27:51</date>
+  <millis>1430893671253</millis>
+  <sequence>109</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\36\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:27:51</date>
+  <millis>1430893671255</millis>
+  <sequence>110</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\36\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:03</date>
+  <millis>1430893683387</millis>
+  <sequence>111</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 12129ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:03</date>
+  <millis>1430893683388</millis>
+  <sequence>112</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\37\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:03</date>
+  <millis>1430893683390</millis>
+  <sequence>113</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\37\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:15</date>
+  <millis>1430893695772</millis>
+  <sequence>114</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 12379ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:15</date>
+  <millis>1430893695772</millis>
+  <sequence>115</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\38\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:15</date>
+  <millis>1430893695774</millis>
+  <sequence>116</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\38\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:25</date>
+  <millis>1430893705011</millis>
+  <sequence>117</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 9235ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:25</date>
+  <millis>1430893705011</millis>
+  <sequence>118</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\39\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:25</date>
+  <millis>1430893705013</millis>
+  <sequence>119</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\39\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:35</date>
+  <millis>1430893715153</millis>
+  <sequence>120</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 10138ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:35</date>
+  <millis>1430893715153</millis>
+  <sequence>121</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\40\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:35</date>
+  <millis>1430893715155</millis>
+  <sequence>122</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\40\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:44</date>
+  <millis>1430893724703</millis>
+  <sequence>123</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 9546ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:44</date>
+  <millis>1430893724704</millis>
+  <sequence>124</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\41\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:44</date>
+  <millis>1430893724706</millis>
+  <sequence>125</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\41\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:54</date>
+  <millis>1430893734598</millis>
+  <sequence>126</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 9888ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:54</date>
+  <millis>1430893734599</millis>
+  <sequence>127</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\42\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:28:54</date>
+  <millis>1430893734601</millis>
+  <sequence>128</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\42\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:05</date>
+  <millis>1430893745289</millis>
+  <sequence>129</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 10685ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:05</date>
+  <millis>1430893745289</millis>
+  <sequence>130</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\43\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:05</date>
+  <millis>1430893745291</millis>
+  <sequence>131</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\43\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:16</date>
+  <millis>1430893756272</millis>
+  <sequence>132</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 10979ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:16</date>
+  <millis>1430893756272</millis>
+  <sequence>133</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\44\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:16</date>
+  <millis>1430893756274</millis>
+  <sequence>134</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\44\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:25</date>
+  <millis>1430893765902</millis>
+  <sequence>135</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 9625ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:25</date>
+  <millis>1430893765903</millis>
+  <sequence>136</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\45\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:25</date>
+  <millis>1430893765905</millis>
+  <sequence>137</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\45\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:37</date>
+  <millis>1430893777213</millis>
+  <sequence>138</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 11306ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:37</date>
+  <millis>1430893777213</millis>
+  <sequence>139</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\46\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:37</date>
+  <millis>1430893777215</millis>
+  <sequence>140</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\46\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:47</date>
+  <millis>1430893787590</millis>
+  <sequence>141</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 10373ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:47</date>
+  <millis>1430893787591</millis>
+  <sequence>142</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\47\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:47</date>
+  <millis>1430893787592</millis>
+  <sequence>143</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\47\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:57</date>
+  <millis>1430893797983</millis>
+  <sequence>144</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 10389ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:57</date>
+  <millis>1430893797983</millis>
+  <sequence>145</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\48\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:29:57</date>
+  <millis>1430893797985</millis>
+  <sequence>146</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\48\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:30:07</date>
+  <millis>1430893807959</millis>
+  <sequence>147</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Total execution time: 9970ms</message>
+</record>
+<record>
+  <date>2015-05-06T03:30:07</date>
+  <millis>1430893807959</millis>
+  <sequence>148</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Variables values have been writen to file jmetal_output_4.5\NSGAII\Population\49\ FUN</message>
+</record>
+<record>
+  <date>2015-05-06T03:30:07</date>
+  <millis>1430893807961</millis>
+  <sequence>149</sequence>
+  <logger>jMetal</logger>
+  <level>INFO</level>
+  <class>org.ufpr.cbio.poc.jmetal.PspProblemRelativeNSGAII</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Objectives values have been writen to file jmetal_output_4.5\NSGAII\Population\49\ FUN</message>
+</record>
+</log>
