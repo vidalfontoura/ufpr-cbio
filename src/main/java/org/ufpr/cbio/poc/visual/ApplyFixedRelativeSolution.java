@@ -84,26 +84,26 @@ public class ApplyFixedRelativeSolution {
         JLabel maxDistanceLabel = new JLabel("Max Distance: " + maxDistance);
         JLabel fitnessLabel = new JLabel("Fitness: " + (energyValue - collisions));
 
-        JPanel panel1 = new JPanel();
-        JPanel panel2 = new JPanel();
+        JPanel drawPanel = new JPanel();
+        JPanel buttonsPanel = new JPanel();
         
-        panel2.setPreferredSize(new Dimension(200, 400));
-        panel2.setLayout(new GridLayout(10, 1));
+        buttonsPanel.setPreferredSize(new Dimension(200, 400));
+        buttonsPanel.setLayout(new GridLayout(10, 1));
         
-        panel1.add(jScrollPane);
+        drawPanel.add(jScrollPane);
         
-        panel2.add(chainTextField);
-        panel2.add(applyMovementsButton);
-        panel2.add(solutionTextField);
-        panel2.add(chainLengthLabel);
-        panel2.add(energyLabel);
-        panel2.add(maxDistanceLabel);
-        panel2.add(fitnessLabel);
-        panel2.add(resetButton);
-        panel2.add(printPointsButton);
+        buttonsPanel.add(chainTextField);
+        buttonsPanel.add(applyMovementsButton);
+        buttonsPanel.add(solutionTextField);
+        buttonsPanel.add(chainLengthLabel);
+        buttonsPanel.add(energyLabel);
+        buttonsPanel.add(maxDistanceLabel);
+        buttonsPanel.add(fitnessLabel);
+        buttonsPanel.add(resetButton);
+        buttonsPanel.add(printPointsButton);
         
-        pane.add(panel1);
-        pane.add(panel2);
+        pane.add(drawPanel);
+        pane.add(buttonsPanel);
         
         applyMovementsButton
             .addActionListener(listener -> {
