@@ -59,7 +59,7 @@ public class PSPProblemMultiObjetiveAnalyser extends AbstractProblem {
         }
 
         solution.setObjective(0, -topologicalContacts);
-        // solution.setObjective(1, maxPointsDistance);
+        solution.setObjective(1, maxPointsDistance);
 
     }
 
@@ -76,11 +76,13 @@ public class PSPProblemMultiObjetiveAnalyser extends AbstractProblem {
     public static void main(String[] args) throws IOException {
 
         Analyzer analyzer =
-            new Analyzer().withProblemClass(PSPProblemMultiObjetiveAnalyser.class, 98, 1).includeAllMetrics()
+            new Analyzer().withProblemClass(PSPProblemMultiObjetiveAnalyser.class, 98, 2).includeAllMetrics()
                 .showStatisticalSignificance();
 
         Executor executor =
-            new Executor().withProblemClass(PSPProblemMultiObjetiveAnalyser.class, 98, 1).withMaxEvaluations(10000);
+            new Executor().withProblemClass(PSPProblemMultiObjetiveAnalyser.class, 98, 2).withMaxEvaluations(25000);
+        
+        
 
         analyzer.addAll("NSGAII", executor.withAlgorithm("NSGAII").runSeeds(50));
 

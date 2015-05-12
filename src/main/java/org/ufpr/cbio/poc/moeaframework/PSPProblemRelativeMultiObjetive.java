@@ -75,7 +75,7 @@ public class PSPProblemRelativeMultiObjetive extends AbstractProblem {
     public static void main(String[] args) {
 
         NondominatedPopulation result =
-            new Executor().withProblemClass(PSPProblemRelativeMultiObjetive.class, 98, 2).withAlgorithm("IBEA")
+            new Executor().withProblemClass(PSPProblemRelativeMultiObjetive.class, 98, 2).withAlgorithm("NSGAIII")
                 .withMaxEvaluations(25000).distributeOnAllCores().run();
 
         for (int i = 0; i < result.size(); i++) {

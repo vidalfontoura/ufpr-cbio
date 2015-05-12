@@ -140,7 +140,7 @@ public class ApplyFixedRelativeSolution {
         c.fill = GridBagConstraints.BOTH;
         c.weightx = 1;
         c.weighty = 1;
-        c.gridwidth = 4;
+        c.gridwidth = 5;
         c.gridx = 0;
         c.gridy = 2;
 

@@ -82,13 +82,13 @@ public class PSPProblemRelativeSingleObjetive extends AbstractProblem {
 
     public static void main(String[] args) throws IOException {
 
-        String fileName = "algoritm_%s_nVariables_%s_nObjectives_%s_maxEval_%s.ods";
+        String fileName = "sbx2_algoritm_%s_nVariables_%s_nObjectives_%s_maxEval_%s.csv";
         String algorithm = "NSGAIII";
         int maxEvaluations = 25000;
         int numberOfVariables = 98;
         int numberOfObjectives = 1;
         OutputCSVWriter outputCSVWriter = new OutputCSVWriter();
-        for (int j = 0; j < 1; j++) {
+        for (int j = 0; j < 50; j++) {
             System.out.println("Seed: " + j);
             NondominatedPopulation result =
                 new Executor()

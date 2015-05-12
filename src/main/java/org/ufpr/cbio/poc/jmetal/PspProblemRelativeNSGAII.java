@@ -152,7 +152,7 @@ public class PspProblemRelativeNSGAII extends Problem {
             new File(JMETAL_ALGORITHM_DIR).mkdir();
         }
         String acumulatorFileName =
-            JMETAL_ALGORITHM_DIR + File.separator + "%s_%s_%s_%s_%s_%s_%s_nVariables_%s_pop_%s_maxEval_%s.ods";
+            JMETAL_ALGORITHM_DIR + File.separator + "%s_%s_%s_%s_%s_%s_%s_nVariables_%s_pop_%s_maxEval_%s.csv";
         String POPULATION_DIR = "Population";
 
         // Logger object and file to store log messages

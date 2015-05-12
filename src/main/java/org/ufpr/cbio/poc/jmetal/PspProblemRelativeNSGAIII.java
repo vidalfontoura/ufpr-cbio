@@ -42,11 +42,10 @@ import org.uma.jmetal.util.fileoutput.impl.DefaultFileOutputContext;
 public class PspProblemRelativeNSGAIII extends org.uma.jmetal.problem.impl.AbstractIntegerProblem {
 
     private String proteinChain;
+    
+    public PspProblemRelativeNSGAIII(String proteinChain) {
 
-    public PspProblemRelativeNSGAIII() {
-
-        this.proteinChain =
-            "PPPPPPHPHHPPPPPHHHPHHHHHPHHPPPPHHPPHHPHHHHHPHHHHHHHHHHPHHPHHHHHHHPPPPPPPPPPPHHHHHHHPPHPHHHPPPPPPHPHH";
+        this.proteinChain = proteinChain;
         this.setNumberOfObjectives(1);
         this.setNumberOfVariables(this.proteinChain.length() - 2);
         ArrayList<Integer> lowerLimit = Lists.newArrayList();
@@ -58,6 +57,13 @@ public class PspProblemRelativeNSGAIII extends org.uma.jmetal.problem.impl.Abstr
         }
         this.setLowerLimit(lowerLimit);
         this.setUpperLimit(upperLimit);
+
+    }
+    
+
+    public PspProblemRelativeNSGAIII() {
+
+        this("PPPPPPHPHHPPPPPHHHPHHHHHPHHPPPPHHPPHHPHHHHHPHHHHHHHHHHPHHPHHHHHHHPPPPPPPPPPPHHHHHHHPPHPHHHPPPPPPHPHH");
 
     }
 
@@ -107,7 +113,7 @@ public class PspProblemRelativeNSGAIII extends org.uma.jmetal.problem.impl.Abstr
 
         double mutationProbability = 1.0 / problem.getNumberOfVariables();
         double mutationDistributionIndex = 20.0;
-        int maxEvaluations = 25000;
+        int maxEvaluations = 100000;
         int populationSize = 100;
         int divisions = 12;
 
@@ -132,7 +138,7 @@ public class PspProblemRelativeNSGAIII extends org.uma.jmetal.problem.impl.Abstr
             new File(JMETAL_ALGORITHM_DIR).mkdir();
         }
         String acumulatorFileName =
-            JMETAL_ALGORITHM_DIR + File.separator + "%s_%s_%s_%s_%s_%s_%s_nVariables_%s_pop_%s_maxEval_%s_div_%s.ods";
+            JMETAL_ALGORITHM_DIR + File.separator + "u_%s_%s_%s_%s_%s_%s_%s_nVariables_%s_pop_%s_maxEval_%s_div_%s.ods";
         String POPULATION_DIR = "Population";
 
         for (int i = 0; i < 50; i++) {
