@@ -6,14 +6,11 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
 
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,9 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JViewport;
-import javax.swing.border.Border;
 
-import org.jfree.chart.block.LineBorder;
 import org.ufpr.cbio.poc.domain.Grid;
 import org.ufpr.cbio.poc.domain.Residue;
 import org.ufpr.cbio.poc.domain.Residue.Point;
@@ -38,20 +33,20 @@ import org.ufpr.cbio.poc.utils.ResidueUtils;
  */
 public class ApplyFixedRelativeSolution {
 
-//     private static final String PROTEIN_CHAIN = "HPHPPHHPHPPHPHHPPHPH";
+    // private static final String PROTEIN_CHAIN = "HHPPHPPHHH";
 
-//     private static final String PROTEIN_CHAIN = 
-//    		 "HHHHPPPPHHHHHHHHHHHHPPPPPPHHHHHHHHHHHHPPPHHHHHHHHHHHHPPPHHHHHHHHHHHHPPPHPPHHPPHHPPHPH";
+    // private static final String PROTEIN_CHAIN =
+    // "HHHHPPPPHHHHHHHHHHHHPPPPPPHHHHHHHHHHHHPPPHHHHHHHHHHHHPPPHHHHHHHHHHHHPPPHPPHHPPHHPPHPH";
 
     private static final String PROTEIN_CHAIN =
         "PPPPPPHPHHPPPPPHHHPHHHHHPHHPPPPHHPPHHPHHHHHPHHHHHHHHHHPHHPHHHHHHHPPPPPPPPPPPHHHHHHHPPHPHHHPPPPPPHPHH";
 
-    private static final int SCREEN_SIZE = 600;
+    private static final int SCREEN_SIZE = 500;
     private static final int MIN_SIZE_FACTOR = 20;
-    private static final int MAX_SIZE_SCROLL_PANEL = 500;
+    private static final int MAX_SIZE_SCROLL_PANEL = 400;
 
     private static int sizeFactor = 20;
-    private static int maxGridSize = 500;
+    private static int maxGridSize = 400;
     private static int slots = 0;
     private static List<Residue> residues;
     private static int energyValue = 0;
@@ -65,13 +60,14 @@ public class ApplyFixedRelativeSolution {
         pane.setLayout(new FlowLayout());
 
         MyCanvas myCanvas = new MyCanvas();
-        
-        JScrollPane jScrollPane = new JScrollPane(myCanvas, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-        jScrollPane.setPreferredSize(new Dimension(500, 500));
+
+        JScrollPane jScrollPane =
+            new JScrollPane(myCanvas, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane.setPreferredSize(new Dimension(360, 360));
         jScrollPane.setBounds(5, 30, MAX_SIZE_SCROLL_PANEL, MAX_SIZE_SCROLL_PANEL);
         jScrollPane.setWheelScrollingEnabled(true);
         jScrollPane.getViewport().setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
-       
+
         JTextField chainTextField = new JTextField(PROTEIN_CHAIN);
         JButton applyMovementsButton = new JButton("Apply Movements");
         JTextField solutionTextField = new JTextField("Enter the solution");
@@ -86,12 +82,12 @@ public class ApplyFixedRelativeSolution {
 
         JPanel panel1 = new JPanel();
         JPanel panel2 = new JPanel();
-        
+
         panel2.setPreferredSize(new Dimension(200, 400));
         panel2.setLayout(new GridLayout(10, 1));
-        
+
         panel1.add(jScrollPane);
-        
+
         panel2.add(chainTextField);
         panel2.add(applyMovementsButton);
         panel2.add(solutionTextField);
@@ -101,10 +97,10 @@ public class ApplyFixedRelativeSolution {
         panel2.add(fitnessLabel);
         panel2.add(resetButton);
         panel2.add(printPointsButton);
-        
+
         pane.add(panel1);
         pane.add(panel2);
-        
+
         applyMovementsButton
             .addActionListener(listener -> {
 
@@ -126,10 +122,10 @@ public class ApplyFixedRelativeSolution {
                 slots = (getBound(grid.getMatrix()) + 3);
                 System.out.println(slots);
                 maxGridSize = calculateMaxGridSize(grid.getMatrix());
-                
+
                 myCanvas.repaint();
             });
-        
+
         resetButton.addActionListener(listener -> {
 
             Runnable task = () -> {
@@ -146,13 +142,13 @@ public class ApplyFixedRelativeSolution {
         });
 
         printPointsButton.addActionListener(listener -> {
-        	if(residues != null) {
-	        	for (int j = 0; j < residues.size(); j++) {
-	                System.out.println("residues.add(new Residue(new Point(" + residues.get(j).getPoint().getX() + ", "
-	                    + residues.get(j).getPoint().getY() + "), ResidueType.valueOf(String.valueOf(PROTEIN_CHAIN.charAt("
-	                    + j + ")))));");
-	            }
-        	}
+            if (residues != null) {
+                for (int j = 0; j < residues.size(); j++) {
+                    System.out.println("residues.add(new Residue(new Point(" + residues.get(j).getPoint().getX() + ", "
+                        + residues.get(j).getPoint().getY()
+                        + "), ResidueType.valueOf(String.valueOf(PROTEIN_CHAIN.charAt(" + j + ")))));");
+                }
+            }
         });
     }
 
@@ -171,7 +167,7 @@ public class ApplyFixedRelativeSolution {
     }
 
     private static int getBound(int[][] matrix) {
-    	
+
         int maxX = -1;
         int maxY = -1;
         int minX = matrix.length;
@@ -236,9 +232,9 @@ public class ApplyFixedRelativeSolution {
 
     static class MyCanvas extends JPanel implements MouseListener {
 
-    	private int WIDTH;
-    	private int HEIGHT;
-    	
+        private int WIDTH;
+        private int HEIGHT;
+
         public MyCanvas() {
 
             addMouseListener(this);
@@ -246,17 +242,17 @@ public class ApplyFixedRelativeSolution {
 
         @Override
         public void paint(Graphics g) {
-        	        	
-        	WIDTH = HEIGHT = (maxGridSize > 500) ? maxGridSize : 480;
-        	
-        	System.out.println("WIDTH: "+WIDTH+" | "+getWidth());
-        	
-        	Graphics2D g2d = (Graphics2D) g.create(0, 0, WIDTH, HEIGHT);
-        	
-        	g2d.setColor(Color.white);
-        	g2d.fillRect(0, 0, WIDTH, HEIGHT);
-        	g2d.setColor(Color.LIGHT_GRAY);
-        	
+
+            WIDTH = HEIGHT = (maxGridSize > 500) ? maxGridSize : 480;
+
+            System.out.println("WIDTH: " + WIDTH + " | " + getWidth());
+
+            Graphics2D g2d = (Graphics2D) g.create(0, 0, WIDTH, HEIGHT);
+
+            g2d.setColor(Color.white);
+            g2d.fillRect(0, 0, WIDTH, HEIGHT);
+            g2d.setColor(Color.LIGHT_GRAY);
+            //
             for (int i = 0; i < slots; i++) {
                 for (int j = 0; j < slots; j++) {
                     int rectX = sizeFactor * i;
@@ -264,10 +260,10 @@ public class ApplyFixedRelativeSolution {
                     g2d.drawRect(rectX, rectY, sizeFactor, sizeFactor);
                 }
             }
-            
+
             Residue next = null;
             if (residues != null) {
-            	
+
                 for (int i = 0; i < residues.size(); i++) {
                     if (i != residues.size() - 1) {
                         next = residues.get(i + 1);
@@ -276,8 +272,10 @@ public class ApplyFixedRelativeSolution {
                     int residueY = sizeFactor * (residues.get(i).getPoint().getY()) + sizeFactor / 4;
                     if (residues.get(i).getResidueType().equals(ResidueType.H)) {
                         g2d.setColor(Color.BLACK);
-                        g2d.fillRect(residueX, residueY, sizeFactor / 2, sizeFactor / 2);//desenha quadrado
-                        //g2d.fillArc(residueX, residueY, sizeFactor / 2, sizeFactor / 2, 0, 360);//desenha bolinha
+                        g2d.fillArc(residueX, residueY, sizeFactor / 2, sizeFactor / 2, 0, 360);// desenha
+                        // quadrado
+                        // g2d.fillArc(residueX, residueY, sizeFactor / 2,
+                        // sizeFactor / 2, 0, 360);//desenha bolinha
                     } else {
                         g2d.setColor(Color.LIGHT_GRAY);
                         g2d.fillArc(residueX, residueY, sizeFactor / 2, sizeFactor / 2, 0, 360);
@@ -287,10 +285,10 @@ public class ApplyFixedRelativeSolution {
                     if (next != null) {
                         int nextX = sizeFactor * (next.getPoint().getX()) + sizeFactor / 4;
                         int nextY = sizeFactor * (next.getPoint().getY()) + sizeFactor / 4;
-                        g2d.drawLine(residueX + sizeFactor / 4, residueY + sizeFactor / 4, nextX + sizeFactor / 4, nextY
-                            + sizeFactor / 4);
+                        g2d.drawLine(residueX + sizeFactor / 4, residueY + sizeFactor / 4, nextX + sizeFactor / 4,
+                            nextY + sizeFactor / 4);
                     }
-                }                
+                }
             }
         }
 
