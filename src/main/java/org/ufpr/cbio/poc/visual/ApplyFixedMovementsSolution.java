@@ -1,7 +1,5 @@
 package org.ufpr.cbio.poc.visual;
 
-import com.google.common.collect.Lists;
-
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -30,6 +28,8 @@ import org.ufpr.cbio.poc.utils.Controller;
 import org.ufpr.cbio.poc.utils.EnumMovements;
 import org.ufpr.cbio.poc.utils.Movements;
 import org.ufpr.cbio.poc.utils.ResidueUtils;
+
+import com.google.common.collect.Lists;
 
 /**
  *
